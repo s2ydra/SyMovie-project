@@ -6,5 +6,31 @@
         SELECT * FROM orders
         WHERE cust_num = #{custNum}
     </select>
-	
+
+
+    <resultMap id="orderDetailMap" type="Orders" autoMapping="true">
+        <id column="order_num" property="orderNum"/>
+
+        <association property="orderDetail" column="order_num" autoMapping="true" javaType="OrderDetail">
+            <id column="order_detail_num" property="orderNum"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="MovieMap" type="Movie" autoMapping="true">
+        <id property="movieNum" column="movie_num"/>
+
+        <collection property="orders" column="movie_num" autoMapping="true" javaType="ArrayList" ofType="Orders">
+            <id column="movie_num" property="movieNum"/>
+        </collection>
+    </resultMap>
+
+    <select id="orderDetail" resultMap="orderDetailMap, MovieMap">
+        SELECT O.*, OD.ORDER_DETAIL_NUM, OD.ORDER_NUM order_detail_num, OD.ORDER_FOOD_NUM, OD.FOOD_NUM, OD.SUM_PRICE,OD.PICKUP_DATE,
+        MOVIE.MOVIE_NUM movie_num, MOVIE.MOVIE_GENRE, MOVIE.MOVIE_NAME, MOVIE.MOVIE_DIRECTOR, MOVIE.MOVIE_OPENDATE, MOVIE.MOVIE_AGERANGE,
+        MOVIE.MOVIE_COUNTRY, MOVIE.MOVIE_PRICE, MOVIE.MOVIE_INFO
+        FROM ORDERS O LEFT JOIN order_detail OD ON(O.ORDER_NUM = OD.ORDER_NUM) JOIN MOVIE ON (O.MOVIE_NUM = MOVIE.MOVIE_NUM)
+        WHERE O.CUST_NUM = #{custNum} AND O.MOVIE_NUM = #{movieNum}
+    </select>
+
+
 </mapper>

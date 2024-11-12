@@ -2,7 +2,7 @@ package kr.ac.kopo.symovie.model;
 
 import java.util.Date;
 
-public class OrdersDetail {
+public class OrderDetail {
     private Long ordersDetailNum;
     private Long orderNum;
     private Long orderFoodNum;

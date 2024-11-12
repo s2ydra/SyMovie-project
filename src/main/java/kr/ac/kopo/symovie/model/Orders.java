@@ -10,6 +10,15 @@ public class Orders {
     private Long setNum;
     private Date orderDate;
 
+    private OrderDetail orderDetail;
+
+    public OrderDetail getOrdersDetail() {
+        return orderDetail;
+    }
+
+    public void setOrdersDetail(OrderDetail orderDetail) {
+        this.orderDetail = orderDetail;
+    }
     public Long getOrderNum() {
         return orderNum;
     }

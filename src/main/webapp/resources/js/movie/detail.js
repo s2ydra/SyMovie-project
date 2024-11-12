@@ -5,8 +5,8 @@ const cart = (movienum, movieAmount) =>{
 }
 
 const buy = (movienum, movieAmount) => {
-    fetch(`/orderDetail/${movienum}/${movieAmount}`)
-        .then(resp => resp.json())
+    fetch(`/orders/${movienum}/${movieAmount}`)
+        .then(resp => resp.text())
         .then(result => {console.log(result);});
 };
 

@@ -23,7 +23,7 @@
         <div>
           <form method="post">
             <div>
-
+                <span>${list.movie.movieName}</span>
             </div>
           </form>
         </div>

@@ -77,8 +77,9 @@
 								</div>
 							</div>
 							<div class="btn-form">
-								<button id="reserve-btn" type="button" class="action"
-								data-type="reserve" data-login = "${sessionScope.member != null}">예매하기</button>
+								<button id="reserve-btn" type="button" class="action" data-movienum ="${item.movieNum}" data-type="buy"
+								data-login = "${sessionScope.member != null}">예매하기</button>
+
 								<button id="cart-btn" type="button" data-movienum ="${item.movieNum}" data-type="cart"
 								class="action" data-login = "${sessionScope.member != null}">장바구니</button>
 								<button id="back-btn" type="button"

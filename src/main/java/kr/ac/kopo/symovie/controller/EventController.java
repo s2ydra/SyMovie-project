@@ -77,6 +77,7 @@ public class EventController {
 		
 		Event item = service.item(eventNum);
 		
+		
 		model.addAttribute("item", item);
 		
 		return eventPath + "update";

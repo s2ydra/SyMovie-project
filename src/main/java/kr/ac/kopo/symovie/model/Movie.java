@@ -1,6 +1,7 @@
 package kr.ac.kopo.symovie.model;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,8 +20,17 @@ public class Movie {
 	private String movieInfo;
 	
 	private MovieImage movieImage;
-	
-	
+
+	private List<Orders> orders;
+
+	public List<Orders> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
+	}
+
 	public String getMovieInfo() {
 		return movieInfo;
 	}
