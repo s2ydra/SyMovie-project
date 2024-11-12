@@ -1,0 +1,243 @@
+@charset "UTF-8";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%,
+		rgba(0, 0, 0, 0.70) 100%), url("/resources/img/login-base-img.jpg")
+		lightgray 50%/cover no-repeat;
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size: cover;
+	position: fixed;
+}
+
+.login-div {
+	width: 550px;
+	height: 600px;
+	background: #FFF;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	position: relative;
+	border-radius: 40px;
+}
+
+.mainText-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	position: relative;
+	top: 75px;
+}
+
+.login-mainText {
+	color: #000;
+	font-family: "Noto Sans KR";
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 900;
+	line-height: normal;
+}
+
+#login-form {
+	width: 441px;
+	height: 401px;
+	position: absolute;
+	left: 50px;
+	bottom: 47px;
+}
+
+.id-text-box {
+	display: flex;
+	width: 50px;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 5px;
+}
+
+label {
+	color: #000;
+	font-family: "Noto Sans KR";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 900;
+	line-height: normal;
+	display: flex;
+	white-space: nowrap;
+	justify-content: flex-start;
+}
+
+.id-box-box {
+	display: flex;
+	width: 441px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.id-box {
+	width: 440px;
+	height: 45px;
+	border-radius: 5px;
+	border: 2.5px solid #000;
+	background: rgba(217, 217, 217, 0.00);
+	margin-bottom: 15px;
+}
+
+input::placeholder {
+	flex: 1 0 0;
+	color: #6A6A6A;
+	font-family: "Noto Sans KR";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: normal;
+	align-self: center;
+	display: flex;
+	justify-content: flex-start;
+	margin-left: 5px;
+}
+
+input {
+	font-family: "Noto Sans KR";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	align-self: center;
+	text-align: left;
+}
+
+.passwd-text-box {
+	display: flex;
+	width: 50px;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 5px;
+}
+
+.passwd-box-box {
+	display: flex;
+	width: 441px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.passwd-box {
+	width: 440px;
+	height: 45px;
+	border-radius: 5px;
+	border: 2.5px solid #000;
+	background: rgba(217, 217, 217, 0.00);
+	margin-bottom: 30px;
+}
+
+.btn-group {
+	width: inherit;
+	height: 50px;
+	display: flex;
+	position: relative;
+	justify-content: flex-end;
+	margin-bottom: 50px;
+}
+
+.login-btn {
+	width: 125px;
+	height: 50px;
+	flex-shrink: 0;
+	border-radius: 10px;
+	background: #BE0000;
+	border: none;
+	color: #FFF;
+	font-family: "Noto Sans KR";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	margin-right: 5px;
+	border: 2px solid #BE0000;
+}
+
+.login-btn:hover {
+	background: white;
+	color: #BE0000;
+	border: 2px solid #BE0000;
+	cursor: pointer;
+	transition-duration: 0.2s;
+}
+
+.back-btn {
+	width: 70px;
+	height: 50px;
+	flex-shrink: 0;
+	border-radius: 10px;
+	border: 1.5px solid #767676;
+	background: rgba(255, 255, 255, 0.00);
+	color: #767676;
+	text-align: center;
+	font-family: "Noto Sans KR";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
+
+.back-btn:hover {
+	background: #767676;
+	color: white;
+	cursor: pointer;
+	transition-duration: 0.2s;
+}
+
+.signup-text-box {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	position: relative;
+}
+
+.signup-text {
+	color: #000;
+	font-family: "Noto Sans KR";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-bottom: 10px;
+}
+
+.signup-btn-box {
+	width: 100%;
+	position: inherit;
+	display: flex;
+	justify-content: center;
+}
+
+.signup-btn {
+	width: 125px;
+	height: 50px;
+	border-radius: 10px;
+	border: 1.5px solid #04A099;
+	background: rgba(255, 255, 255, 0.00);
+	color: #04A099;
+	font-family: "Noto Sans KR";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
+
+.signup-btn:hover{
+	background: #04A099;
+	transition-duration:0.2s;
+	color: white;
+	cursor: pointer;
+}

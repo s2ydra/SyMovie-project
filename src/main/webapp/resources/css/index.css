@@ -1,0 +1,378 @@
+@charset "UTF-8";
+
+.main-image {
+	display: flex;
+	height: 855px;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: space-between;
+	gap: 10px;
+	flex-shrink: 0;
+	align-self: stretch;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%,
+		rgba(0, 0, 0, 0.60) 100%), url("/resources/img/main-image.jpg")
+		lightgray 50%/cover no-repeat;
+}
+
+.main-text {
+	width: 665px;
+	height: 180px;
+	position: relative;
+	left: 80px;
+	top: 280px;
+}
+
+.text-1 {
+	color: #FFF;
+	font-family: "Noto Sans";
+	font-size: 45px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	margin-bottom: 30px;
+}
+
+.text-2 {
+	color: #FFF;
+	font-family: "Noto Sans";
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	margin-bottom: 20px;
+}
+
+.text-3 {
+	color: #FFF;
+	font-family: "Noto Sans";
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	display: inline;
+	white-space: nowrap;
+}
+
+.btn-box {
+	min-width: 240px;
+	height: 67px;
+	flex-shrink: 0;
+	border-radius: 20px;
+	background: #BE0000;
+	border: none;
+	align-items: center;
+	padding: 0 10px;
+}
+
+.btn-box:hover {
+	background: white;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+
+.btn-box:hover span {
+	color: #BE0000;
+}
+
+.btn-text {
+	color: #FFF;
+	font-family: "Noto Sans";
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	height: inherit;
+	margin-bottom: 5px;
+}
+
+.btn-simbol {
+	color: #FFF;
+	font-family: "Noto Sans";
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	height: inherit;
+	margin-bottom: 5px;
+	margin-left: 10px;
+}
+
+.mine-btn-box {
+	min-width: 240px;
+	height: 67px;
+	flex-shrink: 0;
+	border-radius: 20px;
+	background: #fff;
+	border: none;
+	align-items: center;
+	padding: 0 10px;
+	margin-left: 5px;
+}
+
+.mine-btn-box:hover {
+	cursor: pointer;
+	transition-duration: 0.2s;
+	border: 1.5px solid black;
+}
+
+.mine-btn-box:hover span {
+	transition-duration: 0.2s;
+	color: #BE0000;
+	border: none;
+}
+
+.mine-btn-text {
+	color: black;
+	font-family: "Noto Sans";
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	height: inherit;
+	margin-bottom: 5px;
+}
+
+.mine-btn-simbol {
+	color: black;
+	font-family: "Noto Sans";
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	height: inherit;
+	margin-left: 15px;
+}
+
+.btn-frame {
+	align-items: flex-start;
+	gap: 10px;
+	margin-top: 30px;
+}
+
+.recent-list-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-self: stretch;
+	min-height: 610px;
+	gap: 80px;
+}
+
+.recent-img {
+	height: 100%;
+	width: 100%;
+}
+
+
+.recent-list-text-box {
+	display: flex;
+	width: 150px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	position: relative;
+	top: 45px;
+	margin: 0 auto;
+}
+
+.recent-list-text {
+	flex: 1 0 0;
+	color: #BE0000;
+	font-family: "Noto Sans";
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	white-space: nowrap;
+}
+
+.search-box {
+	background: rgba(130, 0, 0, 100);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.search-form-box {
+	display: flex;
+	flex-direction: column;
+	margin-top: 100px;
+}
+
+.movie-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 80px;
+	margin-bottom: 80px;
+}
+
+.search-info-text {
+	color: white;
+	font-family: "Noto Sans";
+	font-size: 35px;
+	font-weight: 600;
+}
+
+.input-group {
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+.movie-search-text {
+	color: white;
+	font-family: "Noto Sans";
+	text-align: center;
+	font-weight: 500;
+	font-size: 25px;
+}
+
+.movie-input-box {
+	width: 330px;
+	height: 30px;
+	border-radius: 5px;
+	font-family: "Noto Sans";
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.movie-select-box {
+	width: 100px;
+	height: 30px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.movie-select-box option {
+	font-weight: 600;
+	font-family: "Noto Sans";
+}
+
+.label-box {
+	display: flex;
+	justify-content: center;
+}
+
+.search-btn {
+	width: 80px;
+	height: 35px;
+	border: 2px solid white;
+	background: none;
+	font-size: 20px;
+	font-weight: 600;
+	font-family: "Noto Sans";
+	color: white;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-left: 5px;
+}
+
+.search-btn:hover {
+	cursor: pointer;
+	background: white;
+	color: #BE0000;
+	border: none;
+	transition-duration: 0.2s;
+}
+
+.recent-img-group-1 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	min-height: 500px;
+}
+
+.recent-img:hover {
+	cursor: pointer;
+}
+
+.recent-img:hover .img-animate {
+	opacity: 1;
+}
+
+
+.img-animate{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #fff;
+	padding: 20px;
+	box-sizing: border-box;
+	opacity: 0;
+	transition: 0.3s;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	gap: 30px;
+}
+
+.img-animate span{
+	font-family: "Noto Sans";
+	font-weight: 600;
+	font-size: 23px;
+}
+
+.img-animate button{
+	cursor: pointer;
+}
+
+.recent-img-box {
+	display: inline-block;
+	max-width: 300px;
+	max-height: 400px;
+	position: relative;
+	margin: 10px;
+	border: 1.5px solid #D3D3D3;
+	padding: 5px;
+}
+
+.recent-img-box:hover .img-animate{
+	opacity: 1;
+}
+
+.reserve-btn{
+	min-width: 170px;
+	min-height: 40px;
+	background: #BE0000;
+	color: white;
+	border-radius: 5px;
+	border: 1.5px solid #BE0000;
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.reserve-btn:hover {
+	background: white;
+	color: #BE0000;
+	transition-duration:0.3s;
+}
+
+.detail-btn{
+	min-width: 170px;
+	min-height: 40px;
+	background: white;
+	color: black;
+	border-radius: 5px;
+	border: 1px solid black;
+	font-size:15px;
+	font-weight: 400;
+}
+
+.detail-btn:hover{
+	background: #d3d3d3;
+	transition-duration:0.3s;
+}

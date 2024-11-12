@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+.head-tap {
+	display: flex;
+	min-height: 90px;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	row-gap: 441px;
+	flex-wrap: wrap;
+	border-bottom: 2px solid rgba(126, 126, 126, 0.50);
+	background: #FFF;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.global-menu {
+	display: flex;
+	width: 620px;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	row-gap: 120px;
+	flex-wrap: wrap;
+}
+
+.global-menu li a {
+	text-decoration: none;
+	color: #000;
+	text-align: center;
+	font-family: "Noto Sans";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.global-menu li a:hover {
+	text-decoration: underline;
+	transition-duration: 0.3s;
+	cursor: pointer;
+	color: #BE0000;
+}
+
+.global-menu li {
+	list-style: none;
+}
+
+.utility-menu {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+}
+
+.utility-menu a {
+	color: #000;
+	font-family: "Noto Sans";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.utility-menu a:hover {
+	color: #BE0000;
+	text-decoration: underline;
+	transition-duration: 0.3s;
+}
+
+.logo-text {
+	color: #000;
+	text-align: center;
+	font-family: "Noto Sans";
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
+	text-decoration: none;
+	list-style: none;
+}
+
+.dropbtn {
+	cursor: pointer;
+	color: #000;
+	font-family: "Noto Sans";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display:none;
+  opacity:0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+	transition-duration:0.3s;
+	}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity:1;
+  position: absolute;
+  transition-duration:0.5s;
+
+}

@@ -1,0 +1,228 @@
+@charset "UTF-8";
+
+.container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 70px 0;
+}
+
+.detail-box{
+	padding: 50px;
+	border: 2px solid #d3d3d3;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-self: center;
+	height: auto;
+}
+
+.detail-img{
+	max-width: 500px;
+	max-height: 600px;
+}
+
+.title-box{
+	margin-bottom: 50px;
+}
+
+
+.title{
+	color: #BE0000;
+	font-family: "Noto Sans";
+	font-size: 35px;
+	font-weight: 700;
+}
+
+.detail-data-box{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 40px;
+}
+
+.detail-text{
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	min-width: 500px;
+	flex-wrap: wrap;
+}
+
+.detail-group{
+	display: flex;
+	flex-direction: column;
+	gap:10px;
+	min-width: 300px;
+	justify-content: space-around;	
+}
+
+.detail-group div{
+	margin-bottom: 10px;
+}
+
+span{
+	font-family: "Noto Sans";
+}
+
+.movie-title-box{
+	margin: 20px 0;
+}
+
+.movie-title{
+	font-weight: 700;
+	font-size: 40px;
+}
+
+.detail-group span{
+	font-weight: 500;
+	font-size: 25px;
+	text-align: left;
+}
+
+.detail-group-box{
+	display: flex;
+	flex-direction: row;
+	gap:10px;
+	margin-bottom: 30px;
+}
+
+.movie-info{
+	font-size: 20px;
+	font-weight: 500;
+	text-align: left;
+}
+
+.include-btn{
+	display: flex;
+	min-height:100%;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.order-form{
+	margin-top: 150px;
+
+}
+
+.amount-box{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: 2px solid #d3d3d3;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	align-items: center;
+}
+
+.btn-form{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	gap:10px;
+}
+
+#reserve-btn{
+	background: #BE0000;
+	border: 1.5px solid #BE0000;
+	border-radius: 5px;
+	color: white;
+	font-family: "Noto Sans";
+	font-size: 20px;
+	font-weight: 500;
+	min-width: 130px;
+	min-height: 40px;
+}
+
+#reserve-btn:hover{
+	background: white;
+	color: #BE0000;
+	transition-duration:0.2s;
+	cursor: pointer;
+}
+
+#cart-btn{
+	min-width:130px;
+	min-height: 40px;
+	background: #4B52C7;
+	border: 1.5px solid #4B52C7;
+	border-radius: 5px;
+	color: white;
+	font-size: 20px;
+	font-weight: 500;
+	font-family: "Noto Sans";
+}
+
+#cart-btn:hover{
+	background: white;
+	color: #4B52C7;
+	transition-duration:0.2s;
+	cursor: pointer;
+}
+
+
+#back-btn{
+	min-width:130px;
+	min-height: 40px;
+	background: white;
+	border: 1.5px solid gray;
+	border-radius: 5px;
+	color: gray;
+	font-size: 20px;
+	font-weight: 500;
+	font-family: "Noto Sans";
+}
+
+#back-btn:hover{
+	background: gray;
+	color: white;
+	transition-duration:0.2s;
+	cursor: pointer;
+}
+
+
+#sum-price{
+	font-family: "Noto Sans";
+	font-weight: 600;
+	font-size: 28px;
+	color: #BE0000;
+	letter-spacing: 3px;
+	margin-right: 10px;
+	margin-left: 15px;
+}
+
+.amount-text{
+	font-family: "Noto Sans";
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.amount-box label{
+	font-family: "Noto Sans";
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.amount-number{
+	display: flex;
+	gap: 10px;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+.amount-box input{
+	min-height: 20px;
+	max-width: 70px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: 500;
+	
+}
+
+
