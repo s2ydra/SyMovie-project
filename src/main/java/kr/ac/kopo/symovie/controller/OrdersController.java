@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,8 +19,6 @@ public class OrdersController {
     @Autowired
     OrdersService service;
 
-    @Autowired
-    MovieService movieService;
 
     @GetMapping("/list")
     public String list(Model model, @SessionAttribute Customer member) {
@@ -35,29 +30,31 @@ public class OrdersController {
         return path + "list";
     }
 
-    @GetMapping("/order/{movieNum}")
-    String order(Model model, @PathVariable Long movieNum) {
+    @GetMapping("/orderMovie/{movieNum}")
+    String orderMovie(Model model, OrderDetail item, @PathVariable Long movieNum,
+                      @SessionAttribute Customer member) {
 
+        // 예매하기 버튼을 누르면 주문상세번호, 영화제목, 티켓 매수, 먹거리 주문 창, 총 금액, 픽업일시 설정창 필요
+        // 영화 <->(movieNum) 주문상세 <->(orderNum) 주문(리스트)
+        // 주문상세에서 예매하기를 누르면 주문에 추가.
+        // 받아올 수 있는 값 : movieNum, movieAmount, custNum
+        // 값 3개를 가지는 객체를 가지고, database에서 해당 주문 정보를 resultMap으로 저장
+        // service 단에서 selectOne 을 가지고 해당 고객이
+
+        System.out.println(movieNum);
+
+        Ordering orderItem = new Ordering();
+
+        orderItem.getMovie().setMovieNum(movieNum);
+        orderItem.getOrderDetail().setMovieAmount(item.getMovieAmount());
+        orderItem.getOrders().setCustNum(member.getCustNum());
+
+        Ordering ordering = service.orderMovie(orderItem);
+
+        model.addAttribute("item", ordering);
 
         return path + "orderMovie";
     }
 
-    @GetMapping("/{movieNum}/{movieAmount}")
-    String orderDetail(Model model, @PathVariable Long movieNum,
-                       @PathVariable int movieAmount, @SessionAttribute Customer member) {
-
-       Ordering ordering = new Ordering();
-
-       ordering.setMovieNum(movieNum);
-       ordering.setMovieAmount(movieAmount);
-       ordering.setCustNum(member.getCustNum());
-
-        Order item = service.orderDetail(ordering);
-
-
-        model.addAttribute("list", item);
-
-        return path + "orderMovieDetail";
-    }
 
 }

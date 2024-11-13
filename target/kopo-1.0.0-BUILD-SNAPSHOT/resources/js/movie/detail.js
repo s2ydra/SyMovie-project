@@ -4,11 +4,13 @@ const cart = (movienum, movieAmount) =>{
     .then(result => {console.log(result);});
 }
 
-const buy = (movienum, movieAmount) => {
-    fetch(`/orders/${movienum}/${movieAmount}`)
-        .then(resp => resp.text())
-        .then(result => {console.log(result);});
-};
+// const buy = (movienum, movieAmount) => {
+//     // fetch(`/orders/${movienum}/${movieAmount}`)
+//     //     .then(resp => resp.text())
+//     //     .then(result => console.log(result));
+//
+//     alert(`${movienum} + ${movieAmount}`);
+// };
 
 
 window.postLogin = type =>{
@@ -45,6 +47,8 @@ window.addEventListener("load", () => {
     document.querySelectorAll(".action").forEach(el => {
         el.addEventListener("click", e => {
 
+            e.preventDefault();
+
             const amount = document.querySelector("input[name = 'movieAmount']").value;
             const { movienum, login, type } = e.target.dataset;
 
@@ -53,9 +57,10 @@ window.addEventListener("load", () => {
             if(login === "true"){ 
                 if(type === "cart"){
                     cart(movienum, amount);
-                }else if(type === "buy"){
-                    buy(movienum, amount);
                 }
+                // else if(type === "buy"){
+                //     buy(movienum, amount);
+                // }
             }
             else{
                 const width = 600;

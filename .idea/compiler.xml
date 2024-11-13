@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="kopo" />
+        <module name="kopo (2)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="kopo" options="-Xlint:all" />
       <module name="kopo (1)" options="-Xlint:all" />
+      <module name="kopo (2)" options="-Xlint:all" />
     </option>
   </component>
 </project>

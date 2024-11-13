@@ -12,6 +12,5 @@ public interface OrdersDao {
 
     Orders item(Long orderNum);
 
-
-    Order orderDetail(Ordering ordering);
+    Ordering ordering(Ordering orderItem);
 }

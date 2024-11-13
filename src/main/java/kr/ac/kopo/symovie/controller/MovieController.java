@@ -5,19 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import kr.ac.kopo.symovie.model.*;
+import kr.ac.kopo.symovie.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import kr.ac.kopo.symovie.model.Movie;
-import kr.ac.kopo.symovie.model.MovieImage;
 import kr.ac.kopo.symovie.pager.Pager;
 import kr.ac.kopo.symovie.service.MovieService;
 
@@ -29,6 +25,9 @@ public class MovieController {
 	
 	@Autowired
 	MovieService service;
+
+	@Autowired
+	OrdersService ordersService;
 	
 	@GetMapping("/list")
 	String list(Model model, Pager pager, 
@@ -140,6 +139,5 @@ public class MovieController {
 		
 		return moviePath + "detail";
 	}
-	
-	
+
 }

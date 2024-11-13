@@ -21,11 +21,18 @@
             <span>주문내용</span>
         </div>
         <div>
-          <form method="post">
-            <div>
-
-            </div>
-          </form>
+            <form method="post">
+                <div>
+                    <label>영화번호 : ${item.movie.movieNum}</label>
+                </div>
+                <div>
+                    <label>영화번호 : ${item.movie.movieName}</label>
+                </div>
+                <div>
+                    <label>티켓 매수 : </label>
+                    <input type="number" value="${item.orderDetail.movieAmount}">
+                </div>
+            </form>
         </div>
       </div>
   </div>

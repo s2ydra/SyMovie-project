@@ -5,10 +5,37 @@ import java.util.Date;
 public class OrderDetail {
     private Long ordersDetailNum;
     private Long orderNum;
+    private Long movieNum;
+    private int movieAmount;
     private Long orderFoodNum;
     private Long foodNum;
+    private Long setNum;
     private Long sumPrice;
     private Date pickupDate;
+
+    public Long getMovieNum() {
+        return movieNum;
+    }
+
+    public void setMovieNum(Long movieNum) {
+        this.movieNum = movieNum;
+    }
+
+    public int getMovieAmount() {
+        return movieAmount;
+    }
+
+    public void setMovieAmount(int movieAmount) {
+        this.movieAmount = movieAmount;
+    }
+
+    public Long getSetNum() {
+        return setNum;
+    }
+
+    public void setSetNum(Long setNum) {
+        this.setNum = setNum;
+    }
 
     public Long getOrdersDetailNum() {
         return ordersDetailNum;

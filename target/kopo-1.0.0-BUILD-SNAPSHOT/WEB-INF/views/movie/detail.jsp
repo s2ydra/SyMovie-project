@@ -66,7 +66,7 @@
 						</div>
 					</div>
 					<div class="order-form">
-						<form>
+						<form action="../../orders/orderMovie/${item.movieNum}">
 							<div class="amount-box">
 								<div class="amount-number">
 									<label>매수</label> <input type="number" name="movieAmount" value="1">
@@ -77,7 +77,8 @@
 								</div>
 							</div>
 							<div class="btn-form">
-								<button id="reserve-btn" type="button" class="action" data-movienum ="${item.movieNum}" data-type="buy"
+								<button id="reserve-btn"
+										 data-movienum ="${item.movieNum}" data-type="buy"
 								data-login = "${sessionScope.member != null}">예매하기</button>
 
 								<button id="cart-btn" type="button" data-movienum ="${item.movieNum}" data-type="cart"

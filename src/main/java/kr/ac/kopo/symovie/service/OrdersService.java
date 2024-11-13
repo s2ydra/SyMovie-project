@@ -13,5 +13,5 @@ public interface OrdersService {
     Orders item(Long orderNum);
 
 
-    Order orderDetail(Ordering ordering);
+    Ordering orderMovie(Ordering orderItem);
 }

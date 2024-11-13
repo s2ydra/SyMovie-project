@@ -1,36 +1,50 @@
 package kr.ac.kopo.symovie.model;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Ordering {
 
-    private Long movieNum;
-    private int movieAmount;
-    private Long custNum;
+    private Movie movie;
+    private Orders orders;
+    private OrderDetail orderDetail;
 
-
-    public int getMovieAmount() {
-        return movieAmount;
+    public Movie getMovie() {
+        if (movie == null) {
+            movie = new Movie();
+        }
+        return movie;
     }
 
-    public void setMovieAmount(int movieAmount) {
-        this.movieAmount = movieAmount;
+    public void setMovie(Movie movie) {
+
+        this.movie = movie;
     }
 
-    public Long getMovieNum() {
-        return movieNum;
+    public Orders getOrders() {
+
+        if (orders == null) {
+            orders = new Orders();
+        }
+
+        return orders;
     }
 
-    public void setMovieNum(Long movieNum) {
-        this.movieNum = movieNum;
+    public void setOrders(Orders orders) {
+        this.orders = orders;
     }
 
-    public Long getCustNum() {
-        return custNum;
+    public OrderDetail getOrderDetail() {
+
+        if (orderDetail == null) {
+            orderDetail = new OrderDetail();
+        }
+
+        return orderDetail;
     }
 
-    public void setCustNum(Long custNum) {
-        this.custNum = custNum;
+    public void setOrderDetail(OrderDetail orderDetail) {
+        this.orderDetail = orderDetail;
     }
 }

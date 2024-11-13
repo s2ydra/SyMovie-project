@@ -7,6 +7,7 @@ import kr.ac.kopo.symovie.model.OrderDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,9 +28,8 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
-    public Order orderDetail(Ordering ordering) {
-        return dao.orderDetail(ordering);
+    public Ordering orderMovie(Ordering orderItem) {
+        return dao.ordering(orderItem);
     }
-
 
 }
