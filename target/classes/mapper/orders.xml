@@ -9,7 +9,7 @@
 
 
     <resultMap id="orderDetailMap" type="Ordering" autoMapping="true">
-        <id column="order_num" property="orderNum"/>
+        <id column="order_num" property="orderDetail.orderNum"/>
 
         <association property="orderDetail" column="order_num" autoMapping="true" javaType="OrderDetail">
             <id column="order_num" property="orderNum"/>
@@ -17,19 +17,27 @@
     </resultMap>
 
     <resultMap id="MovieMap" type="Ordering" extends="orderDetailMap" autoMapping="true">
-        <id property="movieNum" column="movie_num"/>
+        <id property="movie.movieNum" column="movie_num"/>
 
-        <collection property="orders" column="movie_num" autoMapping="true" javaType="Orders">
+        <association property="movie" column="movie_num" javaType="Movie" autoMapping="true">
             <id column="movie_num" property="movieNum"/>
-        </collection>
+        </association>
     </resultMap>
 
-    <select id="ordering" resultMap="orderDetailMap, MovieMap">
-        SELECT O.*, OD.ORDER_DETAIL_NUM, OD.ORDER_NUM order_num, OD.ORDER_FOOD_NUM, OD.FOOD_NUM, OD.SUM_PRICE,OD.PICKUP_DATE,
+    <resultMap id="ordersMap" type="Ordering" autoMapping="true">
+        <id column="order_num" property="orders.orderNum"/>
+
+        <association property="orders" column="order_num" javaType="Orders" autoMapping="true">
+            <id column="order_num" property="orderNum" />
+        </association>
+    </resultMap>
+
+    <select id="ordering" resultMap="orderDetailMap, MovieMap, ordersMap">
+        SELECT OD.ORDER_DETAIL_NUM, OD.ORDER_NUM order_num, OD.ORDER_FOOD_NUM, OD.FOOD_NUM, OD.SUM_PRICE,OD.PICKUP_DATE,
         MOVIE.MOVIE_NUM movie_num, MOVIE.MOVIE_GENRE, MOVIE.MOVIE_NAME, MOVIE.MOVIE_DIRECTOR, MOVIE.MOVIE_OPENDATE, MOVIE.MOVIE_AGERANGE,
         MOVIE.MOVIE_COUNTRY, MOVIE.MOVIE_PRICE, MOVIE.MOVIE_INFO
-        FROM ORDERS O LEFT JOIN order_detail OD ON(O.ORDER_NUM = OD.ORDER_NUM) JOIN MOVIE ON (OD.MOVIE_NUM = MOVIE.MOVIE_NUM)
-        WHERE OD.MOVIE_NUM = #{movie.movieNum} AND O.CUST_NUM = #{orders.custNum}
+        FROM order_detail OD JOIN MOVIE ON (OD.MOVIE_NUM = MOVIE.MOVIE_NUM)
+        WHERE OD.MOVIE_NUM = #{movie.movieNum}
     </select>
 
 </mapper>

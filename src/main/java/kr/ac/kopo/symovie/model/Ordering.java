@@ -11,9 +11,7 @@ public class Ordering {
     private OrderDetail orderDetail;
 
     public Movie getMovie() {
-        if (movie == null) {
-            movie = new Movie();
-        }
+
         return movie;
     }
 
@@ -24,10 +22,6 @@ public class Ordering {
 
     public Orders getOrders() {
 
-        if (orders == null) {
-            orders = new Orders();
-        }
-
         return orders;
     }
 
@@ -36,6 +30,7 @@ public class Ordering {
     }
 
     public OrderDetail getOrderDetail() {
+
 
         if (orderDetail == null) {
             orderDetail = new OrderDetail();

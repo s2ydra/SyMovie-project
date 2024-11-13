@@ -23,10 +23,10 @@
         <div>
             <form method="post">
                 <div>
-                    <label>영화번호 : ${item.movie.movieNum}</label>
+                    <label>영화번호 : ${item.orderDetail.movieNum}</label>
                 </div>
                 <div>
-                    <label>영화번호 : ${item.movie.movieName}</label>
+                    <label>영화제목 : ${item.movie.movieName}</label>
                 </div>
                 <div>
                     <label>티켓 매수 : </label>

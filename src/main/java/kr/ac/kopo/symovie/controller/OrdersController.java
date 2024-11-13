@@ -1,6 +1,7 @@
 package kr.ac.kopo.symovie.controller;
 
 import kr.ac.kopo.symovie.model.*;
+import kr.ac.kopo.symovie.service.CustomerService;
 import kr.ac.kopo.symovie.service.MovieService;
 import kr.ac.kopo.symovie.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,12 @@ import java.util.List;
 public class OrdersController {
     final String path = "orders/";
 
+
     @Autowired
     OrdersService service;
+
+    @Autowired
+    MovieService movieService;
 
 
     @GetMapping("/list")
@@ -41,15 +46,15 @@ public class OrdersController {
         // 값 3개를 가지는 객체를 가지고, database에서 해당 주문 정보를 resultMap으로 저장
         // service 단에서 selectOne 을 가지고 해당 고객이
 
-        System.out.println(movieNum);
-
         Ordering orderItem = new Ordering();
+        Movie movieItem = movieService.item(movieNum);
 
-        orderItem.getMovie().setMovieNum(movieNum);
+        orderItem.setMovie(movieItem);
         orderItem.getOrderDetail().setMovieAmount(item.getMovieAmount());
-        orderItem.getOrders().setCustNum(member.getCustNum());
 
         Ordering ordering = service.orderMovie(orderItem);
+        ordering.setMovie(movieItem);
+        ordering.getOrderDetail().setMovieAmount(item.getMovieAmount());
 
         model.addAttribute("item", ordering);
 
