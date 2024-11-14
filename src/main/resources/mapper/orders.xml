@@ -11,7 +11,7 @@
     <resultMap id="orderDetailMap" type="Ordering" autoMapping="true">
         <id column="order_num" property="orderDetail.orderNum"/>
 
-        <association property="orderDetail" column="order_num" autoMapping="true" javaType="OrderDetail">
+        <association property="orderDetail" column="order_num" autoMapping="true">
             <id column="order_num" property="orderNum"/>
         </association>
     </resultMap>

@@ -11,9 +11,10 @@
 <title>SY Movie - Login</title>
 <c:if test="${sessionScope.member != null}">
 <script>
+
 	window.opener.postLogin("${type}");
-	 	
- 	self.close();
+
+	self.close();
 </script>
 </c:if>
 </head>

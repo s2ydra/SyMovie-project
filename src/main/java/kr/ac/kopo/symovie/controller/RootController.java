@@ -128,8 +128,5 @@ public class RootController {
 	String nav() {
 		return "nav";
 	}
-	
-	
-	
-	
+
 }

@@ -10,6 +10,16 @@ public class Ordering {
     private Orders orders;
     private OrderDetail orderDetail;
 
+    private List<Food> food;
+
+    public List<Food> getFood() {
+        return food;
+    }
+
+    public void setFood(List<Food> food) {
+        this.food = food;
+    }
+
     public Movie getMovie() {
 
         return movie;

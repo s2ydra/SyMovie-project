@@ -125,7 +125,7 @@ span{
 	gap:10px;
 }
 
-#reserve-btn{
+#order-btn{
 	background: #BE0000;
 	border: 1.5px solid #BE0000;
 	border-radius: 5px;
@@ -137,7 +137,7 @@ span{
 	min-height: 40px;
 }
 
-#reserve-btn:hover{
+#order-btn:hover{
 	background: white;
 	color: #BE0000;
 	transition-duration:0.2s;

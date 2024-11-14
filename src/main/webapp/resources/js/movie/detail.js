@@ -1,16 +1,24 @@
 const cart = (movienum, movieAmount) =>{
     fetch(`/cart/${movienum}/${movieAmount}`)
     .then(resp => resp.json())
-    .then(result => {console.log(result);});
+    .then(result => {
+        console.log(result);
+
+        alert("장바구니에 추가되었습니다!");
+
+        if(confirm("장바구니로 이동하시겠습니까?")){
+            window.location.href="/cart";
+        }
+    });
+
+
 }
 
-// const buy = (movienum, movieAmount) => {
-//     // fetch(`/orders/${movienum}/${movieAmount}`)
-//     //     .then(resp => resp.text())
-//     //     .then(result => console.log(result));
-//
-//     alert(`${movienum} + ${movieAmount}`);
-// };
+const order = () => {
+    const form = document.getElementById("order-form");
+
+    form.submit();
+};
 
 
 window.postLogin = type =>{
@@ -23,11 +31,12 @@ window.postLogin = type =>{
     .then(result => {
         document.getElementById("nav").innerHTML = result;
 
-        cart(movieNum, movieAmount);
+        if(type === "cart") {
+            cart(movieNum, movieAmount);
+        }else if(type === "order"){
+            order();
+        }
     });
-
-    alert("로그인 완료");
-
     
 };
 
@@ -58,9 +67,9 @@ window.addEventListener("load", () => {
                 if(type === "cart"){
                     cart(movienum, amount);
                 }
-                // else if(type === "buy"){
-                //     buy(movienum, amount);
-                // }
+                else if(type === "order"){
+                    order();
+                }
             }
             else{
                 const width = 600;

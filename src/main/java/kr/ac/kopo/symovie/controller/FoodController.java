@@ -38,7 +38,18 @@ public class FoodController {
 		
 		return foodPath + "list";
 	}
-	
+
+	@GetMapping("/list-popup")
+	String listPopup(Model model, Pager pager) {
+
+		pager.setPerPage(5);
+
+		List<Food> list = service.list(pager);
+		model.addAttribute("list", list);
+
+		return foodPath + "list-popup";
+	}
+
 	@GetMapping("/add")
 	String add() {
 		
