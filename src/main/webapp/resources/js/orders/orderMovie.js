@@ -1,3 +1,19 @@
+window.checkItem = checkValues =>{
+    const checkedItem = document.querySelector(".food-number");
+    let list = [];
+
+    checkValues.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = "먹거리" + item + "번 선택";
+        console.log(li.textContent);
+
+        list.push(list);
+
+    });
+
+}
+
+
 window.addEventListener("load" , () => {
     document.getElementById("add-btn").addEventListener("click", e => {
         const foods = document.querySelector(".hide");
@@ -13,15 +29,7 @@ window.addEventListener("load" , () => {
         window.open(`/food/list-popup`, "food/list-popup", `left=${left},top = ${top}, width = ${width}, height = ${height}`);
     });
 
-    window.checkItem = checkValues =>{
 
-        const table = window.opener.document.querySelector(".hide");
-
-        console.log(table);
-
-
-
-    }
 
 
 });

@@ -18,9 +18,15 @@
 			});
 			console.log(checkValues);
 
-			window.opener.checkItem(checkValues);
+			if(checkValues) {
+				console.log(checkValues);
 
-			self.close();
+				window.opener.checkItem(checkValues);
+			}
+
+
+			//self.close();
+
 		})
 
 		document.getElementById("close-btn").addEventListener("click", e=>{

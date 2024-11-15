@@ -45,42 +45,9 @@
                 <div>
                     <button type="button" id="add-btn">먹거리 추가(적용)하기</button>
                 </div>
-                <div id="food-add" class="hide">
-                    <table class="food-table">
-                        <thead class="thead-row">
-                        <tr>
-                            <th>No.</th>
-                            <th>사진</th>
-                            <th>먹거리명</th>
-                            <th>먹거리 유형</th>
-                            <th>가격</th>
-                            <th colspan="2">MORE</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:if test="${list.size() < 1 }">
-                            <tr>
-                                <td colspan="6">검색된 먹거리가 없습니다.</td>
-                            </tr>
-                        </c:if>
-                        <c:forEach var="item" items="${list}">
-                            <tr>
-                                <td class="food-num">${item.foodNum}</td>
-                                <td>
-                                    <img style="width: 150px; height:180px;"
-                                         src="/upload/${item.foodImage[0].foodImageFilename}_${item.foodImage[0].foodImageUuid}">
-                                </td>
-                                <td>${item.foodName}</td>
-                                <td>${item.foodType}</td>
-                                <td>${item.foodPrice}</td>
-                                <td>
-                                    <input type="checkbox" class="food-check" name="orderFoods" value="${item.foodNum}">
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
+               <div class="food-number">
+                    <input type="text" id="checked-num">
+               </div>
                 <div>
                     <button>주문하기</button>
                     <button type="button" onclick="location.href'detail/${item.movie.movieNum}'">취소</button>
