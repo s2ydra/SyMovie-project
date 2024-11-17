@@ -61,7 +61,7 @@ window.addEventListener("load", () => {
             const amount = document.querySelector("input[name = 'movieAmount']").value;
             const { movienum, login, type } = e.target.dataset;
 
-            alert(` ${amount} + ${movienum} + ${login} + ${type}`);
+            alert("로그인이 필요한 서비스입니다.");
 
             if(login === "true"){ 
                 if(type === "cart"){

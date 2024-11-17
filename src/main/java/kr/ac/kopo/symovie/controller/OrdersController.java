@@ -70,6 +70,14 @@ public class OrdersController {
         return path + "orderMovie";
     }
 
+    @ResponseBody
+    @GetMapping("/getPrice/{foodNum}")
+    Long getPrice(@PathVariable Long foodNum) {
+
+        Food item = foodService.item(foodNum);
+
+        return item.getFoodPrice();
+    }
 
 
 

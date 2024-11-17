@@ -40,14 +40,53 @@
                 </div>
                 <div>
                     <label>티켓 매수 : </label>
-                    <input type="number" value="${item.orderDetail.movieAmount}">
+                    <input type="number" name="movieAmount" value="${item.orderDetail.movieAmount}">
+                </div>
+                <div>
+                    <span>티켓 1매 당 가격 : </span>
+                    <span class="movie-price">${item.movie.moviePrice}</span>
                 </div>
                 <div>
                     <button type="button" id="add-btn">먹거리 추가(적용)하기</button>
                 </div>
-               <div class="food-number">
-                    <input type="text" id="checked-num">
+               <div id= "food-table-box" class="hide">
+                    <table border="1" id="food-table">
+                        <thead>
+                        <tr>
+                            <th>먹거리번호</th>
+                            <th>먹거리명</th>
+                            <th>단가</th>
+                            <th>개수설정</th>
+                            <th>먹거리당 총가격</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="item" items="${item.food}">
+                            <tr class="food-row">
+                                <td class="food-number">${item.foodNum}</td>
+                                <td>${item.foodName}</td>
+                                <td class="food-price">${item.foodPrice}</td>
+                                <td><label>
+                                    <input class="food-amount" type="number" value="1">
+                                </label></td>
+                                <td class="amount-sumPrice"></td>
+                            </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
                </div>
+                <div id="food-price-box" class="hide">
+                    <label>
+                        <span id="foodFinalPrice"></span><span>원</span>
+                        <input id="foodAll-sumPrice" type="hidden" name="sumPrice" readonly>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span id="finalPrice"></span><span>원</span>
+                        <input id="all-sumPrice" type="hidden" name="sumPrice" readonly>
+                    </label>
+                </div>
                 <div>
                     <button>주문하기</button>
                     <button type="button" onclick="location.href'detail/${item.movie.movieNum}'">취소</button>

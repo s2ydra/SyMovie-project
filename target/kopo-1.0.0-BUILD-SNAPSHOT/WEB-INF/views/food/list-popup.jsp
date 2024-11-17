@@ -9,23 +9,44 @@
 <script src="/resources/js/orders/orderMovie.js"></script>
 	<script>
 		window.addEventListener("load", () => {
+			const lists = opener.document.querySelector(".hide")
+			const ofNum = opener.document.querySelectorAll(".food-number");
+
 		document.getElementById("add-btn").addEventListener("click", e => {
+
 			let checkValues = [];
 			let checkItem = document.querySelectorAll(".food-check:checked");
 
-			checkItem.forEach(item => {
-				checkValues.push(item.value);
-			});
-			console.log(checkValues);
+				checkItem.forEach(item => {
+					checkValues.push(item.value);
+				});
 
-			window.opener.checkItem(checkValues);
+			if(checkValues.length > 0) {
+				localStorage.setItem("checkedItem", JSON.stringify(checkValues));
+
+				ofNum.forEach(item => {
+					console.log(item.textContent);
+
+					if(!localStorage.getItem("checkedItem").includes(item.textContent.toString())){
+						item.closest("tr").remove();
+					}
+
+				});
+
+				lists.classList.remove("hide");
+			}else{
+				alert("먹거리 선택을 하지 않으셨습니다.")
+			}
+
+			console.log(localStorage.getItem("checkedItem"));
+
+
 
 			self.close();
 		})
 
-		document.getElementById("close-btn").addEventListener("click", e=>{
-			self.close();
-		});
+
+
 		});
 	</script>
 <link rel="stylesheet" href="/resources/css/food/list.css">
