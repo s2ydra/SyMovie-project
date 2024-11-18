@@ -88,8 +88,8 @@
                     </label>
                 </div>
                 <div>
-                    <button>주문하기</button>
-                    <button type="button" onclick="location.href'detail/${item.movie.movieNum}'">취소</button>
+                    <button id="go-btn">주문하기</button>
+                    <button type="button" onclick="location.href='/movie/detail/${item.movie.movieNum}'">취소</button>
                 </div>
             </form>
         </div>
