@@ -13,4 +13,6 @@ public interface OrdersService {
     Orders item(Long orderNum);
 
     Ordering orderMovie(Ordering orderItem);
+
+    void add(Ordering ordering);
 }

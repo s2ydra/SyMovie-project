@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/orders")
@@ -29,6 +30,9 @@ public class OrdersController {
 
     @Autowired
     FoodService foodService;
+
+    @Autowired
+    CustomerService customerService;
 
 
     @GetMapping("/list")
@@ -86,15 +90,35 @@ public class OrdersController {
         return path + "order-popup";
     }
 
-    @PostMapping("/add")
-    String add(@SessionAttribute Customer member, @RequestBody Long movieNum, @RequestBody int movieAmount,
-               @RequestBody OrderFood food) {
+    @PostMapping("/orderMovie/{movieNum}")
+    String add(@SessionAttribute Customer member, @RequestBody List<Map<Long, Integer>> foodList,
+               @PathVariable Long movieNum, int movieAmount) {
 
-        System.out.println(food);
+        Ordering ordering = new Ordering();
 
+        Map<Long, Integer> resultMap = new HashMap<>();
+
+        foodList.forEach(foodMap -> {
+            foodMap.forEach((key, value) -> {
+                if(!resultMap.containsKey(key)) {
+                resultMap.put(key, value);
+                }
+            });
+        });
+
+        Customer customer = customerService.item(member.getCustNum());
+        OrderDetail orderDetail = new OrderDetail();
+
+        orderDetail.setMovieNum(movieNum);
+        orderDetail.setMovieAmount(movieAmount);
+
+        ordering.setFoodMap(resultMap);
+        ordering.setCustomer(customer);
+        ordering.setOrderDetail(orderDetail);
+
+        service.add(ordering);
 
         return "OK";
     }
-
 
 }

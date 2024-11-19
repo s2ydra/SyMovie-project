@@ -40,4 +40,15 @@
         WHERE OD.MOVIE_NUM = #{movie.movieNum}
     </select>
 
+    <insert id="addOrders">
+        INSERT INTO orders(order_num, cust_num, order_date)
+        VALUES (ORDERS.SEQ.nextval, #{custNum}, SYSDATE)
+
+        <selectKey keyProperty="orderNum" resultType="Long" order="AFTER">
+            SELECT
+            ORDER.SEQ.currval FROM dual
+        </selectKey>
+    </insert>
+
+
 </mapper>

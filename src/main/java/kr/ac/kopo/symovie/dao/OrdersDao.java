@@ -6,6 +6,7 @@ import kr.ac.kopo.symovie.model.OrderDetail;
 import org.springframework.core.annotation.Order;
 
 import java.util.List;
+import java.util.Set;
 
 public interface OrdersDao {
     List<Orders> list(Long custNum);
@@ -13,4 +14,8 @@ public interface OrdersDao {
     Orders item(Long orderNum);
 
     Ordering ordering(Ordering orderItem);
+
+    void addOrders(Long custNum);
+
+    void orderDetail(OrderDetail orderDetail);
 }

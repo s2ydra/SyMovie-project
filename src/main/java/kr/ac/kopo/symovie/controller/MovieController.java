@@ -133,8 +133,7 @@ public class MovieController {
 	String detail(@PathVariable Long movieNum, Model model) {
 		
 		Movie item = service.item(movieNum);
-		
-		
+
 		model.addAttribute("item", item);
 		
 		return moviePath + "detail";

@@ -107,7 +107,7 @@ public class Pager {
 
 		int startPage;
 		
-		
+
 		if(page - 2 >= 1) {
 			startPage = page - 2;
 		}else {
@@ -117,8 +117,7 @@ public class Pager {
 		for (int i = startPage; i < (startPage + perGroup) && i <= getLast(); i++)
 				list.add(i);
 		
-		
-		
+
 		if (list.isEmpty())
 			list.add(1);
 

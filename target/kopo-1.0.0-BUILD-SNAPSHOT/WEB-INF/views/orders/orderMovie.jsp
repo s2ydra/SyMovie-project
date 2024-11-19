@@ -70,7 +70,7 @@
                                 </label></td>
                                 <td class="food-price">${item.foodPrice}</td>
                                 <td><label>
-                                    <input class="food-amount" type="number" value="1">
+                                    <input name="movieAmount" class="food-amount" type="number" value="1">
                                 </label></td>
                                 <td class="amount-sumPrice"></td>
                             </tr>
@@ -86,12 +86,8 @@
                 <div>
                     <label>
                         <span id="finalPrice"></span><span>원</span>
-
-                        <input id="finalFoodPrice" type="number" name="foodNum">
                         <input id="all-sumPrice" type="number" name="sumPrice" readonly>
-                        <input type="text" id="foodNumArr">
-
-
+                        <input type="text" id="foodNumArr" name="foodList">
                     </label>
                 </div>
                 <div>

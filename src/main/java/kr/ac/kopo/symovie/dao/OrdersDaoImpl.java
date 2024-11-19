@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Repository
 public class OrdersDaoImpl implements OrdersDao {
@@ -39,6 +40,18 @@ public class OrdersDaoImpl implements OrdersDao {
         map.put("orderDetail", orderItem.getOrderDetail());
 
         return sql.selectOne("orders.ordering", map);
+    }
+
+    @Override
+    public void addOrders(Long custNum) {
+
+        sql.insert("orders.addOrders", custNum);
+    }
+
+
+    @Override
+    public void orderDetail(OrderDetail orderDetail) {
+        sql.insert("orders.orderDetail", orderDetail);
     }
 
 }

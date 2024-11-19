@@ -2,6 +2,7 @@ package kr.ac.kopo.symovie.service;
 
 import kr.ac.kopo.symovie.dao.MovieDao;
 import kr.ac.kopo.symovie.dao.OrdersDao;
+import kr.ac.kopo.symovie.model.Customer;
 import kr.ac.kopo.symovie.model.Ordering;
 import kr.ac.kopo.symovie.model.Orders;
 import kr.ac.kopo.symovie.model.OrderDetail;
@@ -35,6 +36,17 @@ public class OrdersServiceImpl implements OrdersService {
     public Ordering orderMovie(Ordering orderItem) {
 
         return dao.ordering(orderItem);
+    }
+
+    @Override
+    public void add(Ordering ordering) {
+        Customer customer = ordering.getCustomer();
+
+        dao.addOrders(customer.getCustNum());
+
+//        dao.orderFood(ordering.getFoodMap().keySet());
+
+        dao.orderDetail(ordering.getOrderDetail());
     }
 
 }
