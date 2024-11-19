@@ -29,7 +29,7 @@
         <div>
             <form method="post">
                 <div>
-                    <label>영화번호 : ${item.movie.movieNum}</label>
+                    <label>영화번호 : <span id="movie-num">${item.movie.movieNum}</span></label>
                 </div>
                 <div>
                     <img style="max-width: 250px; max-height: 280px;"
@@ -64,7 +64,10 @@
                             <c:forEach var="item" items="${item.food}">
                             <tr class="food-row">
                                 <td class="food-number">${item.foodNum}</td>
-                                <td>${item.foodName}</td>
+                                <td>${item.foodName}
+                                <label>
+                                    <input type="hidden" name="foodNum" value="${item.foodNum}" readonly>
+                                </label></td>
                                 <td class="food-price">${item.foodPrice}</td>
                                 <td><label>
                                     <input class="food-amount" type="number" value="1">
@@ -78,13 +81,17 @@
                 <div id="food-price-box" class="hide">
                     <label>
                         <span id="foodFinalPrice"></span><span>원</span>
-                        <input id="foodAll-sumPrice" type="hidden" name="sumPrice" readonly>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span id="finalPrice"></span><span>원</span>
-                        <input id="all-sumPrice" type="hidden" name="sumPrice" readonly>
+
+                        <input id="finalFoodPrice" type="number" name="foodNum">
+                        <input id="all-sumPrice" type="number" name="sumPrice" readonly>
+                        <input type="text" id="foodNumArr">
+
+
                     </label>
                 </div>
                 <div>

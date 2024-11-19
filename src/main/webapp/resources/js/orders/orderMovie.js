@@ -23,9 +23,31 @@ const calcPrice = (moviePrice, movieAmount, foodPriceAll) => {
     //allSumPrice.value = (moviePrice * movieAmount) + foodPriceAll;
 }
 
+
 const calcDefaultPrice = (moviePrice, movieAmount) => {
     document.getElementById("finalPrice").textContent = (moviePrice * movieAmount);
     //allSumPrice.value = (moviePrice * movieAmount);
+}
+
+window.payment = final => {
+    let foodRow = document.querySelectorAll(".food-row");
+    let foodMap = new Map();
+
+    if(localStorage.getItem("checkedItem") && !document.getElementById("food-table-box").classList.contains("hide")){
+    foodRow.forEach(row => {
+        let num = row.querySelector("td:nth-child(1)").textContent;
+        let amount = row.querySelector(".food-amount").value;
+
+        console.log(num + "-" + amount);
+        foodMap.set(parseInt(num), parseInt(amount));
+    });
+    }
+
+    document.getElementById("foodNumArr").value = JSON.stringify(Array.from(foodMap));
+    const finalPrice = parseInt(document.getElementById("finalPrice").textContent);
+    document.getElementById("all-sumPrice").value = finalPrice;
+
+    console.log("총액 : " + finalPrice);
 }
 
 
@@ -50,7 +72,6 @@ window.addEventListener("load", () => {
     let rowPrice = 0;
     let changedSelect = 0;
     let isChangeSelect = false;
-    let foodAllPrice = 0;
     let foodSumPrice = document.getElementById("foodFinalPrice");
 
 
@@ -82,6 +103,7 @@ window.addEventListener("load", () => {
         isChanged = true;
 
         changedAmount = e.target.value;
+
         if (hasFood.contains("hide")) {
             document.getElementById("finalPrice").textContent = (moviePrice * changedAmount);
             allSumPrice.value = (moviePrice * changedAmount);
@@ -162,16 +184,12 @@ window.addEventListener("load", () => {
                 nums.forEach(item => {
                     foodNums.forEach(numbers => {
 
-
                         if (numbers.textContent === item) {
                             let foodNum = parseInt(numbers.textContent)
-
 
                             fetch(`/orders/getPrice/${foodNum}`)
                                 .then(resp => resp.json())
                                 .then(result => {
-
-
                                     console.log(result);
 
                                     sumPrice += result;
@@ -190,18 +208,25 @@ window.addEventListener("load", () => {
             }
         }
 
-        document.getElementById("go-btn").addEventListener("click", event => {
-            event.preventDefault();
+    });
+    document.getElementById("go-btn").addEventListener("click", event => {
+        event.preventDefault();
 
-            let finalPrice = document.getElementById("finalPrice").textContent;
+        let finalPrice = document.getElementById("finalPrice").textContent;
 
-            const width = 1200;
-            const height = 1000;
-            const left = window.screenX + ((window.screen.width - width) / 2);
-            const top = window.screenY + ((window.screen.height - height) / 2);
+        localStorage.setItem("finalPrice", finalPrice);
 
-            window.open(`/orders/order-popup`, "orders/order-popup", `left=${left},top = ${top}, width = ${width}, height = ${height}`);
+        const width = 1200;
+        const height = 1000;
+        const left = window.screenX + ((window.screen.width - width) / 2);
+        const top = window.screenY + ((window.screen.height - height) / 2);
+
+        const goPay = window.open(`/orders/order-popup`, "orders/order-popup", `left=${left},top = ${top}, width = ${width}, height = ${height}`);
+
+        goPay.window.addEventListener("load", () => {
+            goPay.document.getElementById("final").textContent = finalPrice;
         });
 
     });
+
 });

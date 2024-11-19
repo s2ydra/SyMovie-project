@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -79,6 +80,21 @@ public class OrdersController {
         return item.getFoodPrice();
     }
 
+    @GetMapping("/order-popup")
+    String orderPopup() {
+
+        return path + "order-popup";
+    }
+
+    @PostMapping("/add")
+    String add(@SessionAttribute Customer member, @RequestBody Long movieNum, @RequestBody int movieAmount,
+               @RequestBody OrderFood food) {
+
+        System.out.println(food);
+
+
+        return "OK";
+    }
 
 
 }
