@@ -1,5 +1,8 @@
 package kr.ac.kopo.symovie.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.ac.kopo.symovie.model.*;
 import kr.ac.kopo.symovie.pager.Pager;
 import kr.ac.kopo.symovie.service.CustomerService;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/orders")
@@ -91,34 +95,48 @@ public class OrdersController {
     }
 
     @PostMapping("/orderMovie/{movieNum}")
-    String add(@SessionAttribute Customer member, @RequestBody List<Map<Long, Integer>> foodList,
-               @PathVariable Long movieNum, int movieAmount) {
+    String add(@SessionAttribute Customer member, String foodList,
+               @PathVariable Long movieNum, int movieAmount, Long sumPrice) throws JsonProcessingException {
+
+        System.out.println(movieNum);
+        System.out.println(movieAmount);
+        System.out.println(sumPrice);
+
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        List<Map<String, Integer>> tempList = objectMapper.readValue(foodList, new TypeReference<List<Map<String, Integer>>>() {});
+
+        List<Map<Long, Integer>> finalList = tempList.stream()
+                .map(map -> map.entrySet().stream()
+                        .collect(Collectors.toMap(
+                                entry -> Long.parseLong(entry.getKey()),
+                                Map.Entry::getValue)))
+                .collect(Collectors.toList());
+
 
         Ordering ordering = new Ordering();
-
-        Map<Long, Integer> resultMap = new HashMap<>();
-
-        foodList.forEach(foodMap -> {
-            foodMap.forEach((key, value) -> {
-                if(!resultMap.containsKey(key)) {
-                resultMap.put(key, value);
-                }
-            });
-        });
-
-        Customer customer = customerService.item(member.getCustNum());
         OrderDetail orderDetail = new OrderDetail();
+        Customer customer = customerService.item(member.getCustNum());
 
         orderDetail.setMovieNum(movieNum);
+        orderDetail.setSumPrice(sumPrice);
         orderDetail.setMovieAmount(movieAmount);
 
-        ordering.setFoodMap(resultMap);
-        ordering.setCustomer(customer);
+
+        Map<Long, Integer> foodMap = new HashMap<>();
+
+        for(Map<Long, Integer> map : finalList){
+            map.forEach((k, v) -> foodMap.put(k, v));
+        }
+
+        ordering.setFoodMap(foodMap);
         ordering.setOrderDetail(orderDetail);
+        ordering.setCustomer(customer);
 
-        service.add(ordering);
+        service.reserve(ordering);
 
-        return "OK";
+        return "index";
     }
 
 }

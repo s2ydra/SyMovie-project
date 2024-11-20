@@ -11,6 +11,7 @@
 		<typeAlias type="kr.ac.kopo.symovie.model.Movie" alias="Movie"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.Customer" alias="Customer"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.Food" alias="Food"/>
+		<typeAlias type="kr.ac.kopo.symovie.model.Cart" alias="Cart"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.MovieImage" alias="MovieImage"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.Event" alias="Event"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.Coupon" alias="Coupon"/>

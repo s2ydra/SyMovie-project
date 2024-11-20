@@ -1,11 +1,11 @@
 package kr.ac.kopo.symovie.dao;
 
+import kr.ac.kopo.symovie.model.OrderDetail;
 import kr.ac.kopo.symovie.model.Ordering;
 import kr.ac.kopo.symovie.model.Orders;
-import kr.ac.kopo.symovie.model.OrderDetail;
-import org.springframework.core.annotation.Order;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public interface OrdersDao {
@@ -17,5 +17,7 @@ public interface OrdersDao {
 
     void addOrders(Long custNum);
 
-    void orderDetail(OrderDetail orderDetail);
+    void addOrderFood(Map<Long, Integer> foodMap);
+
+    void addOrderDetail(OrderDetail orderDetail);
 }

@@ -1,5 +1,7 @@
 package kr.ac.kopo.symovie.model;
 
+import org.springframework.core.annotation.Order;
+
 import java.util.List;
 
 public class Customer {
@@ -13,7 +15,16 @@ public class Customer {
 	
 	private List<CouponCustomer> couponCustomer;
 
-	
+	private List<Orders> orders;
+
+	public List<Orders> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
+	}
+
 	public List<CouponCustomer> getCouponCustomer() {
 		return couponCustomer;
 	}

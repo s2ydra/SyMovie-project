@@ -27,7 +27,7 @@
             <span>주문내용</span>
         </div>
         <div>
-            <form method="post">
+            <form id="order-form" method="post">
                 <div>
                     <label>영화번호 : <span id="movie-num">${item.movie.movieNum}</span></label>
                 </div>
@@ -83,11 +83,13 @@
                         <span id="foodFinalPrice"></span><span>원</span>
                     </label>
                 </div>
+                <label>
+                    <input type="text" id="foodNumArr" name="foodList">
+                </label>
                 <div>
                     <label>
                         <span id="finalPrice"></span><span>원</span>
                         <input id="all-sumPrice" type="number" name="sumPrice" readonly>
-                        <input type="text" id="foodNumArr" name="foodList">
                     </label>
                 </div>
                 <div>

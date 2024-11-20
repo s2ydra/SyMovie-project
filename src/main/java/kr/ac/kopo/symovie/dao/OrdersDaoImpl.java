@@ -1,11 +1,10 @@
 package kr.ac.kopo.symovie.dao;
 
+import kr.ac.kopo.symovie.model.OrderDetail;
 import kr.ac.kopo.symovie.model.Ordering;
 import kr.ac.kopo.symovie.model.Orders;
-import kr.ac.kopo.symovie.model.OrderDetail;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -44,14 +43,20 @@ public class OrdersDaoImpl implements OrdersDao {
 
     @Override
     public void addOrders(Long custNum) {
-
         sql.insert("orders.addOrders", custNum);
     }
 
+    @Override
+    public void addOrderFood(Map<Long, Integer> foodMap) {
+        Set<Map.Entry<Long, Integer>> entrySet = foodMap.entrySet();
+
+        sql.insert("orders.addOrderFood", entrySet);
+    }
 
     @Override
-    public void orderDetail(OrderDetail orderDetail) {
-        sql.insert("orders.orderDetail", orderDetail);
+    public void addOrderDetail(OrderDetail orderDetail) {
+        sql.insert("orders.addOrderDetail", orderDetail);
     }
+
 
 }

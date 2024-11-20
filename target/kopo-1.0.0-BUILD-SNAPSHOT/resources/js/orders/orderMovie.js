@@ -43,11 +43,21 @@ window.payment = final => {
     });
     }
 
-    document.getElementById("foodNumArr").value = JSON.stringify(Array.from(foodMap));
+    let result = Array.from(foodMap).map(item => {
+        let obj = {};
+        obj[item[0]] = item[1];
+        return obj;
+    })
+
+    console.log(result);
+    document.getElementById("foodNumArr").value = JSON.stringify(result);
     const finalPrice = parseInt(document.getElementById("finalPrice").textContent);
     document.getElementById("all-sumPrice").value = finalPrice;
 
     console.log("총액 : " + finalPrice);
+
+    document.getElementById("order-form").submit();
+
 }
 
 

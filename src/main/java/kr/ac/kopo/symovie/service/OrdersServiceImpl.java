@@ -32,21 +32,16 @@ public class OrdersServiceImpl implements OrdersService {
         return dao.item(orderNum);
     }
 
+    @Transactional
     @Override
-    public Ordering orderMovie(Ordering orderItem) {
+    public void reserve(Ordering ordering) {
 
-        return dao.ordering(orderItem);
+        dao.addOrders(ordering.getCustomer().getCustNum());
+        dao.addOrderFood(ordering.getFoodMap());
+        dao.addOrderDetail(ordering.getOrderDetail());
+
+
     }
 
-    @Override
-    public void add(Ordering ordering) {
-        Customer customer = ordering.getCustomer();
-
-        dao.addOrders(customer.getCustNum());
-
-//        dao.orderFood(ordering.getFoodMap().keySet());
-
-        dao.orderDetail(ordering.getOrderDetail());
-    }
 
 }

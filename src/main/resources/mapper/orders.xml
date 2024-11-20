@@ -49,6 +49,49 @@
             ORDER.SEQ.currval FROM dual
         </selectKey>
     </insert>
+    <insert id="orderFood">
+        <selectKey resultType="Long" keyProperty="orderFoodNum" order="BEFORE">
+            SELECT ORDERFOOD_SEQ.nextval FROM dual;
+        </selectKey>
+
+        <foreach collection="entries" item="entry" separator=";">
+            INSERT INTO ORDER_FOOD (order_food_num, food_num, amount)
+            VALUES (#{orderFoodNum}, #{entry.key}, #{entry.value})
+        </foreach>
+    </insert>
+
+    <insert id="orderDetail">
+        INSERT INTO ORDER_DETAIL
+        VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{ordering.orderDetail.movieNum}, #{ordering.orderDetail.movieAmount},
+        #{orderFoodNum}, NULL, #{ordering.orderDetail.sumPrice}, SYSDATE)
+    </insert>
+
+    <insert id="addOrdersConfirm">
+        INSERT INTO orders
+        VALUES (ORDERS_SEQ.nextval, #{custNum}, SYSDATE)
+
+        <selectKey keyProperty="orderNumConfirm" resultType="Long" order="AFTER">
+            SELECT ORDERS_SEQ.currval FROM DUAL
+        </selectKey>
+    </insert>
+
+    <insert id="addOrderFood">
+        <selectKey keyProperty="orderFoodNum" resultType="Long" order="BEFORE">
+            SELECT ORDERFOOD_SEQ.nextval FROM dual;
+        </selectKey>
+
+        <foreach collection="entrySet" item="entry" separator=";">
+            INSERT INTO order_food
+            VALUES (#{orderFoodNum}, #{entry.key}, #{entry.value})
+        </foreach>
+
+    </insert>
+
+    <insert id="addOrderDetail">
+        INSERT INTO order_detail
+        VALUES (ORDER_DETAIL.SEQ.nextval, #{orderNumConfirm}, #{movieNum}, #{movieAmount}, #{orderFoodNum}, NULL,
+        #{sumPrice}, SYSDATE)
+    </insert>
 
 
 </mapper>

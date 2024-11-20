@@ -12,19 +12,11 @@ public class Ordering {
     private OrderDetail orderDetail;
     private Customer customer;
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     //JavaScript 에서 fetch로 리스트를 가지고올 때(list-popup)
     private List<Food> food;
 
-
     private Long orderFoodNum;
+
     private Map<Long, Integer> foodMap;
 
     public Map<Long, Integer> getFoodMap() {
@@ -34,6 +26,15 @@ public class Ordering {
     public void setFoodMap(Map<Long, Integer> foodMap) {
         this.foodMap = foodMap;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
 
     public Long getOrderFoodNum() {
         return orderFoodNum;
