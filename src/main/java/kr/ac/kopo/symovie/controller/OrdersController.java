@@ -61,10 +61,14 @@ public class OrdersController {
         // service 단에서 selectOne 을 가지고 해당 고객이
 
         Ordering orderItem = new Ordering();
-
         Movie movieItem = movieService.item(movieNum);
         OrderDetail orderDetail = new OrderDetail();
-        orderDetail.setMovieAmount(item.getMovieAmount());
+
+        if (item.getMovieAmount() > 0) {
+            orderDetail.setMovieAmount(item.getMovieAmount());
+        }else{
+            orderDetail.setMovieAmount(1);
+        }
 
         pager.setPerPage(5);
 

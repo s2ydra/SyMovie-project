@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>SY Movie</title>
+	<script src="/resources/js/index.js"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
 <link rel="stylesheet" href="/resources/css/index.css">
@@ -93,7 +94,7 @@
 							src="/upload/${item.movieImage.movieImageFilename}_${item.movieImage.movieImageUuid}">
 						<div class="img-animate">
 							<span>${item.movieName}</span>
-							<button type="button" class="reserve-btn">예매하기</button>
+							<button class="reserve-btn" data-login = "${sessionScope.member != null}" data-movienum ="${item.movieNum}">예매하기</button>
 							<button type="button" class="detail-btn" 
 							onclick="location.href='movie/detail/${item.movieNum}'">상세보기</button>
 						</div>

@@ -9,7 +9,9 @@
 
 
 <header class="head-tap">
-			<h3><a href="/" class="logo-text">SY Movie</a></h3>
+			<h3><a href="/">
+				<img style="width: 100px; height: 70px" src="/resources/img/logo.svg">
+			</a></h3>
 			<nav>
 				<ul class="global-menu">
 					<li><a href="/movie/list">영화</a></li>
