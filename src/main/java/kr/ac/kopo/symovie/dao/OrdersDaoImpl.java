@@ -1,6 +1,7 @@
 package kr.ac.kopo.symovie.dao;
 
 import kr.ac.kopo.symovie.model.OrderDetail;
+import kr.ac.kopo.symovie.model.OrderFood;
 import kr.ac.kopo.symovie.model.Ordering;
 import kr.ac.kopo.symovie.model.Orders;
 import org.apache.ibatis.session.SqlSession;
@@ -42,21 +43,23 @@ public class OrdersDaoImpl implements OrdersDao {
     }
 
     @Override
-    public void addOrders(Long custNum) {
-        sql.insert("orders.addOrders", custNum);
+    public void addOrders(Orders orders) {
+        sql.insert("orders.addOrders", orders);
     }
+
 
     @Override
-    public void addOrderFood(Map<Long, Integer> foodMap) {
-        Set<Map.Entry<Long, Integer>> entrySet = foodMap.entrySet();
+    public void addOrderFood(OrderFood orderFood) {
 
-        sql.insert("orders.addOrderFood", entrySet);
+        sql.insert("orders.addOrderFood", orderFood);
+
     }
-
     @Override
     public void addOrderDetail(OrderDetail orderDetail) {
         sql.insert("orders.addOrderDetail", orderDetail);
     }
+
+
 
 
 }

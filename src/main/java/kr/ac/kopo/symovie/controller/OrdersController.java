@@ -117,12 +117,10 @@ public class OrdersController {
 
         Ordering ordering = new Ordering();
         OrderDetail orderDetail = new OrderDetail();
-        Customer customer = customerService.item(member.getCustNum());
 
         orderDetail.setMovieNum(movieNum);
         orderDetail.setSumPrice(sumPrice);
         orderDetail.setMovieAmount(movieAmount);
-
 
         Map<Long, Integer> foodMap = new HashMap<>();
 
@@ -130,9 +128,21 @@ public class OrdersController {
             map.forEach((k, v) -> foodMap.put(k, v));
         }
 
-        ordering.setFoodMap(foodMap);
+
+        System.out.println(foodMap);
+        System.out.println(foodMap.keySet());
+
+        Orders orders = new Orders();
+        orders.setCustNum(member.getCustNum());
+
+        OrderFood orderFood = new OrderFood();
+        orderFood.setFoodMap(foodMap);
+
+
+
         ordering.setOrderDetail(orderDetail);
-        ordering.setCustomer(customer);
+        ordering.setOrders(orders);
+        ordering.setOrderFood(orderFood);
 
         service.reserve(ordering);
 

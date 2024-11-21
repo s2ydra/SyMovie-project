@@ -2,10 +2,7 @@ package kr.ac.kopo.symovie.service;
 
 import kr.ac.kopo.symovie.dao.MovieDao;
 import kr.ac.kopo.symovie.dao.OrdersDao;
-import kr.ac.kopo.symovie.model.Customer;
-import kr.ac.kopo.symovie.model.Ordering;
-import kr.ac.kopo.symovie.model.Orders;
-import kr.ac.kopo.symovie.model.OrderDetail;
+import kr.ac.kopo.symovie.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
@@ -36,9 +33,17 @@ public class OrdersServiceImpl implements OrdersService {
     @Override
     public void reserve(Ordering ordering) {
 
-        dao.addOrders(ordering.getCustomer().getCustNum());
-        dao.addOrderFood(ordering.getFoodMap());
-        dao.addOrderDetail(ordering.getOrderDetail());
+        dao.addOrders(ordering.getOrders());
+
+        if(ordering.getOrderFood() != null) {
+        dao.addOrderFood(ordering.getOrderFood());
+        }
+
+        OrderDetail orderDetail = ordering.getOrderDetail();
+        orderDetail.setOrderNum(ordering.getOrders().getOrderNum());
+        orderDetail.setFoodOrderingNum(ordering.getOrderFood().getFoodOrderingNum());
+
+        dao.addOrderDetail(orderDetail);
 
 
     }

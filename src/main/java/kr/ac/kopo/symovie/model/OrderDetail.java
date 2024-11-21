@@ -7,7 +7,7 @@ public class OrderDetail {
     private Long orderNum;
     private Long movieNum;
     private int movieAmount;
-    private Long orderFoodNum;
+    private Long foodOrderingNum;
     private Long setNum;
     private Long sumPrice;
     private Date pickupDate;
@@ -52,12 +52,12 @@ public class OrderDetail {
         this.orderNum = orderNum;
     }
 
-    public Long getOrderFoodNum() {
-        return orderFoodNum;
+    public Long getFoodOrderingNum() {
+        return foodOrderingNum;
     }
 
-    public void setOrderFoodNum(Long orderFoodNum) {
-        this.orderFoodNum = orderFoodNum;
+    public void setFoodOrderingNum(Long foodOrderingNum) {
+        this.foodOrderingNum = foodOrderingNum;
     }
 
     public Long getSumPrice() {

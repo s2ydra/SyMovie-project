@@ -15,16 +15,14 @@ public class Ordering {
     //JavaScript 에서 fetch로 리스트를 가지고올 때(list-popup)
     private List<Food> food;
 
-    private Long orderFoodNum;
+    private OrderFood orderFood;
 
-    private Map<Long, Integer> foodMap;
-
-    public Map<Long, Integer> getFoodMap() {
-        return foodMap;
+    public OrderFood getOrderFood() {
+        return orderFood;
     }
 
-    public void setFoodMap(Map<Long, Integer> foodMap) {
-        this.foodMap = foodMap;
+    public void setOrderFood(OrderFood orderFood) {
+        this.orderFood = orderFood;
     }
 
     public Customer getCustomer() {
@@ -35,14 +33,6 @@ public class Ordering {
         this.customer = customer;
     }
 
-
-    public Long getOrderFoodNum() {
-        return orderFoodNum;
-    }
-
-    public void setOrderFoodNum(Long orderFoodNum) {
-        this.orderFoodNum = orderFoodNum;
-    }
 
     public List<Food> getFood() {
         return food;

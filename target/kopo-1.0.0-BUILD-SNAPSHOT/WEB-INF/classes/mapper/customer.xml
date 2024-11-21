@@ -14,7 +14,7 @@
 	</insert>
 	
 	<select id="item" resultType="Customer">
-		SELECT customer.*, 
+		SELECT customer.*
 		FROM customer
 		WHERE customer.cust_num = #{custNum}
 	</select>

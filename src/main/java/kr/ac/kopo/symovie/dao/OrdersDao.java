@@ -1,6 +1,7 @@
 package kr.ac.kopo.symovie.dao;
 
 import kr.ac.kopo.symovie.model.OrderDetail;
+import kr.ac.kopo.symovie.model.OrderFood;
 import kr.ac.kopo.symovie.model.Ordering;
 import kr.ac.kopo.symovie.model.Orders;
 
@@ -15,9 +16,12 @@ public interface OrdersDao {
 
     Ordering ordering(Ordering orderItem);
 
-    void addOrders(Long custNum);
 
-    void addOrderFood(Map<Long, Integer> foodMap);
+
+    void addOrderFood(OrderFood orderFood);
 
     void addOrderDetail(OrderDetail orderDetail);
+
+    void addOrders(Orders orders);
+
 }

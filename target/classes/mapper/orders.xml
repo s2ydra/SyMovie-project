@@ -32,6 +32,15 @@
         </association>
     </resultMap>
 
+    <resultMap id="foodOrderMap" type="OrderFood" autoMapping="true">
+        <id column="food_ordering_num" property="foodOrdering"/>
+
+        <collection property="orderDetail" column="orderFoodNum" autoMapping="true" javaType="ArrayList" ofType="OrderDetail">
+            <id column="food_ordering_num" property="foodOrderingNum"/>
+        </collection>
+    </resultMap>
+
+
     <select id="ordering" resultMap="orderDetailMap, MovieMap, ordersMap">
         SELECT OD.ORDER_DETAIL_NUM, OD.ORDER_NUM order_num, OD.ORDER_FOOD_NUM, OD.FOOD_NUM, OD.SUM_PRICE,OD.PICKUP_DATE,
         MOVIE.MOVIE_NUM movie_num, MOVIE.MOVIE_GENRE, MOVIE.MOVIE_NAME, MOVIE.MOVIE_DIRECTOR, MOVIE.MOVIE_OPENDATE, MOVIE.MOVIE_AGERANGE,
@@ -40,56 +49,31 @@
         WHERE OD.MOVIE_NUM = #{movie.movieNum}
     </select>
 
+
+
     <insert id="addOrders">
-        INSERT INTO orders(order_num, cust_num, order_date)
-        VALUES (ORDERS.SEQ.nextval, #{custNum}, SYSDATE)
-
-        <selectKey keyProperty="orderNum" resultType="Long" order="AFTER">
-            SELECT
-            ORDER.SEQ.currval FROM dual
-        </selectKey>
-    </insert>
-    <insert id="orderFood">
-        <selectKey resultType="Long" keyProperty="orderFoodNum" order="BEFORE">
-            SELECT ORDERFOOD_SEQ.nextval FROM dual;
-        </selectKey>
-
-        <foreach collection="entries" item="entry" separator=";">
-            INSERT INTO ORDER_FOOD (order_food_num, food_num, amount)
-            VALUES (#{orderFoodNum}, #{entry.key}, #{entry.value})
-        </foreach>
-    </insert>
-
-    <insert id="orderDetail">
-        INSERT INTO ORDER_DETAIL
-        VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{ordering.orderDetail.movieNum}, #{ordering.orderDetail.movieAmount},
-        #{orderFoodNum}, NULL, #{ordering.orderDetail.sumPrice}, SYSDATE)
-    </insert>
-
-    <insert id="addOrdersConfirm">
         INSERT INTO orders
         VALUES (ORDERS_SEQ.nextval, #{custNum}, SYSDATE)
 
-        <selectKey keyProperty="orderNumConfirm" resultType="Long" order="AFTER">
-            SELECT ORDERS_SEQ.currval FROM DUAL
+        <selectKey keyProperty="orderNum" resultType="Long" order="AFTER">
+            SELECT ORDERS_SEQ.currval orderNum FROM DUAL
         </selectKey>
     </insert>
 
     <insert id="addOrderFood">
-        <selectKey keyProperty="orderFoodNum" resultType="Long" order="BEFORE">
-            SELECT ORDERFOOD_SEQ.nextval FROM dual;
-        </selectKey>
+            <selectKey keyProperty="foodOrderingNum" resultType="Long" order="BEFORE">
+                SELECT FOOD_ORDERING_SEQ.nextval foodOrderingNum FROM DUAL
+            </selectKey>
 
-        <foreach collection="entrySet" item="entry" separator=";">
-            INSERT INTO order_food
-            VALUES (#{orderFoodNum}, #{entry.key}, #{entry.value})
+        <foreach collection="foodMap" index="key" item="value" separator=";" open="DECLARE BEGIN" close="; END;">
+        INSERT INTO ORDER_FOOD
+        VALUES (#{foodOrderingNum}, ORDERFOOD_SEQ.nextval, #{key}, #{value})
         </foreach>
-
     </insert>
 
     <insert id="addOrderDetail">
         INSERT INTO order_detail
-        VALUES (ORDER_DETAIL.SEQ.nextval, #{orderNumConfirm}, #{movieNum}, #{movieAmount}, #{orderFoodNum}, NULL,
+        VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{movieNum}, #{movieAmount}, #{foodOrderingNum}, NULL, NULL,
         #{sumPrice}, SYSDATE)
     </insert>
 

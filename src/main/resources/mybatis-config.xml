@@ -20,6 +20,7 @@
 		<typeAlias type="kr.ac.kopo.symovie.model.Orders" alias="Orders"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.OrderDetail" alias="OrderDetail"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.Ordering" alias="Ordering"/>
+		<typeAlias type="kr.ac.kopo.symovie.model.OrderFood" alias="OrderFood"/>
 	</typeAliases>
 	
 	<mappers>
