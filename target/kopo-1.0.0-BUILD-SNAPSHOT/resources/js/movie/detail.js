@@ -61,7 +61,7 @@ window.addEventListener("load", () => {
             const amount = document.querySelector("input[name = 'movieAmount']").value;
             const { movienum, login, type } = e.target.dataset;
 
-            alert("로그인이 필요한 서비스입니다.");
+
 
             if(login === "true"){ 
                 if(type === "cart"){
@@ -72,6 +72,8 @@ window.addEventListener("load", () => {
                 }
             }
             else{
+                alert("로그인이 필요한 서비스입니다.");
+
                 const width = 600;
                 const height = 700;
                 const left = window.screenX + ((window.screen.width - width) /2);
