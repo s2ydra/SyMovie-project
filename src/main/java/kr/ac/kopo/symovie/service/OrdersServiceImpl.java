@@ -19,10 +19,6 @@ public class OrdersServiceImpl implements OrdersService {
     @Autowired
     MovieDao movieDao;
 
-    @Override
-    public List<Orders> list(Long custNum) {
-        return dao.list(custNum);
-    }
 
     @Override
     public Orders item(Long orderNum) {
@@ -46,6 +42,11 @@ public class OrdersServiceImpl implements OrdersService {
         dao.addOrderDetail(orderDetail);
 
 
+    }
+
+    @Override
+    public List<Ordering> myOrders(Long custNum) {
+        return dao.myOrders(custNum);
     }
 
 

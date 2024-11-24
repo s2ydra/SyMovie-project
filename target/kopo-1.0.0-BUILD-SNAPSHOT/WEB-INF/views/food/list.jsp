@@ -90,7 +90,9 @@
 						<th>먹거리명</th>
 						<th>먹거리 유형</th>
 						<th>가격</th>
+						<c:if test="${sessionScope.member != null || sessionScope.member.custRole == 99}">
 						<th colspan="2">MORE</th>
+						</c:if>
 					</tr>
 				</thead>
 				<tbody>
@@ -101,27 +103,50 @@
 					</c:if>
 					<c:forEach var="item" items="${list}">
 						<tr>
-							<td>${item.foodNum}</td>
+							<td class="food-td">${item.foodNum}</td>
 							<td>
 							<img style="width: 150px; height:180px;"
 							src="/upload/${item.foodImage[0].foodImageFilename}_${item.foodImage[0].foodImageUuid}">
 							</td>
-							<td>${item.foodName}</td>
-							<td>${item.foodType}</td>
-							<td>${item.foodPrice}</td>
-							<td>
-								<button type="button" onclick="location.href='delete/${item.foodNum}'">수정</button>
-								<button class="delete-btn" data-foodnum = "${item.foodNum}">삭제</button>
+							<td class="food-td"><a href="detail/${item.foodNum}">${item.foodName}</a></td>
+							<td class="food-td">${item.foodType}</td>
+							<td class="food-td">${item.foodPrice}</td>
+							<c:if test="${sessionScope.member != null || sessionScope.member.custRole == 99}">
+							<td class="food-td">
+								<button type="button" class="update-btn" onclick="location.href='update/${item.foodNum}'">수정</button>
+								<button class="delete-btn" data-foodnum = "${item.foodNum}" onclick="location.href='delete/${item.foodNum}">삭제</button>
 							</td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div>
-			<button type="button" onclick="location.href='add'">추가하기</button>
-			<button type="button" onclick="location.href='/'">이전으로</button>
+		<div class="pages">
+			<div>
+				<a href="?page=1${pager.query}">처음</a>
+
+			</div>
+			<c:forEach var="page" items="${pager.list}">
+				<div>
+					<a href="?page=${page}${pager.query}" class="pages-num ${pager.page == page? 'active':''}">${page}</a>
+				</div>
+			</c:forEach>
+			<div>
+				<a href="?page=${pager.last}${pager.query}">마지막</a>
+			</div>
 		</div>
+		<c:if test="${sessionScope.member.custRole == 99}">
+		<div class="btn-group">
+			<button class="add-btn" type="button" onclick="location.href='add'">추가하기</button>
+			<button class="back-btn" type="button" onclick="location.href='/'">이전으로</button>
+		</div>
+		</c:if>
+		<c:if test="${sessionScope.member == null || sessionScope.member.custRole != 99}">
+		<div class="btn-group">
+			<button class="back-btn" type="button" onclick="location.href='/'">이전으로</button>
+		</div>
+		</c:if>
 	</div>
 </body>
 </html>

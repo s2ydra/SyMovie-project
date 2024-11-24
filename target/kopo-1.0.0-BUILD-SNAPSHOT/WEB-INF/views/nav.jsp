@@ -34,6 +34,9 @@
 					<a href="/coupon/list">내 보유쿠폰</a>
 					<a href="/cart">장바구니</a>
 					<a href="/orders/list">나의 예매 현황</a>
+					<c:if test="${sessionScope.member.custRole == 99}">
+						<a href="/customer/list">고객관리</a>
+					</c:if>
 				</div>
 				</div>
 				<a href="/logout">LOGOUT</a>

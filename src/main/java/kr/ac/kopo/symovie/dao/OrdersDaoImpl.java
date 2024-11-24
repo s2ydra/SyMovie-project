@@ -21,8 +21,8 @@ public class OrdersDaoImpl implements OrdersDao {
 
 
     @Override
-    public List<Orders> list(Long custNum) {
-        return sql.selectList("orders.list", custNum);
+    public List<Ordering> myOrders(Long custNum) {
+        return sql.selectList("orders.myOrders", custNum);
     }
 
     @Override
@@ -30,17 +30,6 @@ public class OrdersDaoImpl implements OrdersDao {
         return sql.selectOne("orders.item", orderNum);
     }
 
-    @Override
-    public Ordering ordering(Ordering orderItem) {
-
-        Map<String, Object> map = new HashMap<String, Object>();
-
-        map.put("movie", orderItem.getMovie());
-        map.put("orders", orderItem.getOrders());
-        map.put("orderDetail", orderItem.getOrderDetail());
-
-        return sql.selectOne("orders.ordering", map);
-    }
 
     @Override
     public void addOrders(Orders orders) {
@@ -58,8 +47,5 @@ public class OrdersDaoImpl implements OrdersDao {
     public void addOrderDetail(OrderDetail orderDetail) {
         sql.insert("orders.addOrderDetail", orderDetail);
     }
-
-
-
 
 }

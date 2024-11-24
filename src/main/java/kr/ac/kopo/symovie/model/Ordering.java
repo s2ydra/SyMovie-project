@@ -6,11 +6,30 @@ import java.util.Map;
 
 // Order에 관련된 데이터들이 많아, 임의의 Model 객체 생성
 public class Ordering {
-
     private Movie movie;
     private Orders orders;
     private OrderDetail orderDetail;
     private Customer customer;
+
+    private List<OrderFood> orderFoodList;
+
+    public List<OrderFood> getOrderFoodList() {
+        return orderFoodList;
+    }
+
+    public void setOrderFoodList(List<OrderFood> orderFoodList) {
+        this.orderFoodList = orderFoodList;
+    }
+
+    private List<Orders> ordersList;
+
+    public List<Orders> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Orders> ordersList) {
+        this.ordersList = ordersList;
+    }
 
     //JavaScript 에서 fetch로 리스트를 가지고올 때(list-popup)
     private List<Food> food;

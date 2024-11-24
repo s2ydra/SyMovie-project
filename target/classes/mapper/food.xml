@@ -53,9 +53,10 @@
 		</selectKey>
 	</insert>
 	
-	<select id="item" resultType="Food">
-		SELECT * FROM food
-		WHERE food_num = #{foodNum}
+	<select id="item" resultMap="foodMap">
+		SELECT food.*, food_image.food_image_num, food_image.food_num "food_num_image", food_image_filename, food_image_uuid
+		FROM food LEFT JOIN food_image ON (food.food_num = food_image.food_num)
+		WHERE food.food_num = #{foodNum}
 	</select>
 	
 	<update id="update">

@@ -9,7 +9,8 @@ body{
 	flex-direction: column;
 	justify-content: flex-start;
 	height:100vh;
-	overflow: auto;
+	overflow: hidden;
+	padding-bottom: 100px;
 }
 
 .movie-info-box {
@@ -308,7 +309,108 @@ td {
 	cursor: pointer;
 }
 
+.cart-btn{
+	border: 2px solid #4B52C7;
+	border-radius: 5px;
+	background: #4B52C7;
+	color: white;
+	font-size: 15px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+	min-width: 80px;
+	min-height: 30px;
+	margin-bottom: 10px;
+}
+
+.cart-btn:hover{
+	background: none;
+	color: #4B52C7;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+
+.order-btn{
+	background: #BE0000;
+	border: 2px solid #BE0000;
+	border-radius: 5px;
+	min-width: 80px;
+	min-height: 30px;
+	color: white;
+	font-weight: 500;
+	font-family: "Noto Sans";
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+.order-btn:hover{
+	background: none;
+	color: #BE0000;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+
+.update-btn{
+	background: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	min-width: 80px;
+	min-height: 30px;
+	font-size: 15px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+	color: black;
+}
+
+.update-btn:hover{
+	background: black;
+	color: white;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+
+.delete-btn{
+	background: none;
+	border: 1px solid red;
+	border-radius: 5px;
+	min-width: 80px;
+	min-height: 30px;
+	font-size: 15px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+	color: red;
+}
+
+.delete-btn:hover{
+	background: red;
+	color: white;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+
+.cust-btn-group{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	gap: 20px;
+	margin-right: 100px;
+}
 
 
+.back-btn{
+	background: none;
+	color: #DDDDDD;
+	min-width: 80px;
+	border: 2px solid #DDDDDD;
+	border-radius: 10px;
+	height:50px;
+	font-weight: 700;
+	font-family: "Noto Sans";
+	font-size: 20px;
+}
 
-
+.back-btn:hover{
+	background: #DDDDDD;
+	color: white;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}

@@ -6,6 +6,24 @@ import java.util.Map;
 public class OrderFood {
     private Long foodOrderingNum;
     private Long orderFoodNum;
+    private Long foodNum;
+    private int amount;
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public Long getFoodNum() {
+        return foodNum;
+    }
+
+    public void setFoodNum(Long foodNum) {
+        this.foodNum = foodNum;
+    }
 
     private List<OrderDetail> orderDetails;
 

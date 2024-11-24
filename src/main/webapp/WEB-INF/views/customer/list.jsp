@@ -42,57 +42,7 @@
 				<div><input type="text" name="movieKeyword"></div>
 					<div><button id="search-btn">검색</button></div>
 			</form>
-		</div>
-			<div class="genre-select-box">
-				<span class="genre-select-text">장르별 모아보기</span>
-			</div>
-			<div class="genre-select-button-group">
-				
-			
-				<div>
-					<button class="type-btn" type="button" 
-					onclick="location.href='/movie/list?movieSearch=3&movieKeyword=액션'">
-						<span class="genre-text">액션</span>
-					</button>
-				</div>
-				
-				<div>
-					<button class="type-btn" 
-					onclick="location.href='/movie/list?movieSearch=3&movieKeyword=로맨스'">
-						<span class="genre-text">로맨스</span>
-					</button>
-				</div>
-				<div>
-					<button class="type-btn" type="button" 
-					onclick="location.href='/movie/list?movieSearch=3&movieKeyword=액션'">
-						<span class="genre-text">멜로</span>
-					</button>
-				</div>
-				<div>
-					<button class="type-btn" type="button" 
-					onclick="location.href='/movie/list?movieSearch=3&movieKeyword=액션'">
-						<span class="genre-text">판타지</span>
-					</button>
-				</div>
-				<div>
-					<button class="type-btn" type="button" 
-					onclick="location.href='/movie/list?movieSearch=3&movieKeyword=액션'">
-						<span class="genre-text">공포</span>
-					</button>
-				</div>
-				<div>
-					<button class="type-btn" type="button" 
-					onclick="location.href='/movie/list?movieSearch=3&movieKeyword=액션'">
-						<span class="genre-text">코미디</span>
-					</button>
-				</div>
-				<div>
-					<button class="type-btn" type="button" 
-					onclick="location.href='/movie/list?movieSearch=3&movieKeyword=액션'">
-						<span class="genre-text">다큐멘터리</span>
-					</button>
-				</div>
-			</div>
+
 			<table class="customer-table">
 				<thead class="thead-row">
 					<tr>

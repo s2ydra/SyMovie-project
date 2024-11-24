@@ -2,53 +2,67 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="orders">
-    <select id="list" resultType="Orders">
-        SELECT * FROM orders
-        WHERE cust_num = #{orders.custNum}
-    </select>
 
 
-    <resultMap id="orderDetailMap" type="Ordering" autoMapping="true">
-        <id column="order_num" property="orderDetail.orderNum"/>
+    <resultMap id="ordersCustomerMap" type="Ordering">
+        <association property="customer" javaType="Customer">
+            <id column="cust_num" property="custNum"/>
+            <result column="cust_id" property="custId"/>
+            <result column="cust_passwd" property="custPasswd"/>
+            <result column="cust_name" property="custName"/>
+            <result column="cust_age" property="custAge"/>
+            <result column="cust_phone" property="custPhone"/>
+            <result column="cust_role" property="custRole"/>
+        </association>
 
-        <association property="orderDetail" column="order_num" autoMapping="true">
+        <association property="orderDetail" javaType="OrderDetail">
+            <id column="order_detail_num" property="ordersDetailNum"/>
+            <result column="order_detail.order_num" property="orderNum"/>
+            <result column="order_detail.movie_num" property="movieNum"/>
+            <result column="movie_amount" property="movieAmount"/>
+            <result column="order_detail.food_ordering_num" property="foodOrderingNum"/>
+            <result column="order_detail.order_food_num" property="OrderFoodNum"/>
+            <result column="set_num" property="setNum"/>
+            <result column="sum_price" property="sumPrice"/>
+            <result column="pickup_date" property="pickupDate"/>
+        </association>
+
+        <association property="movie" javaType="Movie">
+            <id column="movie.movie_num" property="movieNum"/>
+            <result column="movie_genre" property="movieGenre"/>
+            <result column="movie_name" property="movieName"/>
+            <result column="movie_director" property="movieDirector"/>
+            <result column="movie_opendate" property="movieOpendate"/>
+            <result column="movie_agerange" property="movieAgerange"/>
+            <result column="movie_country" property="movieCountry"/>
+            <result column="movie_price" property="moviePrice"/>
+            <result column="movie_info" property="movieInfo"/>
+        </association>
+
+        <association property="orders" javaType="Orders">
             <id column="order_num" property="orderNum"/>
+            <result column="my_cust_num" property="custNum"/>
+            <result column="order_date" property="orderDate"/>
         </association>
-    </resultMap>
 
-    <resultMap id="MovieMap" type="Ordering" extends="orderDetailMap" autoMapping="true">
-        <id property="movie.movieNum" column="movie_num"/>
-
-        <association property="movie" column="movie_num" javaType="Movie" autoMapping="true">
-            <id column="movie_num" property="movieNum"/>
-        </association>
-    </resultMap>
-
-    <resultMap id="ordersMap" type="Ordering" autoMapping="true">
-        <id column="order_num" property="orders.orderNum"/>
-
-        <association property="orders" column="order_num" javaType="Orders" autoMapping="true">
-            <id column="order_num" property="orderNum" />
-        </association>
-    </resultMap>
-
-    <resultMap id="foodOrderMap" type="OrderFood" autoMapping="true">
-        <id column="food_ordering_num" property="foodOrdering"/>
-
-        <collection property="orderDetail" column="orderFoodNum" autoMapping="true" javaType="ArrayList" ofType="OrderDetail">
-            <id column="food_ordering_num" property="foodOrderingNum"/>
+        <collection property="orderFoodList" javaType="ArrayList" ofType="OrderFood">
+            <result column="order_food.food_ordering_num" property="foodOrderingNum"/>
+            <result column="order_food.order_food_num" property="orderFoodNum"/>
+            <result column="food_num" property="foodNum"/>
+            <result column="amount" property="amount"/>
         </collection>
     </resultMap>
 
 
-    <select id="ordering" resultMap="orderDetailMap, MovieMap, ordersMap">
-        SELECT OD.ORDER_DETAIL_NUM, OD.ORDER_NUM order_num, OD.ORDER_FOOD_NUM, OD.FOOD_NUM, OD.SUM_PRICE,OD.PICKUP_DATE,
-        MOVIE.MOVIE_NUM movie_num, MOVIE.MOVIE_GENRE, MOVIE.MOVIE_NAME, MOVIE.MOVIE_DIRECTOR, MOVIE.MOVIE_OPENDATE, MOVIE.MOVIE_AGERANGE,
-        MOVIE.MOVIE_COUNTRY, MOVIE.MOVIE_PRICE, MOVIE.MOVIE_INFO
-        FROM order_detail OD JOIN MOVIE ON (OD.MOVIE_NUM = MOVIE.MOVIE_NUM)
-        WHERE OD.MOVIE_NUM = #{movie.movieNum}
-    </select>
 
+    <select id="myOrders" resultMap="ordersCustomerMap">
+        SELECT * FROM CUSTOMER LEFT JOIN ORDERS ON (CUSTOMER.CUST_NUM = ORDERS.CUST_NUM)
+        JOIN ORDER_DETAIL ON ORDERS.ORDER_NUM = ORDER_DETAIL.ORDER_NUM
+        LEFT JOIN ORDER_FOOD ON ORDER_DETAIL.FOOD_ORDERING_NUM = ORDER_FOOD.FOOD_ORDERING_NUM and ORDER_DETAIL.ORDER_FOOD_NUM = ORDER_FOOD.ORDER_FOOD_NUM
+        JOIN MOVIE ON (ORDER_DETAIL.MOVIE_NUM = MOVIE.MOVIE_NUM)
+        WHERE Orders.CUST_NUM = #{custNum}
+        ORDER BY ORDER_DETAIL.ORDER_DETAIL_NUM
+    </select>
 
 
     <insert id="addOrders">
@@ -66,8 +80,8 @@
             </selectKey>
 
         <foreach collection="foodMap" index="key" item="value" separator=";" open="DECLARE BEGIN" close="; END;">
-        INSERT INTO ORDER_FOOD
-        VALUES (#{foodOrderingNum}, ORDERFOOD_SEQ.nextval, #{key}, #{value})
+            INSERT INTO ORDER_FOOD
+            VALUES (#{foodOrderingNum}, ORDERFOOD_SEQ.nextval, #{key}, #{value})
         </foreach>
     </insert>
 

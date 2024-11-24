@@ -10,37 +10,47 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
-<script src="/resources/js/movie/add.js"></script>
+
+	<link rel="stylesheet" href="/resources/css/food/update.css">
 <title>먹거리정보 수정하기 - 관리자페이지</title>
 </head>
 <body>
-	<div>
-		<div>
-			<h3>먹거리정보 수정</h3>
+<div id="nav">
+	<jsp:include page="../nav.jsp"></jsp:include>
+</div>
+	<div class="container">
+		<div class="food-update-form-box">
+		<div class="food-title-box">
+			<h3 class="food-update-title">먹거리정보 수정</h3>
 		</div>
 		<div>
 			<form method="post">
-				<div>
-					<label>먹거리명</label>
+				<div class="food-update-form">
+				<div class="food-name-input">
+					<label>먹거리명 : </label>
 					<input type="text" name="foodName" value="${item.foodName}">
 				</div>
+				<div class="food-inputs">
 				<div>
-					<label>먹거리유형</label>
+					<label>먹거리유형 : </label>
 					<input type="text" name="foodType" value="${item.foodType}">
 				</div>
 				<div>
-					<label>가격</label>
+					<label>가격 : </label>
 					<input type="number" name="foodPrice" value="${item.foodPrice}">
+				</div>
+				</div>
 				</div>
 				<div>
 					<label>먹거리소개</label>
 					<textarea name="foodInfo" id="foodInfo">${item.foodInfo}</textarea>
 				</div>
-				<div>
-					<button>수정완료</button>
-					<button type="button" onclick="location.href='../list'">취소</button>
+				<div class="btn-group">
+					<button class="confirm-btn">수정완료</button>
+					<button class="cancel-btn" type="button" onclick="location.href='../list'">취소</button>
 				</div>
 			</form>
+		</div>
 		</div>
 	</div>
 	<script type="text/javascript">

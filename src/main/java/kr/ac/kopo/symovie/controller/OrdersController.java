@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,9 +43,14 @@ public class OrdersController {
     @GetMapping("/list")
     public String list(Model model, @SessionAttribute Customer member) {
 
-        List<Orders> list = service.list(member.getCustNum());
+        // 받아와야하는 정보
+        // list = 영화제목(Movie), 티켓매수(OrderDetail), 먹거리 주문건수(orderFood.size), 총 금액(OrderDetail), 주문일시
+        // OrderDetail - movie / orders - OrderDetail  / orderFood - orderDetail
+        // custId 로 orders -> orderDetail -> Movie, orderFood
 
-        model.addAttribute("list", list);
+        List<Ordering> ordersList = service.myOrders(member.getCustNum());
+
+        model.addAttribute("ordersList", ordersList);
 
         return path + "list";
     }

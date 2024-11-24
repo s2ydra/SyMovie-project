@@ -9,10 +9,11 @@ import org.springframework.core.annotation.Order;
 import java.util.List;
 
 public interface OrdersService {
-    List<Orders> list(Long custNum);
 
     Orders item(Long orderNum);
 
     void reserve(Ordering ordering);
 
+
+    List<Ordering> myOrders(Long custNum);
 }

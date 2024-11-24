@@ -13,54 +13,68 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css"
 	rel="stylesheet">
+	<link rel="stylesheet" href="/resources/css/movie/update.css">
 <script
 	src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
 </head>
 <body>
-	<div>
+<jsp:include page="../nav.jsp"></jsp:include>
+	<div class="container">
+		<div class="update-box">
 		<div>
-			<h3>영화정보수정</h3>
+			<h3 class="update-title">영화정보수정</h3>
 		</div>
-		<div>
-			<form method="post">
-				<div>
-					<label>영화제목</label>
-					<input type="text" name="movieName" value="${item.movieName}">
+		<div class="form-box">
+			<form method="post" enctype="multipart/form-data">
+				<div class="movie-name-box">
+					<label class="movie-name-lable">영화제목</label>
+					<input class="movie-name-input" type="text" name="movieName" value="${item.movieName}">
 				</div>
-				<div>
-					<label>장르</label>
-					<input type="text" name="movieGenre" value="${item.movieGenre}">
+				<div class="inputs">
+				<div class="left-inputs">
+					<div>
+						<label>장르</label>
+						<input class="movie-input" type="text" name="movieGenre" value="${item.movieGenre}">
+					</div>
+					<div>
+						<label>개봉일자</label>
+						<input class="movie-input" type="date" name="movieOpendate"
+							   value="<fmt:formatDate value="${item.movieOpendate}" pattern="yyyy-MM-dd"/>">
+					</div>
+					<div>
+						<label>제작국가</label>
+						<input class="movie-input" type="text" name="movieCountry" value="${item.movieCountry}">
+					</div>
 				</div>
-				<div>
-					<label>감독</label>
-					<input type="text" name="movieDirector" value="${item.movieDirector}">
+				<div class="right-inputs">
+					<div>
+						<label>감독</label>
+						<input class="movie-input" type="text" name="movieDirector" value="${item.movieDirector}">
+					</div>
+					<div>
+						<label>연령대</label>
+						<input class="movie-input" type="text" name="movieAgerange" value="${item.movieAgerange}">
+					</div>
+					<div>
+						<label>가격</label>
+						<input class="movie-input" type="number" name="moviePrice" value="${item.moviePrice}">
+					</div>
 				</div>
-				<div>
-					<label>개봉일자</label>
-					<input type="date" name="movieOpendate" 
-					value="<fmt:formatDate value="${item.movieOpendate}" pattern="yyyy-MM-dd"/>">
-				</div>
-				<div>
-					<label>연령대</label>
-					<input type="text" name="movieAgerange" value="${item.movieAgerange}">
-				</div>
-				<div>
-					<label>제작국가</label>
-					<input type="text" name="movieCountry" value="${item.movieCountry}">
-				</div>
-				<div>
-					<label>가격</label>
-					<input type="number" name="moviePrice" value="${item.moviePrice}">
 				</div>
 				<div>
 					<label>영화소개</label>
 					<textarea id="movieInfo" name="movieInfo">${item.movieInfo}</textarea>
 				</div>
-				<div>
-					<button>변경완료</button>
-					<button type="button" onclick="location.href='../list'">취소</button>
+				<div class="file-input-box">
+					<label>파일 선택</label>
+					<input type="file" name="uploadFile">
+				</div>
+				<div class="btn-group">
+					<button class="update-confirm">변경완료</button>
+					<button class="cancel-btn" type="button" onclick="location.href='../list'">취소</button>
 				</div>
 			</form>
+		</div>
 		</div>
 	</div>
 	<script type="text/javascript">

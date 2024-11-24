@@ -9,18 +9,21 @@
 <title>SY Movie - Movie List</title>
 
 <script src="/resources/js/movie/list.js"></script>
-<link rel="stylesheet" href="/resources/js/movie/detail.js">
+<link rel="stylesheet" href="/resources/js/orders/orderMovie.js">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
 
 <link rel="stylesheet" href="/resources/css/movie/list.css">
 <link rel="stylesheet" href="/resources/css/nav.css">
+	<script src="/resources/js/movie/list.js"></script>
 <script>
 	let agerangeSort = false;
 </script>
 </head>
 <body>
+	<div id="nav">
 	<jsp:include page="../nav.jsp"></jsp:include>
+	</div>
 	<div class="container">	
 
 		<div class="movie-info-box">
@@ -151,10 +154,11 @@
 								<td>${item.moviePrice} 원</td>
 								<c:if test="${sessionScope.member.custRole == 99 }">
 								<td colspan="2">
-									<button type="button" class="action">장바구니</button>
-										<button type="button" class="action"
-										onclick="location.href='orders/${item.movieNum}'">예매하기</button>
-									<button type="button"
+									<button type="button" class="action cart-btn" data-login = "${sessionScope.member != null}"
+											data-type="cart" data-movienum ="${item.movieNum}" >장바구니</button>
+										<button type="button" class="action order-btn" data-login = "${sessionScope.member != null}" data-type="order"
+												data-movienum ="${item.movieNum}" id="order-btn">예매하기</button>
+									<button type="button" class="update-btn"
 										onclick="location.href='update/${item.movieNum}'">변경</button>
 									<button class="delete-btn" type="button"
 										data-movienum="${item.movieNum}">삭제</button>
@@ -162,9 +166,10 @@
 								</c:if>
 								<c:if test="${sessionScope.member.custRole != 99 || sessionScope.member == null}">
 								<td colspan="2">
-									<button type="button">장바구니</button>
-										<button type="button"
-										onclick="location.href='order/${item.movieNum}'">예매하기</button>
+									<button type="button" class="action cart-btn" id="cart-btn"
+											data-movienum ="${item.movieNum}" data-type="cart" data-login = "${sessionScope.member != null}">장바구니</button>
+										<button type="button" class="action order-btn" data-login = "${sessionScope.member != null}" data-type="order"
+												data-movienum ="${item.movieNum}">예매하기</button>
 								</td>
 								</c:if>
 							</tr>
@@ -188,6 +193,7 @@
 			</div>
 			
 		</div>
+		<c:if test="${sessionScope.member.custRole == 99}">
 		<div class="add-btn-box">
 				<div class="add-btn-frame">
 					<button type="button" onclick="location.href = 'dummy'">대량추가(페이지 테스트)</button>
@@ -195,6 +201,12 @@
 					<button type="button" onclick="location.href='add'" class="add-btn">추가하기</button>
 				</div>
 			</div>
+		</c:if>
+		<c:if test="${sessionScope.member == null || sessionScope.member.custRole != 99}">
+			<div class="cust-btn-group">
+				<button class="back-btn" type="button" onclick="location.href='..'">이전으로</button>
+			</div>
+		</c:if>
 	</div>
 </body>
 </html>

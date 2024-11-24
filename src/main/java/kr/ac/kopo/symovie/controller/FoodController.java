@@ -115,4 +115,14 @@ public class FoodController {
 		
 		return "OK";
 	}
+
+	@GetMapping("/detail/{foodNum}")
+	String detail(@PathVariable Long foodNum, Model model) {
+
+		Food item = service.item(foodNum);
+
+		model.addAttribute("item", item);
+
+		return foodPath + "detail";
+	}
 }

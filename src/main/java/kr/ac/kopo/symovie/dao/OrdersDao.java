@@ -10,11 +10,11 @@ import java.util.Map;
 import java.util.Set;
 
 public interface OrdersDao {
-    List<Orders> list(Long custNum);
+
 
     Orders item(Long orderNum);
 
-    Ordering ordering(Ordering orderItem);
+
 
 
 
@@ -24,4 +24,5 @@ public interface OrdersDao {
 
     void addOrders(Orders orders);
 
+    List<Ordering> myOrders(Long custNum);
 }

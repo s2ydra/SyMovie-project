@@ -18,13 +18,24 @@ public class Movie {
 	private String movieCountry;
 	private Long moviePrice;
 	private String movieInfo;
-	
+
+	private List<OrderDetail> orderDetail;
+
+
 	private MovieImage movieImage;
 
 	private List<Orders> orders;
 
 	public List<Orders> getOrders() {
 		return orders;
+	}
+
+	public List<OrderDetail> getOrderDetail() {
+		return orderDetail;
+	}
+
+	public void setOrderDetail(List<OrderDetail> orderDetail) {
+		this.orderDetail = orderDetail;
 	}
 
 	public void setOrders(List<Orders> orders) {
