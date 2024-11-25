@@ -27,6 +27,7 @@
               <th>티켓매수</th>
               <th>총 금액</th>
               <th>주문일시</th>
+                <th>임시</th>
               <th colspan="2">MORE</th>
             </tr>
           </thead>
@@ -44,6 +45,9 @@
                     <td>${item.orderDetail.movieAmount}</td>
                     <td>${item.orderDetail.sumPrice}</td>
                     <td><fmt:formatDate value="${item.orders.orderDate}" pattern="yyyy년 MM월 dd일"></fmt:formatDate></td>
+                    <td>
+                        ${item.orderDetail.foodOrderingNum}
+                    </td>
                     <td>
                         <button type="button" id="cancel-btn">취소</button>
                     </td>
