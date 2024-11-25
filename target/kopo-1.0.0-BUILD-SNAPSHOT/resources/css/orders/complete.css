@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.complete-box{
+    margin-top: 100px;
+}
+
+#complete-img{
+    min-width: 170px;
+    min-height: 170px;
+}

@@ -156,7 +156,12 @@ public class OrdersController {
 
         service.reserve(ordering);
 
-        return "orders/list";
+        return "redirect:../complete";
     }
 
+
+    @GetMapping("/complete")
+    String complete(@SessionAttribute Customer member) {
+        return path + "complete";
+    }
 }

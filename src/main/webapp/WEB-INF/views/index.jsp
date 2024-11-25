@@ -67,13 +67,13 @@
 						</div>
 						<div class="input-group">
 							<div>
-								<select name="MovieGenre" class="movie-select-box">
-									<option value="1" autofocus="autofocus">먹거리명</option>
-									<option value="2">유형</option>
+								<select name="foodSearch" class="movie-select-box">
+									<option value="6" autofocus="autofocus">먹거리명</option>
+									<option value="7">유형</option>
 								</select>
 							</div>
 							<div>
-								<input type="text" name="foodQuery" class="movie-input-box">
+								<input type="text" name="foodKeyword" class="movie-input-box">
 							</div>
 							<div>
 								<button class="search-btn">검색</button>
