@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-area{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 80%;
+    margin-top: 120px;
+}
+
+.list-title{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.list-title h3{
+    color: #BE0000;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: "Noto Sans";
+    padding: 0;
+    margin: 0;
+}
+
+.list-title span{
+    color: #BE0000;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: "Noto Sans";
+}
+
+.table-area{
+    display: flex;
+    min-width: 100%;
+}
+
+.table-area table{
+    min-width: 100%;
+}
+
+th {
+    background: #BE0000;
+    color: white;
+    text-align: center;
+    align-content: center;
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    min-height: 70px;
+    padding: 10px 0;
+    border-top: 2px solid #BE0000;
+    border-bottom: 2px solid #BE0000;
+}
+
+
+.event-title-td{
+    min-width: 600px;
+}
+
+.event-title{
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+}
+
+.event-td{
+    color: #000;
+    text-align: center;
+    font-family: "Noto Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    align-content: center;
+    min-width: 200px;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 15px 0;
+}
+
+.update-btn{
+    min-width: 80px;
+    min-height: 30px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: "Noto Sans";
+}
+
+.update-btn:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.delete-btn{
+    background: none;
+    min-width: 80px;
+    min-height: 30px;
+    border: 1px solid red;
+    border-radius: 5px;
+    color: red;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.delete-btn:hover{
+    background: red;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}

@@ -9,10 +9,15 @@ window.addEventListener("load", () => {
         fetch(`/coupon/addCoupon/${couponNum}`)
         .then(resp => resp.text())
         .then(result => {
-            if(result === "ok")
-            alert(`${couponNum}번 쿠폰 받기 성공!`);
-            else
+            if(result === "ok"){
+                alert(`${couponNum}번 쿠폰 받기 성공!`);
+            }
+            else if(result === "error") {
+                alert("이미 보유하신 쿠폰입니다.");
+            }
+            else{
                 alert("쿠폰 받기 실패");
+            }
         });
 
     })

@@ -5,37 +5,42 @@ window.postLogin = type =>{
     window.location.href= `/orders/orderMovie/${indexMovieNum}`;
 };
 
-const order = () => {
+const order = (indexMovieNum) => {
     window.location.href= `/orders/orderMovie/${indexMovieNum}`;
 }
 
 
 window.addEventListener("load", () => {
-   document.querySelector(".reserve-btn").addEventListener("click", e => {
-       e.preventDefault();
+        let orderBtn = document.querySelectorAll(".reserve-btn");
 
-       const { movienum, login } = e.target.dataset;
+            orderBtn.forEach(btn => {
+                btn.addEventListener("click", e => {
+                    e.preventDefault();
 
-        indexMovieNum = movienum;
+                    const { movienum, login } = e.target.dataset;
 
-       if(login === "true"){
-               order();
-       }
-       else{
-           alert("로그인이 필요한 서비스입니다.");
+                    indexMovieNum = movienum;
 
-           const width = 600;
-           const height = 700;
-           const left = window.screenX + ((window.screen.width - width) /2);
-           const top = window.screenY + ((window.screen.height - height) /2);
+                    if(login === "true"){
+                        order(indexMovieNum);
+                    }
+                    else{
+                        alert("로그인이 필요한 서비스입니다.");
 
-           console.log(window.screen.width);
-           console.log(window.screen.height);
+                        const width = 600;
+                        const height = 700;
+                        const left = window.screenX + ((window.screen.width - width) /2);
+                        const top = window.screenY + ((window.screen.height - height) /2);
 
-           window.open(`/login/order/popup`, "login_popup", `left=${left},top = ${top}, width = ${width}, height = ${height}`);
+                        console.log(window.screen.width);
+                        console.log(window.screen.height);
+
+                        window.open(`/login/order/popup`, "login_popup", `left=${left},top = ${top}, width = ${width}, height = ${height}`);
 
 
-       }
-   })
+                    }
+            });
+
+   });
 
 });

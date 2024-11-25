@@ -10,4 +10,9 @@ public interface CouponService {
     void addCoupon(CouponCustomer coupon);
 
     List<Coupon> myCoupon(Long custNum);
+
+    boolean hasCheck(CouponCustomer item);
+
+
+    Coupon item(Long couponNum);
 }

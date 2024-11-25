@@ -28,21 +28,31 @@ public class CouponController {
 	@Autowired
 	CouponService service;
 
+
+
 	@ResponseBody
 	@GetMapping("/addCoupon/{couponNum}")
 	String addCoupon(@PathVariable Long couponNum, @SessionAttribute Customer member) {
 
 			CouponCustomer item = new CouponCustomer();
 
+
 			item.setCouponNum(couponNum);
 			item.setCustNum(member.getCustNum());
 
+		if(!service.hasCheck(item)){
 			System.out.println(item.getCouponNum());
 			System.out.println(item.getCustNum());
 
 			service.addCoupon(item);
 
 			return "ok";
+		}else if(service.hasCheck(item)){
+			return "error";
+		}else {
+			return "systemError";
+		}
+
 	}
 
 	@GetMapping("/list")
@@ -53,5 +63,19 @@ public class CouponController {
 		model.addAttribute("list", list);
 
 		return path + "list";
+	}
+
+	@GetMapping("/list-popup")
+	String couponPopup(Model model, @SessionAttribute Customer member) {
+		List<Coupon> list = service.myCoupon(member.getCustNum());
+		model.addAttribute("list", list);
+		return path + "list-popup";
+	}
+
+	@ResponseBody
+	@GetMapping("/item/{couponNum}")
+	Coupon couponItem(@PathVariable Long couponNum, @SessionAttribute Customer member) {
+
+        return service.item(couponNum);
 	}
 }

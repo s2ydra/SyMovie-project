@@ -1,9 +1,10 @@
 const checkNum = JSON.parse(sessionStorage.getItem("checkedItem"));
 let isChanged = false;
 let isChangeSelect = false;
+let isAddCoupon = false;
 let allSumPrice = document.getElementById("all-sumPrice");
 
-const calcPrice = (moviePrice, movieAmount, foodPriceAll) => {
+const calcPrice = (moviePrice, movieAmount, foodPriceAll, discount) => {
     let foodPriceTd = document.querySelectorAll(".food-price");
     let foodPrice = 0;
 
@@ -19,14 +20,22 @@ const calcPrice = (moviePrice, movieAmount, foodPriceAll) => {
             foodPriceAll += parseInt(item.textContent);
         });
     }
-    document.getElementById("finalPrice").textContent = (moviePrice * movieAmount) + foodPriceAll;
-    //allSumPrice.value = (moviePrice * movieAmount) + foodPriceAll;
-}
+        // document.getElementById("finalPrice").textContent = (moviePrice * movieAmount) + foodPriceAll;
+        //allSumPrice.value = (moviePrice * movieAmount) + foodPriceAll;
+        document.getElementById("finalPrice").textContent = ((moviePrice * movieAmount) + foodPriceAll)-(((moviePrice * movieAmount) + foodPriceAll) * discount);
+
+    }
 
 
 const calcDefaultPrice = (moviePrice, movieAmount) => {
     document.getElementById("finalPrice").textContent = (moviePrice * movieAmount);
     //allSumPrice.value = (moviePrice * movieAmount);
+}
+
+
+const addCouponPrice = (finalPrice, discountRate) => {
+
+    document.getElementById("finalPrice").textContent = finalPrice - (finalPrice * discountRate);
 }
 
 window.payment = final => {
@@ -83,7 +92,7 @@ window.addEventListener("load", () => {
     let changedSelect = 0;
     let isChangeSelect = false;
     let foodSumPrice = document.getElementById("foodFinalPrice");
-
+    let discount = 0;
 
     foodRow.forEach(tr => {
         if (!isChangeSelect) {
@@ -103,7 +112,6 @@ window.addEventListener("load", () => {
 
                 foodSumPrice.textContent += parseInt(price.textContent);
 
-
             });
         }
     });
@@ -112,11 +120,13 @@ window.addEventListener("load", () => {
     document.querySelector("input[name='movieAmount']").addEventListener("change", e => {
         isChanged = true;
 
+        console.log(discount);
+
         changedAmount = e.target.value;
 
         if (hasFood.contains("hide")) {
-            document.getElementById("finalPrice").textContent = (moviePrice * changedAmount);
-            allSumPrice.value = (moviePrice * changedAmount);
+            document.getElementById("finalPrice").textContent = (moviePrice * changedAmount)-((moviePrice * changedAmount)*discount);
+            // allSumPrice.value = (moviePrice * changedAmount);
         } else {
             let foodPriceTd = document.querySelectorAll(".food-price");
             let foodPriceAll = 0;
@@ -129,7 +139,7 @@ window.addEventListener("load", () => {
                 foodPriceAll = foodExPrice;
             }
 
-            calcPrice(moviePrice, changedAmount, foodPriceAll);
+            calcPrice(moviePrice, changedAmount, foodPriceAll, discount);
 
             console.log(foodPriceAll);
 
@@ -159,7 +169,7 @@ window.addEventListener("load", () => {
             changePrices.forEach(price => {
                 changeSumPrice += parseInt(price.textContent);
 
-                calcPrice(moviePrice, movieAmount, changeSumPrice);
+                calcPrice(moviePrice, movieAmount, changeSumPrice, discount);
 
                 foodExPrice = changeSumPrice;
                 // document.getElementById("finalPrice").textContent = (moviePrice * movieAmount) + changeSumPrice;
@@ -207,9 +217,9 @@ window.addEventListener("load", () => {
                                     console.log(sumPrice);
 
                                     if (!isChanged) {
-                                        document.getElementById("finalPrice").textContent = (moviePrice * movieAmount) + sumPrice;
+                                        document.getElementById("finalPrice").textContent = ((moviePrice * movieAmount) + sumPrice) - (((moviePrice * movieAmount) + sumPrice) * discount);
                                     } else {
-                                        document.getElementById("finalPrice").textContent = (moviePrice * changedAmount) + sumPrice;
+                                        document.getElementById("finalPrice").textContent = ((moviePrice * changedAmount) + sumPrice) - (((moviePrice * changedAmount) + sumPrice)*discount);
                                     }
                                 });
                         }
@@ -238,5 +248,43 @@ window.addEventListener("load", () => {
         });
 
     });
+
+   document.getElementById("add-coupon").addEventListener("click", e =>{
+       const width = 1200;
+       const height = 800;
+       const left = window.screenX + ((window.screen.width - width) / 2);
+       const top = window.screenY + ((window.screen.height - height) / 2);
+
+       const couponPop = window.open(`/coupon/list-popup`, "coupon/list-popup", `left=${left},top = ${top}, width = ${width}, height = ${height}`);
+
+
+       couponPop.onbeforeunload = function () {
+           console.log(localStorage.getItem("couponNum"));
+
+           isAddCoupon = true;
+
+           let couponNum = localStorage.getItem("couponNum")
+
+           fetch(`/coupon/item/${couponNum}`)
+               .then(resp => resp.json())
+               .then(result => {
+                   let couponName = document.getElementById("coupon-name");
+
+                   couponName.classList.remove("hide");
+                   couponName.textContent =  result.couponName + `(${result.discountRate} %)`;
+
+                   let finalPrice = document.getElementById("finalPrice").textContent;
+
+                   console.log(finalPrice);
+                   console.log(result.discountRate * 0.01)
+
+                   let discountRate = result.discountRate * 0.01;
+
+                   discount = discountRate;
+
+                   addCouponPrice(finalPrice, discountRate);
+               })
+       }
+   });
 
 });

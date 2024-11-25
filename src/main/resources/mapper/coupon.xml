@@ -22,5 +22,15 @@
 		FROM COUPON C LEFT JOIN COUPON_CUSTOMER CC ON (C.COUPON_NUM = CC.COUPON_NUM)
 		WHERE cust_num = #{custNum}
 	</select>
-	
+
+
+	<select id="forCheck" resultType="CouponCustomer">
+		SELECT * FROM COUPON_CUSTOMER
+		WHERE cust_num = #{custNum} AND coupon_num = #{couponNum}
+	</select>
+
+	<select id="item" resultType="Coupon">
+		SELECT * FROM coupon
+		WHERE coupon_num = #{couponNum}
+	</select>
 </mapper>

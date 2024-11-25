@@ -23,4 +23,14 @@ public class CouponDaoImpl implements CouponDao {
     public List<Coupon> myCoupon(Long custNum) {
         return sql.selectList("coupon.myCoupon", custNum);
     }
+
+    @Override
+    public CouponCustomer forCheck(CouponCustomer item) {
+        return sql.selectOne("coupon.forCheck", item);
+    }
+
+    @Override
+    public Coupon item(Long couponNum) {
+        return sql.selectOne("coupon.item", couponNum);
+    }
 }

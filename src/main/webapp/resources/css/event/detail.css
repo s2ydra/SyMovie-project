@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-info-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 70px;
+    min-width: 800px;
+    border: 2px solid #DDDDDD;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.event-title-area h3{
+    color: #BE0000;
+    font-family: "Noto Sans";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.event-info-area h5{
+    color: #BE0000;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.event-info-text-box{
+    border: 1px solid #DDDDDD;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.get-coupon-area button{
+    background: #BE0000;
+    border: 2px solid #BE0000;
+    color: white;
+    min-width: 80px;
+    min-height: 35px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.get-coupon-area button:hover{
+    background: none;
+    color: #BE0000;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.back-btn-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.back-btn-area button{
+    background: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+    min-width: 120px;
+    min-height: 40px;
+}
+
+.back-btn-area button:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}

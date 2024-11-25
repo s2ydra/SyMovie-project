@@ -24,4 +24,24 @@ public class CouponServiceImpl implements CouponService {
     public List<Coupon> myCoupon(Long custNum) {
         return dao.myCoupon(custNum);
     }
+
+    @Override
+    public boolean hasCheck(CouponCustomer item) {
+
+        CouponCustomer hasCheck = dao.forCheck(item);
+
+        if(hasCheck == null){
+            return false;
+        }
+        else{
+            return true;
+        }
+        }
+
+    @Override
+    public Coupon item(Long couponNum) {
+        return dao.item(couponNum);
+    }
+
+
 }

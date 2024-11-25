@@ -10,4 +10,8 @@ public interface CouponDao {
     void takeCoupon(CouponCustomer coupon);
 
     List<Coupon> myCoupon(Long custNum);
+
+    CouponCustomer forCheck(CouponCustomer item);
+
+    Coupon item(Long couponNum);
 }

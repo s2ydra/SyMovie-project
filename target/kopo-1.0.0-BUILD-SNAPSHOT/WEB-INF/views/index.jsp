@@ -26,7 +26,7 @@
 						<span class="btn-text">영화 예매 하러가기</span> <span class="btn-simbol">></span>
 					</button>
 					<button type="button" class="mine-btn-box"
-						onclick="location.href='.'">
+						onclick="location.href='/orders/list'">
 						<span class="mine-btn-text">나의 예매현황</span> <span
 							class="mine-btn-simbol">></span>
 					</button>
@@ -37,7 +37,7 @@
 					<span class="search-info-text">원하시는 서비스를 빠르게 찾아보세요!</span>
 				</div>
 				<div class="search-form-box">
-					<form class="movie-form" action="movie/list?${pager.query}">
+					<form class="movie-form" action="/movie/list?${pager.query}">
 
 						<div>
 							<div class="label-box">
@@ -88,7 +88,7 @@
 				<p class="recent-list-text">최신 개봉 영화</p>
 			</div>
 			<div class="recent-img-group-1">
-				<c:forEach var="item" items="${list}" end="4">
+				<c:forEach var="item" items="${list}" begin="0" end="4">
 					<div class="recent-img-box">
 						<img class="recent-img"
 							src="/upload/${item.movieImage.movieImageFilename}_${item.movieImage.movieImageUuid}">

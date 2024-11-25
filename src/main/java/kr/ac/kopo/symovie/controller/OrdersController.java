@@ -156,7 +156,7 @@ public class OrdersController {
 
         service.reserve(ordering);
 
-        return "index";
+        return "orders/list";
     }
 
 }
