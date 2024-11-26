@@ -1,5 +1,7 @@
 package kr.ac.kopo.symovie.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class OrderDetail {
@@ -10,7 +12,20 @@ public class OrderDetail {
     private Long foodOrderingNum;
     private Long setNum;
     private Long sumPrice;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date runTime;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date pickupDate;
+
+    public Date getRunTime() {
+        return runTime;
+    }
+
+    public void setRunTime(Date runTime) {
+        this.runTime = runTime;
+    }
 
     public Long getMovieNum() {
         return movieNum;

@@ -25,4 +25,12 @@ public interface OrdersDao {
     void addOrders(Orders orders);
 
     List<Ordering> myOrders(Long custNum);
+
+    Ordering itemAsNum(Long orderDetailNum);
+
+    void deleteOrderDetail(Long orderDetailNum);
+
+    void deleteOrderFood(Long foodOrderingNum);
+
+    void deleteOrders(Long orderNum);
 }

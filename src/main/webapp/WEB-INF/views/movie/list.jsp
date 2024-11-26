@@ -134,7 +134,7 @@
 								<td>${item.movieNum}</td>
 								<c:if test="${item.movieImage == null}">
 									<td>
-										No Image
+										<img class="movie-image" src="/resources/img/no-image.png">
 									</td>
 								</c:if>
 								<c:if test="${item.movieImage != null}">

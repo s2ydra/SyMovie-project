@@ -122,4 +122,14 @@
 		</where>
 	</select>
 
+	<update id="update_image">
+		UPDATE MOVIE_IMAGE
+		SET MOVIE_IMAGE_FILENAME = #{movieImageFilename}, MOVIE_IMAGE_UUID = #{movieImageUuid}
+		WHERE movie_num = #{movieNum}
+	</update>
+
+	<select id="itemImage" resultType="MovieImage">
+		SELECT * FROM MOVIE_IMAGE WHERE movie_num = #{movieNum}
+	</select>
+
 </mapper>

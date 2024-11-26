@@ -26,6 +26,26 @@ public class OrdersDaoImpl implements OrdersDao {
     }
 
     @Override
+    public Ordering itemAsNum(Long orderDetailNum) {
+        return sql.selectOne("orders.itemAsNum", orderDetailNum);
+    }
+
+    @Override
+    public void deleteOrderDetail(Long orderDetailNum) {
+        sql.delete("orders.deleteOrderDetail", orderDetailNum);
+    }
+
+    @Override
+    public void deleteOrderFood(Long foodOrderingNum) {
+        sql.delete("orders.deleteOrderFood", foodOrderingNum);
+    }
+
+    @Override
+    public void deleteOrders(Long orderNum) {
+        sql.delete("orders.deleteOrders", orderNum);
+    }
+
+    @Override
     public Orders item(Long orderNum) {
         return sql.selectOne("orders.item", orderNum);
     }

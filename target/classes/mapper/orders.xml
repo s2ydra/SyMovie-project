@@ -24,6 +24,7 @@
             <result column="order_detail.order_food_num" property="OrderFoodNum"/>
             <result column="set_num" property="setNum"/>
             <result column="sum_price" property="sumPrice"/>
+            <result column="run_time" property="runTime"/>
             <result column="pickup_date" property="pickupDate"/>
         </association>
 
@@ -64,6 +65,16 @@
         ORDER BY ORDER_DETAIL.ORDER_DETAIL_NUM
     </select>
 
+    <select id="itemAsNum" resultMap="ordersCustomerMap">
+        SELECT distinct * FROM CUSTOMER LEFT JOIN ORDERS ON (CUSTOMER.CUST_NUM = ORDERS.CUST_NUM)
+        JOIN ORDER_DETAIL ON ORDERS.ORDER_NUM = ORDER_DETAIL.ORDER_NUM
+        LEFT JOIN ORDER_FOOD ON ORDER_DETAIL.FOOD_ORDERING_NUM = ORDER_FOOD.FOOD_ORDERING_NUM and ORDER_DETAIL.ORDER_FOOD_NUM = ORDER_FOOD.ORDER_FOOD_NUM
+        JOIN MOVIE ON (ORDER_DETAIL.MOVIE_NUM = MOVIE.MOVIE_NUM)
+        WHERE ORDER_DETAIL.ORDER_DETAIL_NUM = #{orderDetailNum}
+    </select>
+
+
+
 
     <insert id="addOrders">
         INSERT INTO orders
@@ -87,9 +98,30 @@
 
     <insert id="addOrderDetail">
         INSERT INTO order_detail
+        <if test="foodOrderingNum != null">
         VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{movieNum}, #{movieAmount}, #{foodOrderingNum}, NULL, NULL,
-        #{sumPrice}, SYSDATE)
+        #{sumPrice}, #{runTime},SYSDATE)
+        </if>
+        <if test="foodOrderingNum == null">
+            VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{movieNum}, #{movieAmount}, NULL, NULL, NULL,
+            #{sumPrice}, #{runTime},SYSDATE)
+        </if>
     </insert>
 
+
+    <delete id="deleteOrderDetail">
+        DELETE FROM ORDER_DETAIL
+        WHERE ORDER_DETAIL_NUM = #{orderDetailNum}
+    </delete>
+
+    <delete id="deleteOrderFood">
+        DELETE FROM ORDER_FOOD
+        WHERE FOOD_ORDERING_NUM = #{foodOrderingNum}
+    </delete>
+
+    <delete id="deleteOrders">
+        DELETE FROM ORDERS
+        WHERE order_num = #{orderNum}
+    </delete>
 
 </mapper>

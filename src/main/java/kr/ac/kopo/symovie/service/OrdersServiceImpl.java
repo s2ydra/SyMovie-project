@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
@@ -32,21 +33,56 @@ public class OrdersServiceImpl implements OrdersService {
         dao.addOrders(ordering.getOrders());
 
         if(ordering.getOrderFood() != null) {
-        dao.addOrderFood(ordering.getOrderFood());
+            if(ordering.getOrderFood().getFoodMap() != null && !ordering.getOrderFood().getFoodMap().isEmpty()){
+                dao.addOrderFood(ordering.getOrderFood());
+            }
+
         }
 
         OrderDetail orderDetail = ordering.getOrderDetail();
         orderDetail.setOrderNum(ordering.getOrders().getOrderNum());
-        orderDetail.setFoodOrderingNum(ordering.getOrderFood().getFoodOrderingNum());
+
+        if(ordering.getOrderFood() != null) {
+            if(ordering.getOrderFood().getFoodMap() != null && !ordering.getOrderFood().getFoodMap().isEmpty()) {
+                orderDetail.setFoodOrderingNum(ordering.getOrderFood().getFoodOrderingNum());
+            }
+        }else{
+            orderDetail.setFoodOrderingNum(null);
+        }
 
         dao.addOrderDetail(orderDetail);
-
-
     }
 
     @Override
     public List<Ordering> myOrders(Long custNum) {
         return dao.myOrders(custNum);
+    }
+
+    @Override
+    public boolean itemAsNum(Long orderDetailNum) {
+        Ordering ordering = dao.itemAsNum(orderDetailNum);
+
+        if(ordering.getOrderDetail() != null && ordering.getOrders() != null) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Transactional
+    @Override
+    public void deleteOrder(Long orderDetailNum) {
+
+        Ordering ordering = dao.itemAsNum(orderDetailNum);
+
+        dao.deleteOrderDetail(orderDetailNum);
+
+        if(ordering.getOrderFoodList() != null && !ordering.getOrderFoodList().isEmpty()){
+            dao.deleteOrderFood(ordering.getOrderFood().getFoodOrderingNum());
+        }
+
+        dao.deleteOrders(ordering.getOrders().getOrderNum());
+
     }
 
 

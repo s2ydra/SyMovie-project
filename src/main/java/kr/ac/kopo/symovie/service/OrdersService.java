@@ -16,4 +16,8 @@ public interface OrdersService {
 
 
     List<Ordering> myOrders(Long custNum);
+
+    boolean itemAsNum(Long orderDetailNum);
+
+    void deleteOrder(Long orderDetailNum);
 }

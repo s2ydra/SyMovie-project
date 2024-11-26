@@ -41,9 +41,12 @@
 				</div>
 				</div>
 				</div>
-				<div>
+				<div class="food-info-area">
 					<label>먹거리소개</label>
 					<textarea name="foodInfo" id="foodInfo">${item.foodInfo}</textarea>
+				</div>
+				<div class="upload-area">
+					<input type="file" name="uploadFile">
 				</div>
 				<div class="btn-group">
 					<button class="confirm-btn">수정완료</button>

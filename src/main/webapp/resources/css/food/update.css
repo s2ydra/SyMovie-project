@@ -123,3 +123,14 @@
     cursor: pointer;
     transition-duration: 0.2s;
 }
+
+.food-info-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+}
+
+.upload-area{
+    margin-top: 20px;
+}

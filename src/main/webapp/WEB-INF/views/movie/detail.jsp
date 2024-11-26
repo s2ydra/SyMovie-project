@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,9 +24,14 @@
 			</div>
 			<div class="detail-data-box">
 				<div class="img-box">
+					<c:if test="${item.movieImage != null}">
 					<img class="detail-img"
 						src="/upload/${item.movieImage.movieImageFilename}_
 									${item.movieImage.movieImageUuid}">
+					</c:if>
+					<c:if test="${item.movieImage == null}">
+						<img class="detail-img" src="/resources/img/no-image.png">
+					</c:if>
 				</div>
 
 				<div class="include-btn">

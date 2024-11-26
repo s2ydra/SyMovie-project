@@ -34,11 +34,16 @@
         </div>
         <div class="form-container">
             <form id="order-form" method="post">
-                <div>
+                <div class="order-area">
                     <div class="movie-order-select">
-                    <img class="movie-image"
+                    <c:if test="${item.movie.movieImage != null}">
+                        <img class="movie-image"
                             src="/upload/${item.movie.movieImage.movieImageFilename}_
-									${item.movie.movieImage.movieImageUuid}"
+									${item.movie.movieImage.movieImageUuid}">
+                    </c:if>
+                        <c:if test="${item.movie.movieImage == null}">
+                            <img class="movie-image" src="/resources/img/no-image.png">
+                        </c:if>
                     </div>
                     <div class="movie-select">
                         <div>
@@ -50,10 +55,11 @@
                          </div>
                          <div>
                              <span class="movie-info-texts">티켓 1매 당 가격 : </span>
-                             <span class="movie-price">${item.movie.moviePrice}</span>
+                             <span class="movie-price">${item.movie.moviePrice} 원</span>
                          </div>
                         <div>
                             <label class="movie-info-texts">상영시간 설정 : </label>
+                            <input type="datetime-local" name="runTime" id="runtime-input">
                         </div>
                     </div>
                 </div>
@@ -86,7 +92,7 @@
                                 </label></td>
                                 <td class="food-price">${item.foodPrice}</td>
                                 <td><label>
-                                    <input name="movieAmount" class="food-amount" type="number" value="1">
+                                    <input name="foodAmount" class="food-amount" type="number" value="1">
                                 </label></td>
                                 <td class="amount-sumPrice"></td>
                             </tr>

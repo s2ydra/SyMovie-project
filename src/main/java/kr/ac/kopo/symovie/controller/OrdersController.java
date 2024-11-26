@@ -15,10 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -72,7 +69,7 @@ public class OrdersController {
 
         if (item.getMovieAmount() > 0) {
             orderDetail.setMovieAmount(item.getMovieAmount());
-        }else{
+        } else {
             orderDetail.setMovieAmount(1);
         }
 
@@ -106,53 +103,53 @@ public class OrdersController {
 
     @PostMapping("/orderMovie/{movieNum}")
     String add(@SessionAttribute Customer member, String foodList,
-               @PathVariable Long movieNum, int movieAmount, Long sumPrice) throws JsonProcessingException {
+               @PathVariable Long movieNum, int movieAmount, Long sumPrice, OrderDetail item) throws JsonProcessingException {
 
         System.out.println(movieNum);
         System.out.println(movieAmount);
         System.out.println(sumPrice);
 
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        List<Map<String, Integer>> tempList = objectMapper.readValue(foodList, new TypeReference<List<Map<String, Integer>>>() {});
-
-        List<Map<Long, Integer>> finalList = tempList.stream()
-                .map(map -> map.entrySet().stream()
-                        .collect(Collectors.toMap(
-                                entry -> Long.parseLong(entry.getKey()),
-                                Map.Entry::getValue)))
-                .collect(Collectors.toList());
-
-
         Ordering ordering = new Ordering();
         OrderDetail orderDetail = new OrderDetail();
 
-        orderDetail.setMovieNum(movieNum);
-        orderDetail.setSumPrice(sumPrice);
-        orderDetail.setMovieAmount(movieAmount);
+        OrderFood orderFood = new OrderFood();
 
-        Map<Long, Integer> foodMap = new HashMap<>();
+        if (foodList != null && !foodList.trim().isEmpty()) {
+            ObjectMapper objectMapper = new ObjectMapper();
 
-        for(Map<Long, Integer> map : finalList){
-            map.forEach((k, v) -> foodMap.put(k, v));
+            List<Map<String, Integer>> tempList = objectMapper.readValue(foodList, new TypeReference<List<Map<String, Integer>>>() {
+            });
+
+            List<Map<Long, Integer>> finalList = tempList.stream()
+                    .map(map -> map.entrySet().stream()
+                            .collect(Collectors.toMap(
+                                    entry -> Long.parseLong(entry.getKey()),
+                                    Map.Entry::getValue)))
+                    .collect(Collectors.toList());
+
+
+            orderDetail.setMovieNum(movieNum);
+            orderDetail.setSumPrice(sumPrice);
+            orderDetail.setMovieAmount(movieAmount);
+            orderDetail.setRunTime(item.getRunTime());
+
+            Map<Long, Integer> foodMap = new HashMap<>();
+
+            for (Map<Long, Integer> map : finalList) {
+                map.forEach((k, v) -> foodMap.put(k, v));
+            }
+
+            orderFood.setFoodMap(foodMap);
+
+            ordering.setOrderFood(orderFood);
         }
-
-
-        System.out.println(foodMap);
-        System.out.println(foodMap.keySet());
 
         Orders orders = new Orders();
         orders.setCustNum(member.getCustNum());
 
-        OrderFood orderFood = new OrderFood();
-        orderFood.setFoodMap(foodMap);
-
-
 
         ordering.setOrderDetail(orderDetail);
         ordering.setOrders(orders);
-        ordering.setOrderFood(orderFood);
 
         service.reserve(ordering);
 
@@ -164,4 +161,17 @@ public class OrdersController {
     String complete(@SessionAttribute Customer member) {
         return path + "complete";
     }
+
+    @ResponseBody
+    @DeleteMapping("delete/{orderDetailNum}")
+    String delete(@PathVariable Long orderDetailNum) {
+
+        if(service.itemAsNum(orderDetailNum)) {
+            service.deleteOrder(orderDetailNum);
+            return "OK";
+        } else{
+        return "error";
+        }
+    }
+
 }

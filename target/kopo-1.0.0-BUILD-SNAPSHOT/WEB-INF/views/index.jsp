@@ -90,8 +90,13 @@
 			<div class="recent-img-group-1">
 				<c:forEach var="item" items="${list}" begin="0" end="4">
 					<div class="recent-img-box">
+						<c:if test="${item.movieImage != null}">
 						<img class="recent-img"
 							src="/upload/${item.movieImage.movieImageFilename}_${item.movieImage.movieImageUuid}">
+						</c:if>
+						<c:if test="${item.movieImage == null}">
+							<img class="recent-img" src="/resources/img/no-image.png">
+						</c:if>
 						<div class="img-animate">
 							<span>${item.movieName}</span>
 							<button class="reserve-btn" data-login = "${sessionScope.member != null}" data-movienum ="${item.movieNum}">예매하기</button>

@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.coupon-list-area{
+    margin-top: 75px;
+    min-width: 1200px;
+}
+
+.coupon-title-area{
+    margin-bottom: 30px;
+}
+
+.coupon-title-area h3{
+    font-family: "Noto Sans";
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.coupon-list-area span{
+    color: #BE0000;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: "Noto Sans";
+}
+
+
+table{
+    min-width: 100%;
+}
+
+th {
+    background: #BE0000;
+    color: white;
+    text-align: center;
+    align-content: center;
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    min-height: 70px;
+    padding: 7px 0;
+    border-top: 2px solid #BE0000;
+    border-bottom: 2px solid #BE0000;
+}
+
+td{
+    color: #000;
+    text-align: center;
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    align-content: center;
+    min-width: 200px;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 10px 0;
+}

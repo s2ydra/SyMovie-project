@@ -76,4 +76,15 @@ public class MovieDaoImpl implements MovieDao {
 		return sql.selectList("movie.cart", map);
 	}
 
+	@Override
+	public void updateImage(MovieImage image) {
+
+		sql.update("movie.update_image", image);
+	}
+
+	@Override
+	public MovieImage itemImage(Long movieNum) {
+		return sql.selectOne("movie.itemImage", movieNum);
+	}
+
 }

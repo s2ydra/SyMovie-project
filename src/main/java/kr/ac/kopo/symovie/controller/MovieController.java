@@ -95,9 +95,30 @@ public class MovieController {
 	}
 	
 	@PostMapping("/update/{movieNum}")
-	String update(@PathVariable Long movieNum, Movie item) {
-		
+	String update(@PathVariable Long movieNum, Movie item, MultipartFile uploadFile) {
+
+		MovieImage image = new MovieImage();
+
+		MultipartFile file = uploadFile;
+
+		if(file != null && !file.isEmpty()) {
+			String filename = file.getOriginalFilename();
+			String uuid = UUID.randomUUID().toString();
+
+			try {
+				file.transferTo(new File(uploadPath + filename + "_" + uuid));
+
+				image.setMovieImageFilename(filename);
+				image.setMovieImageUuid(uuid);
+
+				item.setMovieImage(image);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		item.setMovieNum(movieNum);
+
 		
 		service.update(item);
 		

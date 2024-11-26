@@ -27,4 +27,8 @@ public interface MovieDao {
 
 	List<Movie> list(Set<Long> keySet);
 
+    void updateImage(MovieImage image);
+
+
+	MovieImage itemImage(Long movieNum);
 }
