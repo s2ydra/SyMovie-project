@@ -104,7 +104,7 @@
         </if>
         <if test="foodOrderingNum == null">
             VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{movieNum}, #{movieAmount}, NULL, NULL, NULL,
-            #{sumPrice}, #{runTime},SYSDATE)
+            #{sumPrice}, #{runTime}, SYSDATE)
         </if>
     </insert>
 
