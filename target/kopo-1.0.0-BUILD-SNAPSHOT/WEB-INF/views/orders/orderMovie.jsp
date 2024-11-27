@@ -109,7 +109,9 @@
                 <label>
                     <input type="hidden" id="foodNumArr" name="foodList">
                 </label>
-
+                <label>
+                    <input type="hidden" id="coupon-num" name="couponNum">
+                </label>
                 <div>
                     <button type="button" id="add-coupon">쿠폰 적용하기</button>
                     <span class="hide" id="coupon-name"></span>
