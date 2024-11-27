@@ -67,6 +67,8 @@ window.payment = final => {
 
     document.getElementById("order-form").submit();
 
+
+
 }
 
 
@@ -76,6 +78,8 @@ window.addEventListener("load", () => {
     const hasFood = document.getElementById("food-table-box").classList;
     let changedAmount = 0;
     let foodExPrice = 0;
+    let couponNum;
+
 
     console.log(hasFood.contains("hide"));
 
@@ -263,7 +267,9 @@ window.addEventListener("load", () => {
 
            isAddCoupon = true;
 
-           let couponNum = localStorage.getItem("couponNum")
+           couponNum = localStorage.getItem("couponNum")
+
+           document.getElementById("coupon-num").value = couponNum;
 
            fetch(`/coupon/item/${couponNum}`)
                .then(resp => resp.json())
@@ -283,6 +289,7 @@ window.addEventListener("load", () => {
                    discount = discountRate;
 
                    addCouponPrice(finalPrice, discountRate);
+
                })
        }
    });

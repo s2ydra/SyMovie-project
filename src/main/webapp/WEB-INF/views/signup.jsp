@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<link rel="stylesheet"
+		  href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
 <script src="/resources/js/signup.js"></script>
 	<link rel="stylesheet" href="/resources/css/signup.css">
 <script>
@@ -12,9 +14,6 @@
 <title>SY Movie - SignUp</title>
 </head>
 <body>
-<div id="nav">
-	<jsp:include page="nav.jsp"></jsp:include>
-</div>
 	<div class="container">
 		<div class="signup-box">
 		<div class="signup-title-box">

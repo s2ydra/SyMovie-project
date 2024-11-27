@@ -84,7 +84,7 @@ label {
 	width: 440px;
 	height: 45px;
 	border-radius: 5px;
-	border: 2.5px solid #000;
+	border: 2.5px solid #dddddd;
 	background: rgba(217, 217, 217, 0.00);
 	margin-bottom: 15px;
 }
@@ -133,7 +133,7 @@ input {
 	width: 440px;
 	height: 45px;
 	border-radius: 5px;
-	border: 2.5px solid #000;
+	border: 2.5px solid #dddddd;
 	background: rgba(217, 217, 217, 0.00);
 	margin-bottom: 30px;
 }

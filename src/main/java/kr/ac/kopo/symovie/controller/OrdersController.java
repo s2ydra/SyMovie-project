@@ -103,7 +103,8 @@ public class OrdersController {
 
     @PostMapping("/orderMovie/{movieNum}")
     String add(@SessionAttribute Customer member, String foodList,
-               @PathVariable Long movieNum, int movieAmount, Long sumPrice, OrderDetail item) throws JsonProcessingException {
+               @PathVariable Long movieNum, int movieAmount, Long sumPrice, OrderDetail item,
+                Long couponNum) throws JsonProcessingException {
 
         System.out.println(movieNum);
         System.out.println(movieAmount);

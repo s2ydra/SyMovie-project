@@ -10,6 +10,15 @@ public class Ordering {
     private Orders orders;
     private OrderDetail orderDetail;
     private Customer customer;
+    private Coupon coupon;
+
+    public Coupon getCoupon() {
+        return coupon;
+    }
+
+    public void setCoupon(Coupon coupon) {
+        this.coupon = coupon;
+    }
 
     //JavaScript 에서 fetch로 리스트를 가지고올 때(list-popup)
     private List<Food> food;
