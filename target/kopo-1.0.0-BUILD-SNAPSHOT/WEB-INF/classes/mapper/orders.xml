@@ -74,8 +74,6 @@
     </select>
 
 
-
-
     <insert id="addOrders">
         INSERT INTO orders
         VALUES (ORDERS_SEQ.nextval, #{custNum}, SYSDATE)
@@ -123,5 +121,29 @@
         DELETE FROM ORDERS
         WHERE order_num = #{orderNum}
     </delete>
+
+
+    <select id="hasFood" resultType="OrderDetail">
+        SELECT *
+        FROM ORDER_DETAIL
+        WHERE ORDER_DETAIL.ORDER_DETAIL_NUM = #{ordersDetailNum}
+    </select>
+
+
+    <insert id="addFood">
+        INSERT INTO ORDER_FOOD (FOOD_ORDERING_NUM, ORDER_FOOD_NUM, FOOD_NUM, AMOUNT)
+        VALUES (FOOD_ORDERING_SEQ.nextval, ORDERFOOD_SEQ.nextval, #{foodNum}, #{amount})
+
+        <selectKey keyProperty="foodOrderingNum" resultType="Long" order="AFTER">
+            SELECT FOOD_ORDERING_SEQ.currval FROM DUAL
+        </selectKey>
+    </insert>
+
+    <update id="updateOrderDetail">
+        UPDATE ORDER_DETAIL
+        SET FOOD_ORDERING_NUM = #{foodOrderingNum}, SUM_PRICE = SUM_PRICE + #{sumPrice}
+        WHERE ORDER_DETAIL_NUM = #{ordersDetailNum}
+    </update>
+
 
 </mapper>

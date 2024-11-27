@@ -1,9 +1,6 @@
 package kr.ac.kopo.symovie.dao;
 
-import kr.ac.kopo.symovie.model.OrderDetail;
-import kr.ac.kopo.symovie.model.OrderFood;
-import kr.ac.kopo.symovie.model.Ordering;
-import kr.ac.kopo.symovie.model.Orders;
+import kr.ac.kopo.symovie.model.*;
 
 import java.util.List;
 import java.util.Map;
@@ -33,4 +30,10 @@ public interface OrdersDao {
     void deleteOrderFood(Long foodOrderingNum);
 
     void deleteOrders(Long orderNum);
+
+    OrderDetail hasFood(Long ordersDetailNum);
+
+    void addFood(AddFood addFood);
+
+    void updateOrderDetail(AddFood addFood);
 }

@@ -1,9 +1,6 @@
 package kr.ac.kopo.symovie.dao;
 
-import kr.ac.kopo.symovie.model.OrderDetail;
-import kr.ac.kopo.symovie.model.OrderFood;
-import kr.ac.kopo.symovie.model.Ordering;
-import kr.ac.kopo.symovie.model.Orders;
+import kr.ac.kopo.symovie.model.*;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -43,6 +40,21 @@ public class OrdersDaoImpl implements OrdersDao {
     @Override
     public void deleteOrders(Long orderNum) {
         sql.delete("orders.deleteOrders", orderNum);
+    }
+
+    @Override
+    public OrderDetail hasFood(Long ordersDetailNum) {
+        return sql.selectOne("orders.hasFood", ordersDetailNum);
+    }
+
+    @Override
+    public void addFood(AddFood addFood) {
+        sql.insert("orders.addFood", addFood);
+    }
+
+    @Override
+    public void updateOrderDetail(AddFood addFood) {
+        sql.update("orders.updateOrderDetail", addFood);
     }
 
     @Override

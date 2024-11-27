@@ -11,6 +11,13 @@ public class Ordering {
     private OrderDetail orderDetail;
     private Customer customer;
 
+    //JavaScript 에서 fetch로 리스트를 가지고올 때(list-popup)
+    private List<Food> food;
+
+    private OrderFood orderFood;
+
+
+
     private List<OrderFood> orderFoodList;
 
     public List<OrderFood> getOrderFoodList() {
@@ -31,10 +38,7 @@ public class Ordering {
         this.ordersList = ordersList;
     }
 
-    //JavaScript 에서 fetch로 리스트를 가지고올 때(list-popup)
-    private List<Food> food;
 
-    private OrderFood orderFood;
 
     public OrderFood getOrderFood() {
         return orderFood;

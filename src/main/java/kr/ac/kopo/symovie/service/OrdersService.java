@@ -1,9 +1,6 @@
 package kr.ac.kopo.symovie.service;
 
-import kr.ac.kopo.symovie.model.OrderFood;
-import kr.ac.kopo.symovie.model.Ordering;
-import kr.ac.kopo.symovie.model.Orders;
-import kr.ac.kopo.symovie.model.OrderDetail;
+import kr.ac.kopo.symovie.model.*;
 import org.springframework.core.annotation.Order;
 
 import java.util.List;
@@ -20,4 +17,9 @@ public interface OrdersService {
     boolean itemAsNum(Long orderDetailNum);
 
     void deleteOrder(Long orderDetailNum);
+
+
+    OrderDetail hasFood(Long ordersDetailNum);
+
+    void addFood(AddFood addFood);
 }

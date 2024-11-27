@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
 
                             window.location.reload();
                         }else {
-                            alert("어떠한 이유로 삭제가 되지 않았습니다.")
+                            alert("어떠한 이유로 삭제가 되지 않았습니다.");
                         }
                     })
             }

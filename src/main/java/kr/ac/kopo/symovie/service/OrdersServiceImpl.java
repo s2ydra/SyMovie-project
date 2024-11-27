@@ -85,5 +85,17 @@ public class OrdersServiceImpl implements OrdersService {
 
     }
 
+    @Override
+    public OrderDetail hasFood(Long ordersDetailNum) {
+        return dao.hasFood(ordersDetailNum);
+    }
 
+    @Transactional
+    @Override
+    public void addFood(AddFood addFood) {
+
+        dao.addFood(addFood);
+
+        dao.updateOrderDetail(addFood);
+    }
 }

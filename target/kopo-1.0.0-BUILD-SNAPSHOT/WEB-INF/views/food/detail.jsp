@@ -11,6 +11,7 @@
 <head>
     <title>EATCH - 먹거리 상세보기</title>
     <link rel="stylesheet" href="/resources/css/food/detail.css">
+    <script src="/resources/js/food/detail.js"></script>
 </head>
 <body>
 <div id="nav">
@@ -46,7 +47,8 @@
                     </div>
                     <div class="btn-group">
                         <label><input type="number" id="food-amount" value="1"></label>
-                        <button type="button" id="food-add-btn">내 영화에 적용하기</button>
+                        <button type="button" id="food-add-btn" data-foodnum="${item.foodNum}"
+                        data-price="${item.foodPrice}">내 영화에 적용하기</button>
                         <button type="button" id="back-btn"
                         onclick="location.href='../list'">이전으로</button>
                     </div>

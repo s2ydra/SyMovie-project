@@ -174,4 +174,37 @@ public class OrdersController {
         }
     }
 
+
+    @GetMapping("/list-popup")
+    String listPopup(@SessionAttribute Customer member, Model model) {
+        List<Ordering> ordersList = service.myOrders(member.getCustNum());
+
+        model.addAttribute("ordersList", ordersList);
+
+        return path + "list-popup";
+    }
+
+    @ResponseBody
+    @GetMapping("/hasFood/{ordersDetailNum}")
+    String hasFood(@PathVariable Long ordersDetailNum, @SessionAttribute Customer member) {
+
+        OrderDetail orderItem = service.hasFood(ordersDetailNum);
+
+        if(orderItem.getFoodOrderingNum() != null) {
+            return "Yes";
+        }else{
+            return "No";
+        }
+    }
+
+    @ResponseBody
+    @PostMapping("/addFood/{ordersDetailNum}")
+    String addFood(@PathVariable Long ordersDetailNum, @RequestBody AddFood addFood) {
+
+        addFood.setOrdersDetailNum(ordersDetailNum);
+
+        service.addFood(addFood);
+
+        return "OK";
+    }
 }

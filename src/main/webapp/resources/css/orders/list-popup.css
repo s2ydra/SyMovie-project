@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@charset "UTF-8";
+
 .container{
     display: flex;
     flex-direction: column;
@@ -57,22 +59,6 @@ td{
     min-width: 200px;
     border-bottom: 1px solid #DDDDDD;
     padding: 10px 0;
-}
-
-.cancel-btn{
-    background: none;
-    color: red;
-    border: 2px solid red;
-    border-radius: 5px;
-    min-width: 100px;
-    min-height: 40px;
-}
-
-.cancel-btn:hover{
-    background: red;
-    color: white;
-    cursor: pointer;
-    transition-duration: 0.2s;
 }
 
 .table-box{
