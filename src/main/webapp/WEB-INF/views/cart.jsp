@@ -6,15 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <script src="/resources/js/cart/cart.js"></script>
+	<link rel="stylesheet" href="/resources/css/cart.css">
 <title>SY Movie - 장바구니</title>
 </head>
 <body>
-	<div>
-		<div>
+<div id="nav">
+	<jsp:include page="nav.jsp"></jsp:include>
+</div>
+	<div class="container">
+		<div class="cart-area">
+			<div class="cart-title-area">
 			<h3>${sessionScope.member.custName}님의 장바구니</h3>
-		</div>
-		<div>
-			<table border="1">
+			</div>
+			<div class="table-area">
+				<table>
 				<thead>
 					<tr>
 						<th>영화번호</th>
@@ -45,7 +50,8 @@
 							<td>${amount}</td>
 							<td>${item.moviePrice * amount}</td>
 							<td>
-								<button type="button">예매하기</button>
+								<button type="button" class="order-btn"
+										onclick="location.href='orders/orderMovie/${item.movieNum}'">예매하기</button>
 								<button type="button" class="delete-btn" data-movienum="${item.movieNum}"
 								data-moviename="${item.movieName}">삭제하기</button>
 							</td>
@@ -53,7 +59,8 @@
 						</c:if>
 					</c:forEach>
 				</tbody>
-			</table>
+					</table>
+			</div>
 		</div>
 	</div>
 </body>

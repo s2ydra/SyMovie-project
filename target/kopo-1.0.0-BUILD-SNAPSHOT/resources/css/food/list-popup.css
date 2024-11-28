@@ -251,7 +251,7 @@ td {
 	justify-content: center;
 	gap: 20px;
 	align-items: center;
-	
+	margin: 20px 0;
 }
 
 .pages a{
@@ -307,9 +307,58 @@ td {
 	cursor: pointer;
 }
 
-td:hover{
-	background: #BE0000;
+tr:hover{
+	background: #f05650;
 	cursor: pointer;
+	transition-duration: 0.3s;
+}
+
+.btn-group{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 15px;
+	margin-bottom: 50px;
+	margin-right: 50px;
+}
+
+.popup-apply-btn{
+	background: #BE0000;
+	color: white;
+	border: 2px solid #BE0000;
+	border-radius: 10px;
+	min-width: 140px;
+	min-height: 45px;
+	font-family: "Noto Sans";
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.popup-apply-btn:hover{
+	background: none;
+	color: #BE0000;
+	cursor: pointer;
+	transition-duration: 0.2s;
+}
+
+.popup-cancel-btn{
+	background: none;
+	border: 2px solid #dddddd;
+	border-radius: 10px;
+	color: #dddddd;
+	font-weight: 600;
+	font-size: 20px;
+	font-family: "Noto Sans";
+	min-width: 90px;
+	min-height: 45px;
+}
+
+.popup-cancel-btn:hover{
+	background: #dddddd;
+	color: white;
+	cursor: pointer;
+	transition-duration: 0.2s;
 }
 
 

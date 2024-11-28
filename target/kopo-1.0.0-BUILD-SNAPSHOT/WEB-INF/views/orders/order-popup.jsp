@@ -19,21 +19,28 @@
             alert("결제 완료");
           self.close();
       });
+      document.getElementById("cancel-btn").addEventListener("click", e=>{
+          self.close();
+      })
     });
   </script>
+    <link rel="stylesheet" href="/resources/css/orders/order-popup.css">
     <title>SY Movie - 결제창</title>
 </head>
 <body>
-  <div>
-      <div>
+  <div class="container">
+      <div class="pay-area">
+      <div class="pay-title-area">
           <h3>결제하기</h3>
       </div>
-      <div>
-        <span id="final"></span><span>원 결제</span>
-        <label><input class="final" type="number"></label>
+      <div class="text-area">
+        <span id="final"></span><span class="won">원 결제</span>
+        <label><input class="final" type="hidden" readonly></label>
       </div>
-      <div>
+      <div class="btn-group">
         <button id="pay-btn">결제하기</button>
+          <button type="button" id="cancel-btn">취소</button>
+      </div>
       </div>
   </div>
 </body>

@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="/resources/js/orders/orderMovie.js"></script>
+<script src="/resources/js/orders/list-popup.js"></script>
 	<script>
 		window.addEventListener("load", () => {
 			const lists = opener.document.querySelector(".hide")
@@ -49,7 +50,7 @@
 
 		});
 	</script>
-<link rel="stylesheet" href="/resources/css/food/list.css">
+<link rel="stylesheet" href="/resources/css/food/list-popup.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
 </head>
@@ -172,9 +173,9 @@
 				<a href="?page=${pager.last}${pager.query}">마지막</a>
 			</div>
 		</div>
-		<div>
-			<button type="button" id="add-btn">적용</button>
-			<button type="button" id="close-btn">취소</button>
+		<div class="btn-group">
+			<button type="button" id="add-btn" class="popup-apply-btn">적용</button>
+			<button type="button" id="close-btn" class="popup-cancel-btn">취소</button>
 		</div>
 
 	</div>

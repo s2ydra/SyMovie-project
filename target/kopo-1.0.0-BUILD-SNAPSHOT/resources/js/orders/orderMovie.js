@@ -186,8 +186,8 @@ window.addEventListener("load", () => {
     document.getElementById("add-btn").addEventListener("click", e => {
         const foods = document.querySelector(".hide");
 
-        const width = 1200;
-        const height = 1000;
+        const width = 1400;
+        const height = 800;
         const left = window.screenX + ((window.screen.width - width) / 2);
         const top = window.screenY + ((window.screen.height - height) / 2);
 
@@ -240,8 +240,8 @@ window.addEventListener("load", () => {
 
         localStorage.setItem("finalPrice", finalPrice);
 
-        const width = 1200;
-        const height = 1000;
+        const width = 800;
+        const height = 700;
         const left = window.screenX + ((window.screen.width - width) / 2);
         const top = window.screenY + ((window.screen.height - height) / 2);
 
