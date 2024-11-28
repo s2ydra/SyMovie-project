@@ -34,6 +34,10 @@
 					<input type="text" value="${item.coupon.couponName}">
 				</div>
 				<div>
+					<label>할인율</label>
+					<input type="number" value="${item.coupon.discountRate}">
+				</div>
+				<div>
 					<button>수정완료</button>
 					<button type="button" onclick="location.href='../list'">BACK</button>	
 				</div>

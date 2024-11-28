@@ -48,9 +48,9 @@
 				</tbody>
 			</table>
 		</div>
-		<div>
-			<button type="button" onclick="location.href='add'">추가하기</button>
-			<button type="button" onclick="location.href='/'">처음으로</button>
+		<div class="btn-group">
+			<button class="add-btn" type="button" onclick="location.href='add'">추가하기</button>
+			<button class="back-btn" type="button" onclick="location.href='/'">처음으로</button>
 		</div>
 		</div>
 	</div>

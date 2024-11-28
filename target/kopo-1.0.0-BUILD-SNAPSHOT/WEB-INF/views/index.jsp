@@ -37,7 +37,7 @@
 					<span class="search-info-text">원하시는 서비스를 빠르게 찾아보세요!</span>
 				</div>
 				<div class="search-form-box">
-					<form class="movie-form" action="/movie/list?${pager.query}">
+					<form class="search-form" action="/movie/list?${pager.query}">
 
 						<div>
 							<div class="label-box">
@@ -61,7 +61,7 @@
 							</div>
 						</div>
 					</form>
-					<form action="food/list">
+					<form class="search-form" action="food/list">
 						<div class="label-box">
 							<label class="movie-search-text">먹거리 먼저 고르시겠어요?</label>
 						</div>
