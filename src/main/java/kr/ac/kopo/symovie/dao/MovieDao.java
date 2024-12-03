@@ -3,6 +3,7 @@ package kr.ac.kopo.symovie.dao;
 import java.util.List;
 import java.util.Set;
 
+import kr.ac.kopo.symovie.model.MegaMovie;
 import kr.ac.kopo.symovie.model.Movie;
 import kr.ac.kopo.symovie.model.MovieImage;
 import kr.ac.kopo.symovie.pager.Pager;
@@ -31,4 +32,6 @@ public interface MovieDao {
 
 
 	MovieImage itemImage(Long movieNum);
+
+    void megabox(MegaMovie item);
 }

@@ -25,9 +25,15 @@
 			<div class="detail-data-box">
 				<div class="img-box">
 					<c:if test="${item.movieImage != null}">
+						<c:if test="${item.movieImage.movieImageUuid != 'mega'}">
 					<img class="detail-img"
 						src="/upload/${item.movieImage.movieImageFilename}_
 									${item.movieImage.movieImageUuid}">
+						</c:if>
+						<c:if test="${item.movieImage.movieImageUuid == 'mega'}">
+							<img class="detail-img"
+								 src="${item.movieImage.movieImageFilename}">
+						</c:if>
 					</c:if>
 					<c:if test="${item.movieImage == null}">
 						<img class="detail-img" src="/resources/img/no-image.png">
@@ -43,32 +49,35 @@
 						<div class="detail-group-box">
 							<div class="detail-group">
 								<div>
-									<span>장르 : ${item.movieGenre}</span>
+									<span class="detail-titles">장르 : </span><span class="detail-datas">${item.movieGenre}</span>
 								</div>
 								<div>
-									<span>개봉일 : <fmt:formatDate
-											value="${item.movieOpendate}" pattern="yyyy년 MM월 dd일" />
+									<span class="detail-titles">개봉일 :
+									</span>
+									<span class="detail-datas">
+										<fmt:formatDate
+												value="${item.movieOpendate}" pattern="yyyy년 MM월 dd일" />
 									</span>
 								</div>
 								<div>
-									<span>제작국가 : ${item.movieCountry}</span>
+									<span class="detail-titles">제작국가 : </span><span class="detail-datas">${item.movieCountry}</span>
 								</div>
 							</div>
 
 							<div class="detail-group">
 								<div>
-									<span>감독 : ${item.movieDirector}</span>
+									<span class="detail-titles">감독 : </span><span class="detail-datas">${item.movieDirector}</span>
 								</div>
 								<div>
-									<span>연령대 : ${item.movieAgerange}</span>
+									<span class="detail-titles">연령대 : </span><span class="detail-datas">${item.movieAgerange}</span>
 								</div>
 								<div style="display:flex; gap:10px;">
-									<span>가격 :</span><span id="moviePrice">${item.moviePrice}</span><span>원</span>
+									<span class="detail-titles">가격 :</span><span id="moviePrice"></span><span class="detail-datas">${item.moviePrice} 원</span>
 								</div>
 							</div>
 						</div>
-						<div>
-							<span class="movie-info">영화소개 : ${item.movieInfo}</span>
+						<div class="info-area">
+							<span class="movie-info" id="info-title">영화소개 : </span><span class="movie-info">${item.movieInfo}</span>
 						</div>
 					</div>
 					<div class="order-form">

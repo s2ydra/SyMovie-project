@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import kr.ac.kopo.symovie.model.MegaMovie;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -85,6 +86,11 @@ public class MovieDaoImpl implements MovieDao {
 	@Override
 	public MovieImage itemImage(Long movieNum) {
 		return sql.selectOne("movie.itemImage", movieNum);
+	}
+
+	@Override
+	public void megabox(MegaMovie item) {
+		sql.insert("movie.megabox", item);
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import kr.ac.kopo.symovie.model.MegaMovie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -137,6 +138,21 @@ public class MovieServiceImpl implements MovieService {
 
 
         return dao.list(keySet);
+    }
+
+    @Transactional
+    @Override
+    public void megabox(MegaMovie item) {
+        dao.megabox(item);
+
+        if (item.getMovieImage() != null) {
+            MovieImage image = item.getMovieImage();
+
+            image.setMovieNum(item.getMovieNum());
+            image.setMovieImageUuid("mega");
+
+            dao.addImage(image);
+        }
     }
 
 

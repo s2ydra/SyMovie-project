@@ -59,14 +59,6 @@ window.addEventListener("load", () => {
         });
     })
 
-    document.getElementById("agerange-sort").addEventListener("click", e =>{
-
-        sort = true;
-
-        
-
-    }) ;
-
     let pushedBtn = document.querySelector(".genre-btn.pushed");
     
     if(pushedBtn != null){
@@ -136,8 +128,51 @@ window.addEventListener("load", () => {
     });
 
 
+    document.getElementById("megabox-btn").addEventListener("click",e => {
+        fetch("https://www.megabox.co.kr/on/oh/oha/Movie/selectMovieList.do")
+            .then(resp => resp.json())
+            .then(result => {
+                console.log(result);
+                let imgPaths = [];
+                let movieNames = [];
+                let openDates = [];
+                let ageRanges = [];
+                let movieInfos = [];
+
+                imgPaths.push(result.movieList.map(movie => movie.imgPathNm));
+                movieNames.push(result.movieList.map(movie => movie.movieNm));
+                openDates.push(result.movieList.map(movie => movie.rfilmDe));
+                ageRanges.push(result.movieList.map(movie => movie.admisClassNm));
+                movieInfos.push(result.movieList.map(movie => movie.movieSynopCn));
 
 
+                for(let i = 0; i < imgPaths[0].length && i < movieNames[0].length && i<openDates[0].length; i++){
+
+                    const item = {
+                        movieName: movieNames[0][i],
+                        movieOpendate: openDates[0][i],
+                        imgFilename: "https://img.megabox.co.kr" + imgPaths[0][i],
+                        movieAgerange: ageRanges[0][i],
+                        movieInfo: movieInfos[0][i],
+                    }
+
+                    fetch("/movie/megabox", {
+                        method: "POST",
+                        headers:{
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(item),
+                    }).then(resp => resp.text())
+                        .then(result => {
+                            if(result === "OK") {
+
+                            }
+                        })
+                }
+
+                window.location.reload();
+            })
+    })
 
 
     });

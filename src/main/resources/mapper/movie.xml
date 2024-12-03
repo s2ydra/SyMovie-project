@@ -132,4 +132,13 @@
 		SELECT * FROM MOVIE_IMAGE WHERE movie_num = #{movieNum}
 	</select>
 
+	<insert id="megabox">
+		INSERT INTO MOVIE
+		VALUES (MOVIE_SEQ.nextval, '장르 1', #{movieName}, '감독 1', TO_DATE(#{movieOpendate}, 'YYYY-MM-DD'), #{movieAgerange}, '대한민국', 11000, #{movieInfo})
+
+		<selectKey keyProperty="movieNum" order="AFTER" resultType="Long">
+			SELECT MOVIE_SEQ.currval FROM DUAL
+		</selectKey>
+	</insert>
+
 </mapper>

@@ -129,4 +129,9 @@ public class RootController {
 		return "nav";
 	}
 
+	@GetMapping("/movieTest")
+	String movieTest() {
+		return "movieTest";
+	}
+
 }

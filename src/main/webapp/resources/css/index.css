@@ -194,12 +194,14 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 0 30px;
 }
 
 .search-form-box {
 	display: flex;
 	flex-direction: column;
 	margin-top: 100px;
+	gap: 50px;
 }
 
 .search-form {

@@ -22,6 +22,7 @@
 		<typeAlias type="kr.ac.kopo.symovie.model.Ordering" alias="Ordering"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.OrderFood" alias="OrderFood"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.AddFood" alias="AddFood"/>
+		<typeAlias type="kr.ac.kopo.symovie.model.MegaMovie" alias="MegaMovie"/>
 	</typeAliases>
 	
 	<mappers>

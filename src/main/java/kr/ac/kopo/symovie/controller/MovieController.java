@@ -160,4 +160,37 @@ public class MovieController {
 		return moviePath + "detail";
 	}
 
+	@ResponseBody
+	@PostMapping("/megabox")
+	String megabox(@RequestBody MegaMovie item) {
+
+		String filename = item.getImgFilename();
+		MovieImage image = new MovieImage();
+
+		image.setMovieImageFilename(filename);
+
+		item.setMovieImage(image);
+
+		service.megabox(item);
+
+		return "OK";
+	}
+
+	@GetMapping("/list-test")
+	String listTest(Model model, Pager pager,
+					@RequestParam(required = false, defaultValue = "0") int movieSearch, String movieKeyword){
+
+		if(movieSearch == 0 && movieKeyword != null) {
+			pager.setMovieSearch(movieSearch);
+			pager.setMovieKeyword(movieKeyword);
+		}
+
+		System.out.println(pager.getMovieKeyword());
+
+		List<Movie> list = service.list(pager);
+
+		model.addAttribute("list", list);
+
+		return moviePath + "list-test";
+	}
 }

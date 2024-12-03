@@ -6,16 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<link rel="stylesheet"
+		  href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
+
+	<link rel="stylesheet" href="/resources/css/movie/list.css">
+	<link rel="stylesheet" href="/resources/css/nav.css">
+	<script src="${pageContext.request.contextPath}/resources/js/movie/list.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/orders/orderMovie.js"></script>
 <title>SY Movie - Movie List</title>
 
-<script src="/resources/js/movie/list.js"></script>
-<link rel="stylesheet" href="/resources/js/orders/orderMovie.js">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
-
-<link rel="stylesheet" href="/resources/css/movie/list.css">
-<link rel="stylesheet" href="/resources/css/nav.css">
-	<script src="/resources/js/movie/list.js"></script>
 <script>
 	let agerangeSort = false;
 </script>
@@ -24,8 +23,7 @@
 	<div id="nav">
 	<jsp:include page="../nav.jsp"></jsp:include>
 	</div>
-	<div class="container">	
-
+	<div class="container">
 		<div class="movie-info-box">
 			<div class="text-group">
 				<div class="text1-box">
@@ -106,77 +104,51 @@
 					</button>
 				</div>
 			</div>
-			
-			
-			<div class="movie-table-box">
-				<table class="movie-table">
-					<thead>
-						<tr class="thead-row">
-							<th>No.</th>
-							<th>영화포스터</th>
-							<th>영화제목</th>
-							<th>장르</th>
-							<th><a id="agerange-sort">연령대</a></th>
-							<th>제작국가</th>
-							<th>개봉일</th>
-							<th>가격</th>
-							<th colspan="2">MORE</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:if test="${list.size() < 1}">
-							<tr class="tbody-row">
-								<td colspan="9">검색된 영화가 없습니다.</td>
-							</tr>
+
+			<div class="recent-img-group-1">
+				<c:forEach var="item" items="${list}">
+					<div class="item-box">
+					<div class="recent-img-box">
+						<c:if test="${item.movieImage != null}">
+							<c:if test="${item.movieImage.movieImageUuid != 'mega'}">
+								<img class="recent-img"
+									 src="/upload/${item.movieImage.movieImageFilename}_${item.movieImage.movieImageUuid}">
+							</c:if>
+							<c:if test="${item.movieImage.movieImageUuid == 'mega'}">
+								<img class="recent-img"
+									 src="${item.movieImage.movieImageFilename}">
+							</c:if>
 						</c:if>
-						<c:forEach var="item" items="${list}">
-							<tr class="tbody-row">
-								<td>${item.movieNum}</td>
-								<c:if test="${item.movieImage == null}">
-									<td>
-										<img class="movie-image" src="/resources/img/no-image.png">
-									</td>
-								</c:if>
-								<c:if test="${item.movieImage != null}">
-								<td>
-									<img class="movie-image"
-									src="/upload/${item.movieImage.movieImageFilename}_
-									${item.movieImage.movieImageUuid}">
-								</td>
-								</c:if>
-								<td><a href="detail/${item.movieNum}"
-									style="color: black;">${item.movieName}</a></td>
-								<td>${item.movieGenre}</td>
-								<td>${item.movieAgerange}</td>
-								<td>${item.movieCountry}</td>
-								<td><fmt:formatDate value="${item.movieOpendate}"
-										pattern="yyyy년 MM월 dd일" /></td>
-								<td>${item.moviePrice} 원</td>
-								<c:if test="${sessionScope.member.custRole == 99 }">
-								<td colspan="2">
-									<button type="button" class="action cart-btn" data-login = "${sessionScope.member != null}"
-											data-type="cart" data-movienum ="${item.movieNum}" >장바구니</button>
-										<button type="button" class="action order-btn" data-login = "${sessionScope.member != null}" data-type="order"
-												data-movienum ="${item.movieNum}" id="order-btn">예매하기</button>
-									<button type="button" class="update-btn"
-										onclick="location.href='update/${item.movieNum}'">변경</button>
-									<button class="delete-btn" type="button"
-										data-movienum="${item.movieNum}">삭제</button>
-								</td>
-								</c:if>
-								<c:if test="${sessionScope.member.custRole != 99 || sessionScope.member == null}">
-								<td colspan="2">
-									<button type="button" class="action cart-btn" id="cart-btn"
-											data-movienum ="${item.movieNum}" data-type="cart" data-login = "${sessionScope.member != null}">장바구니</button>
-										<button type="button" class="action order-btn" data-login = "${sessionScope.member != null}" data-type="order"
-												data-movienum ="${item.movieNum}">예매하기</button>
-								</td>
-								</c:if>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						<c:if test="${item.movieImage == null}">
+							<img class="recent-img" src="/resources/img/no-image.png">
+						</c:if>
+						<div class="img-animate" onclick="location.href='/movie/detail/${item.movieNum}'">
+							<span class="animate-title">${item.movieName}</span>
+							<span class="animate-text">${item.movieInfo}</span>
+						</div>
+					</div>
+						<div class="text-area">
+							<div class="title-area">
+								<a class="title" href="/movie/detail/${item.movieNum}">${item.movieName}</a>
+							</div>
+							<div class="texts">
+								<span>${item.movieAgerange}</span>
+								<span><fmt:formatNumber value="${item.moviePrice}" pattern="##,###"></fmt:formatNumber> 원</span>
+							</div>
+							<div class="btns">
+								<button class="action reserve-btn" data-login = "${sessionScope.member != null}" data-movienum ="${item.movieNum}">예매하기</button>
+								<button type="button" class="action cart-btn" id="cart-btn"
+										data-movienum ="${item.movieNum}" data-type="cart" data-login = "${sessionScope.member != null}">장바구니</button>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
+
+
+
+
+
 			<div class="pages">
 				<div>
 					<a href="?page=1${pager.query}">처음</a>
@@ -199,6 +171,7 @@
 					<button type="button" onclick="location.href = 'dummy'">대량추가(페이지 테스트)</button>
 					<button type="button" onclick="location.href = 'init'">대량삭제(페이지 테스트)</button>
 					<button type="button" onclick="location.href='add'" class="add-btn">추가하기</button>
+					<button id="megabox-btn">메가박스 리스트 JSON 추가</button>
 				</div>
 			</div>
 		</c:if>

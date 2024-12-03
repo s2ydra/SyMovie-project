@@ -37,7 +37,7 @@
 					<span class="search-info-text">원하시는 서비스를 빠르게 찾아보세요!</span>
 				</div>
 				<div class="search-form-box">
-					<form class="search-form" action="/movie/list?${pager.query}">
+					<form id="movie-search-form" action="/movie/list?${pager.query}">
 
 						<div>
 							<div class="label-box">
@@ -56,12 +56,12 @@
 									<input type="text" name="movieKeyword" class="movie-input-box">
 								</div>
 								<div>
-									<button class="search-btn">검색</button>
+									<button id="movie-search-btn" class="search-btn" type="button">검색</button>
 								</div>
 							</div>
 						</div>
 					</form>
-					<form class="search-form" action="food/list">
+					<form id="food-search-form" action="food/list">
 						<div class="label-box">
 							<label class="movie-search-text">먹거리 먼저 고르시겠어요?</label>
 						</div>
@@ -76,7 +76,7 @@
 								<input type="text" name="foodKeyword" class="movie-input-box">
 							</div>
 							<div>
-								<button class="search-btn">검색</button>
+								<button id="food-search-btn" class="search-btn">검색</button>
 							</div>
 						</div>
 					</form>
@@ -91,8 +91,14 @@
 				<c:forEach var="item" items="${list}" begin="0" end="4">
 					<div class="recent-img-box">
 						<c:if test="${item.movieImage != null}">
+							<c:if test="${item.movieImage.movieImageUuid != 'mega'}">
 						<img class="recent-img"
 							src="/upload/${item.movieImage.movieImageFilename}_${item.movieImage.movieImageUuid}">
+							</c:if>
+							<c:if test="${item.movieImage.movieImageUuid == 'mega'}">
+								<img class="recent-img"
+									 src="${item.movieImage.movieImageFilename}">
+							</c:if>
 						</c:if>
 						<c:if test="${item.movieImage == null}">
 							<img class="recent-img" src="/resources/img/no-image.png">

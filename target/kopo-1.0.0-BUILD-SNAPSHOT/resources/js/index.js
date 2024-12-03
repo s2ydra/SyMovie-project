@@ -42,4 +42,22 @@ window.addEventListener("load", () => {
             });
 
    });
+            document.getElementById("movie-search-btn").addEventListener("click", e=>{
+                e.preventDefault();
+
+                let movieSelect = document.querySelector(".movie-select-box");
+                const movieKeyword = document.querySelector(".movie-input-box")
+                const form = document.getElementById("movie-search-form");
+
+                console.log(isNaN(parseInt(movieKeyword.value)));
+                console.log(movieSelect.value)
+
+                if(movieSelect.value === "1" && isNaN(parseInt(movieKeyword.value))){
+                    alert("영화번호 검색은 숫자 입력만 가능합니다.");
+                }else{
+                    form.submit();
+                }
+
+            })
+
 });
