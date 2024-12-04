@@ -15,17 +15,6 @@ public class Ordering {
     private Customer customer;
     private Coupon coupon;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private Date pickupDate;
-
-
-    public Date getPickupDate() {
-        return pickupDate;
-    }
-
-    public void setPickupDate(Date pickupDate) {
-        this.pickupDate = pickupDate;
-    }
 
     public Coupon getCoupon() {
         return coupon;
@@ -39,8 +28,6 @@ public class Ordering {
     private List<Food> food;
 
     private OrderFood orderFood;
-
-
 
     private List<OrderFood> orderFoodList;
 

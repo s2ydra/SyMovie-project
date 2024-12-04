@@ -53,6 +53,8 @@ window.payment = final => {
         console.log(num + "-" + amount);
         foodMap.set(parseInt(num), parseInt(amount));
     });
+    }else{
+        document.getElementById("pickupDate-input").remove();
     }
 
     let result = Array.from(foodMap).map(item => {
@@ -206,6 +208,7 @@ window.addEventListener("load", () => {
 
             if (localStorage.length > 0) {
                 let nums = JSON.parse(localStorage.getItem("checkedItem"));
+                document.getElementById("pickupDate-input").setAttribute("type", "datetime-local");
 
                 nums.forEach(item => {
                     foodNums.forEach(numbers => {
@@ -311,7 +314,7 @@ window.addEventListener("load", () => {
     document.getElementById("pickupDate-input").value = datetimeValue;
 
 
-
+    let pickupUpdateTime;
 
     let radioButtons = document.querySelectorAll(".pickupSelect");
 
@@ -321,14 +324,27 @@ window.addEventListener("load", () => {
             const setting = document.getElementById("setting-check");
 
             if(e.target === pickup){
+                const pickupInput = document.createElement("input");
+
+                pickupInput.setAttribute("type", "datetime-local");
+                pickupInput.setAttribute("name","pickupDate");
+                pickupInput.setAttribute("id", "pickupDate-input");
+
+                document.getElementById("pickup-date-select").append(pickupInput);
+
                 document.getElementById("setting-info-text").classList.add("hide");
                 document.getElementById("pickup-date-select").classList.remove("hide");
+                pickupInput.valueAsNumber = pickupUpdateTime;
+
             }else if(e.target === setting){
                 document.getElementById("pickup-date-select").classList.add("hide");
+                document.getElementById("pickupDate-input").remove();
                 document.getElementById("setting-info-text").classList.remove("hide");
             }
         })
     })
+
+
 
     document.getElementById("runtime-input").addEventListener("change", e=>{
         const someDate = e.target.valueAsNumber;
@@ -342,6 +358,7 @@ window.addEventListener("load", () => {
         console.log(pickupTime);
 
         document.getElementById("pickupDate-input").valueAsNumber = pickupTime;
+        pickupUpdateTime = pickupTime;
 
     })
 

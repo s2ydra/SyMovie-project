@@ -57,8 +57,16 @@
                                              HH시 mm분"></fmt:formatDate>
                         </td>
                         <td>
+                        <c:if test="${item.orderDetail.foodOrderingNum != null && item.orderDetail.pickupDate != null}">
                             <fmt:formatDate value="${item.orderDetail.pickupDate}"
                                             pattern="yyyy.MM.dd HH시 mm분"></fmt:formatDate>
+                        </c:if>
+                        <c:if test="${item.orderDetail.foodOrderingNum == null && item.orderDetail.pickupDate == null}">
+                                먹거리 주문 없음
+                        </c:if>
+                        <c:if test="${item.orderDetail.foodOrderingNum != null && item.orderDetail.pickupDate == null}">
+                                먹거리 세팅 예정
+                        </c:if>
                         </td>
                         <td>
                             <button type="button" class="cancel-btn" data-ordersdetailnum = "${item.orderDetail.ordersDetailNum}">취소</button>

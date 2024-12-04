@@ -123,7 +123,7 @@
                             </div>
                             <div id="two-case">
                                 <div id="pickup-date-select">
-                                    <input type="datetime-local" name="pickupDate" id="pickupDate-input">
+                                    <input type="hidden" name="pickupDate" id="pickupDate-input">
                                 </div>
                                 <div id="setting-info-text" class="hide">
                             <span>세팅을 선택하시면, 영화 상영시간 10분 전에 세팅해드립니다.<br>

@@ -20,7 +20,7 @@
             <result column="order_detail.order_num" property="orderNum"/>
             <result column="order_detail.movie_num" property="movieNum"/>
             <result column="movie_amount" property="movieAmount"/>
-            <result column="order_detail.food_ordering_num" property="foodOrderingNum"/>
+            <result column="food_ordering_num" property="foodOrderingNum"/>
             <result column="order_detail.order_food_num" property="OrderFoodNum"/>
             <result column="set_num" property="setNum"/>
             <result column="sum_price" property="sumPrice"/>
@@ -96,13 +96,17 @@
 
     <insert id="addOrderDetail">
         INSERT INTO order_detail
-        <if test="foodOrderingNum != null">
+        <if test="foodOrderingNum != null and pickupDate != null">
         VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{movieNum}, #{movieAmount}, #{foodOrderingNum}, NULL, NULL,
         #{sumPrice}, #{runTime}, #{pickupDate})
         </if>
-        <if test="foodOrderingNum == null">
+        <if test="foodOrderingNum == null and pickupDate == null">
             VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{movieNum}, #{movieAmount}, NULL, NULL, NULL,
-            #{sumPrice}, #{runTime}, #{pickupDate})
+            #{sumPrice}, #{runTime}, NULL)
+        </if>
+        <if test="foodOrderingNum !=null and pickupDate == null">
+            VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{movieNum}, #{movieAmount}, #{foodOrderingNum}, NULL, NULL,
+            #{sumPrice}, #{runTime}, NULL)
         </if>
     </insert>
 
