@@ -313,3 +313,15 @@ td{
     display: flex;
     justify-content: space-evenly;
 }
+
+.radio-group{
+    display: flex;
+    flex-direction: row;
+}
+
+#two-case{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

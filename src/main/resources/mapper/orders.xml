@@ -98,11 +98,11 @@
         INSERT INTO order_detail
         <if test="foodOrderingNum != null">
         VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{movieNum}, #{movieAmount}, #{foodOrderingNum}, NULL, NULL,
-        #{sumPrice}, #{runTime},SYSDATE)
+        #{sumPrice}, #{runTime}, #{pickupDate})
         </if>
         <if test="foodOrderingNum == null">
             VALUES (ORDER_DETAIL_SEQ.nextval, #{orderNum}, #{movieNum}, #{movieAmount}, NULL, NULL, NULL,
-            #{sumPrice}, #{runTime}, SYSDATE)
+            #{sumPrice}, #{runTime}, #{pickupDate})
         </if>
     </insert>
 

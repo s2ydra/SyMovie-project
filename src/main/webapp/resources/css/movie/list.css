@@ -576,3 +576,45 @@ td {
 	font-size: 15px;
 	font-weight: 400;
 }
+
+#movie-search-box{
+	min-width: 40px;
+	min-height: 20px;
+	font-size: 18px;
+	margin-right: 5px;
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+}
+
+
+
+#search-box{
+	min-width: 200px;
+	min-height: 20px;
+	border: 1px solid #DDDDDD;
+	border-radius: 5px;
+	font-size: 18px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+	margin-right: 5px;
+}
+
+#search-btn{
+	background: none;
+	border: 2px solid black;
+	border-radius: 5px;
+	min-width: 50px;
+	min-height: 20px;
+	font-weight: 500;
+	font-family: "Noto Sans";
+	font-size: 18px;
+}
+
+#search-btn:hover{
+	background: black;
+	color: white;
+	cursor: pointer;
+	transition-duration: 0.2s;
+}

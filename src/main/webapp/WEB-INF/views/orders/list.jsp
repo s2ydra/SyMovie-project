@@ -28,12 +28,12 @@
                 <thead>
                 <tr>
                     <th>주문상세번호</th>
-                    <th>주문번호</th>
                     <th>영화제목</th>
                     <th>티켓매수</th>
                     <th>총 금액</th>
                     <th>주문일시</th>
                     <th>상영일시</th>
+                    <th>먹거리 수령시간</th>
                     <th colspan="2">MORE</th>
                 </tr>
                 </thead>
@@ -46,15 +46,19 @@
                 <c:forEach var="item" items="${ordersList}">
                     <tr>
                         <td>${item.orderDetail.ordersDetailNum}</td>
-                        <td>${item.orders.orderNum}</td>
                         <td>${item.movie.movieName}</td>
                         <td>${item.orderDetail.movieAmount}</td>
-                        <td>${item.orderDetail.sumPrice}</td>
+                        <td><fmt:formatNumber value="${item.orderDetail.sumPrice}" pattern="##,###"></fmt:formatNumber> 원</td>
                         <td><fmt:formatDate value="${item.orders.orderDate}"
                                             pattern="yyyy년 MM월 dd일"></fmt:formatDate></td>
                         <td>
                             <fmt:formatDate value="${item.orderDetail.runTime}"
-                                            pattern="yyyy년 MM월 dd일 HH시 mm분"></fmt:formatDate>
+                                            pattern="yyyy.MM.dd
+                                             HH시 mm분"></fmt:formatDate>
+                        </td>
+                        <td>
+                            <fmt:formatDate value="${item.orderDetail.pickupDate}"
+                                            pattern="yyyy.MM.dd HH시 mm분"></fmt:formatDate>
                         </td>
                         <td>
                             <button type="button" class="cancel-btn" data-ordersdetailnum = "${item.orderDetail.ordersDetailNum}">취소</button>

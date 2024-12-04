@@ -133,6 +133,7 @@ public class OrdersController {
             orderDetail.setSumPrice(sumPrice);
             orderDetail.setMovieAmount(movieAmount);
             orderDetail.setRunTime(item.getRunTime());
+            orderDetail.setPickupDate(item.getPickupDate());
 
             Map<Long, Integer> foodMap = new HashMap<>();
 

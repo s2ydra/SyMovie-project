@@ -27,8 +27,7 @@
 					<c:if test="${item.movieImage != null}">
 						<c:if test="${item.movieImage.movieImageUuid != 'mega'}">
 					<img class="detail-img"
-						src="/upload/${item.movieImage.movieImageFilename}_
-									${item.movieImage.movieImageUuid}">
+						src="/upload/${item.movieImage.movieImageFilename}_${item.movieImage.movieImageUuid}">
 						</c:if>
 						<c:if test="${item.movieImage.movieImageUuid == 'mega'}">
 							<img class="detail-img"
@@ -72,7 +71,7 @@
 									<span class="detail-titles">연령대 : </span><span class="detail-datas">${item.movieAgerange}</span>
 								</div>
 								<div style="display:flex; gap:10px;">
-									<span class="detail-titles">가격 :</span><span id="moviePrice"></span><span class="detail-datas">${item.moviePrice} 원</span>
+									<span class="detail-titles">가격 :</span><span id="moviePrice" class="detail-datas">${item.moviePrice}</span><span class="detail-datas"> 원</span>
 								</div>
 							</div>
 						</div>

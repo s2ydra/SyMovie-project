@@ -12,6 +12,7 @@
 		window.addEventListener("load", () => {
 			const lists = opener.document.querySelector(".hide")
 			const ofNum = opener.document.querySelectorAll(".food-number");
+			const pickup = opener.document.getElementById("food-pickup-select");
 
 		document.getElementById("add-btn").addEventListener("click", e => {
 
@@ -21,6 +22,8 @@
 				checkItem.forEach(item => {
 					checkValues.push(item.value);
 				});
+			console.log(checkValues.length);
+			console.log(checkValues);
 
 			if(checkValues.length > 0) {
 				localStorage.setItem("checkedItem", JSON.stringify(checkValues));
@@ -35,6 +38,7 @@
 				});
 
 				lists.classList.remove("hide");
+				pickup.classList.remove("hide");
 			}else{
 				alert("먹거리 선택을 하지 않으셨습니다.")
 			}

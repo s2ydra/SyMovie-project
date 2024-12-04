@@ -1,4 +1,4 @@
-const checkNum = JSON.parse(sessionStorage.getItem("checkedItem"));
+const checkNum = JSON.parse(localStorage.getItem("checkedItem"));
 let isChanged = false;
 let isChangeSelect = false;
 let isAddCoupon = false;
@@ -22,6 +22,8 @@ const calcPrice = (moviePrice, movieAmount, foodPriceAll, discount) => {
     }
         // document.getElementById("finalPrice").textContent = (moviePrice * movieAmount) + foodPriceAll;
         //allSumPrice.value = (moviePrice * movieAmount) + foodPriceAll;
+        console.log(foodPriceAll);
+
         document.getElementById("finalPrice").textContent = ((moviePrice * movieAmount) + foodPriceAll)-(((moviePrice * movieAmount) + foodPriceAll) * discount);
 
     }
@@ -43,7 +45,8 @@ window.payment = final => {
     let foodMap = new Map();
 
     if(localStorage.getItem("checkedItem") && !document.getElementById("food-table-box").classList.contains("hide")){
-    foodRow.forEach(row => {
+
+        foodRow.forEach(row => {
         let num = row.querySelector("td:nth-child(1)").textContent;
         let amount = row.querySelector(".food-amount").value;
 
@@ -115,7 +118,6 @@ window.addEventListener("load", () => {
                 document.getElementById("food-price-box").classList.remove("hide");
 
                 foodSumPrice.textContent += parseInt(price.textContent);
-
             });
         }
     });
@@ -134,6 +136,7 @@ window.addEventListener("load", () => {
         } else {
             let foodPriceTd = document.querySelectorAll(".food-price");
             let foodPriceAll = 0;
+
 
             if (!isChangeSelect) {
                 foodPriceTd.forEach(item => {
@@ -198,16 +201,14 @@ window.addEventListener("load", () => {
 
 
         child.onbeforeunload = function () {
-            console.log(localStorage.length);
+            console.log(localStorage.getItem("checkedItem").length);
             let sumPrice = 0;
 
             if (localStorage.length > 0) {
                 let nums = JSON.parse(localStorage.getItem("checkedItem"));
 
-
                 nums.forEach(item => {
                     foodNums.forEach(numbers => {
-
                         if (numbers.textContent === item) {
                             let foodNum = parseInt(numbers.textContent)
 
@@ -225,6 +226,9 @@ window.addEventListener("load", () => {
                                     } else {
                                         document.getElementById("finalPrice").textContent = ((moviePrice * changedAmount) + sumPrice) - (((moviePrice * changedAmount) + sumPrice)*discount);
                                     }
+
+
+
                                 });
                         }
                     });
@@ -303,4 +307,43 @@ window.addEventListener("load", () => {
     const datetimeValue = `${year}-${month}-${day}T${hours}:${minutes}`;
 
     document.getElementById("runtime-input").value = datetimeValue;
+
+    document.getElementById("pickupDate-input").value = datetimeValue;
+
+
+
+
+    let radioButtons = document.querySelectorAll(".pickupSelect");
+
+    radioButtons.forEach(btn => {
+        btn.addEventListener("change", e =>{
+            const pickup = document.getElementById("pickup-check");
+            const setting = document.getElementById("setting-check");
+
+            if(e.target === pickup){
+                document.getElementById("setting-info-text").classList.add("hide");
+                document.getElementById("pickup-date-select").classList.remove("hide");
+            }else if(e.target === setting){
+                document.getElementById("pickup-date-select").classList.add("hide");
+                document.getElementById("setting-info-text").classList.remove("hide");
+            }
+        })
+    })
+
+    document.getElementById("runtime-input").addEventListener("change", e=>{
+        const someDate = e.target.valueAsNumber;
+
+        console.log(someDate);
+
+        const pickupTime = someDate - 10 * 60 * 1000;
+
+
+
+        console.log(pickupTime);
+
+        document.getElementById("pickupDate-input").valueAsNumber = pickupTime;
+
+    })
+
+
 });

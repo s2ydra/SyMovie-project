@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="/resources/css/movie/list.css">
 	<link rel="stylesheet" href="/resources/css/nav.css">
 	<script src="${pageContext.request.contextPath}/resources/js/movie/list.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/orders/orderMovie.js"></script>
 <title>SY Movie - Movie List</title>
 
 <script>
@@ -42,7 +41,7 @@
 			<div class="search-form-box">
 			<form class="search-form">
 				<div>
-					<select name="movieSearch">
+					<select name="movieSearch" id="movie-search-box">
 						<option value="1">영화번호</option>
 						<option value="2">명화제목</option>
 						<option value="3">장르</option>
@@ -50,7 +49,7 @@
 					</select>
 				</div>
 
-				<div><input type="text" name="movieKeyword"></div>
+				<div><input type="text" name="movieKeyword" id="search-box"></div>
 					<div><button id="search-btn">검색</button></div>
 			</form>
 		</div>
@@ -136,7 +135,8 @@
 								<span><fmt:formatNumber value="${item.moviePrice}" pattern="##,###"></fmt:formatNumber> 원</span>
 							</div>
 							<div class="btns">
-								<button class="action reserve-btn" data-login = "${sessionScope.member != null}" data-movienum ="${item.movieNum}">예매하기</button>
+								<button class="action reserve-btn" data-login = "${sessionScope.member != null}" data-movienum ="${item.movieNum}"
+										data-type="order" id="order-btn">예매하기</button>
 								<button type="button" class="action cart-btn" id="cart-btn"
 										data-movienum ="${item.movieNum}" data-type="cart" data-login = "${sessionScope.member != null}">장바구니</button>
 							</div>

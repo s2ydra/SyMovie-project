@@ -1,5 +1,8 @@
 package kr.ac.kopo.symovie.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +14,18 @@ public class Ordering {
     private OrderDetail orderDetail;
     private Customer customer;
     private Coupon coupon;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date pickupDate;
+
+
+    public Date getPickupDate() {
+        return pickupDate;
+    }
+
+    public void setPickupDate(Date pickupDate) {
+        this.pickupDate = pickupDate;
+    }
 
     public Coupon getCoupon() {
         return coupon;
