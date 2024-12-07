@@ -11,6 +11,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="/resources/css/orders/list.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
     <script src="/resources/js/orders/list.js"></script>
     <title>EATCH - 예매 현황</title>
 </head>
@@ -26,7 +28,7 @@
         <div class="table-box">
             <table>
                 <thead>
-                <tr>
+                <tr class="thead-row">
                     <th>주문상세번호</th>
                     <th>영화제목</th>
                     <th>티켓매수</th>
@@ -44,7 +46,7 @@
                     </tr>
                 </c:if>
                 <c:forEach var="item" items="${ordersList}">
-                    <tr>
+                    <tr class="item-row" onclick="location.href='detail/${item.orderDetail.ordersDetailNum}'">
                         <td>${item.orderDetail.ordersDetailNum}</td>
                         <td>${item.movie.movieName}</td>
                         <td>${item.orderDetail.movieAmount}</td>

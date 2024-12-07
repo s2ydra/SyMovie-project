@@ -134,4 +134,13 @@ public class RootController {
 		return "movieTest";
 	}
 
+	@GetMapping("/mypage")
+	String myPage(Model model, @SessionAttribute Customer member) {
+		Customer customer = service.item(member.getCustNum());
+
+		model.addAttribute("item", customer);
+
+		return "/mypage";
+	}
+
 }

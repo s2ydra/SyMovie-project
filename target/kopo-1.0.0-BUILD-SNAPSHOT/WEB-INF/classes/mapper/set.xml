@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="set">
+
+    <sql id="search">
+        SELECT * FROM SET_MENU
+
+        <where>
+            <if test="setSearch == 1">
+                SET_NAME = #{setKeyword}
+            </if>
+            <if test="setSearch == 2">
+                MOVIE_NAME LIKE CONCAT(CONCAT('%', #{setKeyword}), '%')
+            </if>
+            <if test="setSearch == 3">
+                food_name LIKE CONCAT(CONCAT('%', #{setKeyword}), '%')
+            </if>
+        </where>
+
+        order by set_num
+
+    </sql>
+
+
+    <resultMap id="setMap" type="SetMenu" autoMapping="true">
+        <association property="movie" autoMapping="true" javaType="Movie">
+            <id column="movie_num" property="movieNum"/>
+
+            <association property="movieImage" column="movie_num" autoMapping="true" javaType="MovieImage">
+                <id column="movie_num" property="movieNum"/>
+            </association>
+
+        </association>
+
+        <collection property="food" javaType="ArrayList" ofType="Food" autoMapping="true">
+            <id column="food_num" property="foodNum"/>
+
+            <collection property="foodImage" column="food_num" javaType="ArrayList" ofType="FoodImage" autoMapping="true">
+                <id column="food_num" property="foodNum"/>
+            </collection>
+        </collection>
+
+    </resultMap>
+
+    <select id="list" resultMap="setMap">
+        SELECT SUB.*, MOVIE.*, FOOD.*, MOVIE_IMAGE.*, FOOD_IMAGE.*
+        FROM (SELECT search.*, ROWNUM RNUM FROM (<include refid="search"></include>) search) SUB
+        LEFT JOIN MOVIE ON (SUB.MOVIE_NUM = MOVIE.MOVIE_NUM) JOIN FOOD ON (SUB.FOOD_NUM = FOOD.FOOD_NUM)
+        JOIN MOVIE_IMAGE ON(MOVIE.MOVIE_NUM = MOVIE_IMAGE.MOVIE_NUM) JOIN FOOD_IMAGE ON (FOOD.FOOD_NUM = FOOD_IMAGE.FOOD_NUM)
+        ORDER BY SET_NUM
+    </select>
+
+    <select id="total" resultType="Integer">
+        SELECT COUNT(*) FROM (<include refid="search"></include>)
+    </select>
+
+    <insert id="add">
+        INSERT INTO SET_MENU
+        VALUES (SET_SEQ.nextval, #{setName}, #{movieNum}, #{movieAmount}, #{foodNum}, #{foodAmount}, #{setPrice})
+    </insert>
+
+</mapper>

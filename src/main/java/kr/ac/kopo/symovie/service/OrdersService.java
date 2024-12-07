@@ -22,4 +22,8 @@ public interface OrdersService {
     OrderDetail hasFood(Long ordersDetailNum);
 
     void addFood(AddFood addFood);
+
+    Ordering detail(Long orderDetailNum);
+
+    List<OrderFood> myOrderFoods(Long foodOrderingNum);
 }

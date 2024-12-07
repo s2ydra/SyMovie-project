@@ -125,4 +125,25 @@ public class FoodController {
 
 		return foodPath + "detail";
 	}
+
+	@GetMapping("/list-popup-set")
+	String listPopupSet(Model model, Pager pager) {
+
+		pager.setPerPage(5);
+
+		List<Food> list = service.list(pager);
+		model.addAttribute("list", list);
+
+		return foodPath + "list-popup-set";
+	}
+
+	@ResponseBody
+	@GetMapping("/addToSet/{foodNum}")
+	Food addToSet(@PathVariable Long foodNum) {
+
+		Food food = service.item(foodNum);
+
+		return food;
+	}
+
 }

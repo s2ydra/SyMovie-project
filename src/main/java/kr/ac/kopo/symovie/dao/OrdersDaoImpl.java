@@ -58,6 +58,16 @@ public class OrdersDaoImpl implements OrdersDao {
     }
 
     @Override
+    public Ordering detail(Long orderDetailNum) {
+        return sql.selectOne("orders.detail",orderDetailNum);
+    }
+
+    @Override
+    public List<OrderFood> myOrderFoods(Long foodOrderingNum) {
+        return sql.selectList("myOrderFoods", foodOrderingNum);
+    }
+
+    @Override
     public Orders item(Long orderNum) {
         return sql.selectOne("orders.item", orderNum);
     }

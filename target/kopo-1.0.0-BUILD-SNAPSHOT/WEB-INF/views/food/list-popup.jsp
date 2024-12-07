@@ -54,9 +54,9 @@
 
 		});
 	</script>
+	<link rel="stylesheet"
+		  href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
 <link rel="stylesheet" href="/resources/css/food/list-popup.css">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
 </head>
 <body>
 	<div class="container">

@@ -15,31 +15,56 @@ public class Ordering {
     private Customer customer;
     private Coupon coupon;
 
+    private List<Orders> ordersList;
 
-    public Coupon getCoupon() {
-        return coupon;
-    }
-
-    public void setCoupon(Coupon coupon) {
-        this.coupon = coupon;
-    }
-
-    //JavaScript 에서 fetch로 리스트를 가지고올 때(list-popup)
     private List<Food> food;
 
     private OrderFood orderFood;
 
     private List<OrderFood> orderFoodList;
 
+    private MovieImage movieImage;
+
+    private List<FoodImage> foodImageList;
+
+
+    public List<FoodImage> getFoodImageList() {
+        return foodImageList;
+    }
+
+    public void setFoodImageList(List<FoodImage> foodImageList) {
+        this.foodImageList = foodImageList;
+    }
+
     public List<OrderFood> getOrderFoodList() {
         return orderFoodList;
     }
+
+    public MovieImage getMovieImage() {
+        return movieImage;
+    }
+
+    public void setMovieImage(MovieImage movieImage) {
+        this.movieImage = movieImage;
+    }
+
+    public Coupon getCoupon() {
+        return coupon;
+    }
+
+
+    public void setCoupon(Coupon coupon) {
+        this.coupon = coupon;
+    }
+
+    //JavaScript 에서 fetch로 리스트를 가지고올 때(list-popup)
+
 
     public void setOrderFoodList(List<OrderFood> orderFoodList) {
         this.orderFoodList = orderFoodList;
     }
 
-    private List<Orders> ordersList;
+
 
     public List<Orders> getOrdersList() {
         return ordersList;

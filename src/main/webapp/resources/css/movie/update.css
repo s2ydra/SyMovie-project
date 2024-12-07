@@ -40,6 +40,10 @@
 }
 
 .form-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 30px;
 }
 
@@ -70,7 +74,8 @@
 .inputs{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 80px;
     margin-bottom: 20px;
 }
 .left-inputs{
@@ -138,4 +143,16 @@ label{
     flex-direction: row;
     justify-content: flex-end;
     gap: 20px;
+}
+
+.movie-info-area{
+    display: flex;
+    max-width: 760px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.movie-info-area label{
+    margin-bottom: 10px;
 }

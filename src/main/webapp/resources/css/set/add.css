@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-form{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #DDDDDD;
+    border-radius: 10px;
+    padding: 15px;
+    min-width: 600px;
+}
+
+.title-area{
+    margin-bottom: 20px;
+}
+
+.title-area h3{
+    color: #BE0000;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Noto Sans";
+    letter-spacing: 1px;
+}
+
+table{
+    min-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+tbody{
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+tr{
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.form-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+}
+
+
+.movie-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    margin-top: 20px;
+}
+
+#selected-movie-table{
+    min-width: 100%;
+}
+
+
+form{
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+#movie-select{
+    background: #BE0000;
+    color: white;
+    min-width: 200px;
+    border: 2px solid #BE0000;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+#movie-select:hover{
+    background: none;
+    color: #BE0000;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.food-area{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#food-select{
+    background: #4B52C7;
+    color: white;
+    min-width: 200px;
+    border: 2px solid #4B52C7;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+#food-select:hover{
+    background: none;
+    color: #4B52C7;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.food-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    margin-top: 20px;
+}
+
+.labels{
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#name-input{
+    border: 2px solid #DDDDDD;
+    border-radius: 5px;
+    min-height: 25px;
+    min-width: 250px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+.name-area{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.sum-area{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.sum-area input{
+    border: 2px solid #DDDDDD;
+    border-radius: 5px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 18px;
+    max-width: 180px;
+}
+
+#confirm-btn{
+    background: #BE0000;
+    color: white;
+    min-width: 200px;
+    border: 2px solid #BE0000;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+.btn-group{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+#confirm-btn:hover{
+    background: none;
+    color: #BE0000;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+#back-btn{
+    background: none;
+    border: 2px solid #DDDDDD;
+    color: #DDDDDD;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+    border-radius: 10px;
+}
+
+#back-btn:hover{
+    background: #DDDDDD;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}

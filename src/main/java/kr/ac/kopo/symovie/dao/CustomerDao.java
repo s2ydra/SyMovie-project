@@ -20,5 +20,5 @@ public interface CustomerDao {
 
 	Customer item(String custId);
 
-
+    int total();
 }

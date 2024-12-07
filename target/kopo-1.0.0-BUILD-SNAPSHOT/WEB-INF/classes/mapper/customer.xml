@@ -2,12 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="customer">
+
+	<sql id="search">
+		SELECT * FROM CUSTOMER
+
+		<where>
+			<if test="custSearch == 1">
+				CUST_NAME = CONCAT(CONCAT('%', #{custKeyword}), '%')
+			</if>
+			<if test="custSearch == 2">
+				CUST_ID LIKE CONCAT(CONCAT('%', #{custKeyword}), '%')
+			</if>
+			<if test="custSearch == 3">
+				CUST_ROLE = #{custKeyword}
+			</if>
+		</where>
+
+		order by CUST_ROLE DESC
+
+	</sql>
+
 	<select id="list" resultType="Customer">
-		SELECT * FROM customer
-		ORDER BY cust_role DESC
+		SELECT SUB.*
+		FROM (SELECT search.*, ROWNUM RNUM FROM (<include refid="search"></include>) search) SUB
 	</select>
-	
-	
+
+	<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM (<include refid="search"></include>)
+	</select>
+
+
 	<insert id="add">
 		INSERT INTO customer
 		VALUES(CUSTOMER_SEQ.nextval, #{custId}, #{custPasswd}, #{custName}, #{custAge}, #{custPhone}, #{custRole})

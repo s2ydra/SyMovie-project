@@ -19,6 +19,9 @@
 			<if test="movieSearch == 4">
 				movie_country LIKE CONCAT(CONCAT('%', #{movieKeyword}), '%')
 			</if>
+			<if test="movieSearch == 5">
+				movie_agerange LIKE CONCAT(CONCAT('%', #{movieKeyword}), '%')
+			</if>
 		</where>
 		
 		order by movie_num

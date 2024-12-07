@@ -170,7 +170,7 @@ window.addEventListener("load", () => {
                         })
                 }
 
-                window.location.reload();
+                // window.location.reload();
             })
     })
 

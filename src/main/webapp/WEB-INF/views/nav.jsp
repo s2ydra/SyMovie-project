@@ -30,7 +30,7 @@
 				<div class="dropdown">
 				<a class="dropbtn">${sessionScope.member.custName} 님</a>
 				<div class="dropdown-content">
-					<a href="/movie/list-test">내정보</a>
+					<a href="/mypage">내정보</a>
 					<a href="/coupon/list">내 보유쿠폰</a>
 					<a href="/cart">장바구니</a>
 					<a href="/orders/list">나의 예매 현황</a>

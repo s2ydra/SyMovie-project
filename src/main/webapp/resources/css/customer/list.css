@@ -308,7 +308,169 @@ td {
 	cursor: pointer;
 }
 
+#movie-search-box{
+	min-width: 40px;
+	min-height: 20px;
+	font-size: 18px;
+	margin-right: 5px;
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+}
 
 
 
+#search-box{
+	min-width: 200px;
+	min-height: 20px;
+	border: 1px solid #DDDDDD;
+	border-radius: 5px;
+	font-size: 18px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+	margin-right: 5px;
+}
 
+#search-btn{
+	background: none;
+	border: 2px solid black;
+	border-radius: 5px;
+	min-width: 50px;
+	min-height: 20px;
+	font-weight: 500;
+	font-family: "Noto Sans";
+	font-size: 18px;
+}
+
+#search-btn:hover{
+	background: black;
+	color: white;
+	cursor: pointer;
+	transition-duration: 0.2s;
+}
+
+#update-btn{
+	background: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	min-width: 80px;
+	min-height: 30px;
+	font-size: 15px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+	color: black;
+}
+
+#update-btn:hover{
+	background: black;
+	color: white;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+
+#delete-btn{
+	background: none;
+	border: 1px solid red;
+	border-radius: 5px;
+	min-width: 80px;
+	min-height: 30px;
+	font-size: 15px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+	color: red;
+}
+
+#delete-btn:hover{
+	background: red;
+	color: white;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+
+.title-area{
+	display: flex;
+	min-width: 100%;
+	justify-content: flex-start;
+	margin-left: 300px;
+	margin-top: 20px;
+}
+
+.title-area h3{
+	color: #BE0000;
+	font-size: 30px;
+	font-weight: 600;
+	font-family: "Noto Sans";
+}
+
+.btn-group{
+	margin-top: 30px;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	justify-content: flex-end;
+	margin-right: 200px;
+}
+
+#add-btn{
+	background: #BE0000;
+	color: white;
+	min-width: 180px;
+	min-height: 30px;
+	font-family: "Noto Sans";
+	font-weight: 600;
+	font-size: 20px;
+	border: 2px solid #BE0000;
+	border-radius: 8px;
+}
+
+#add-btn:hover{
+	background: none;
+	color: #BE0000;
+	cursor: pointer;
+	transition-duration: 0.2s;
+}
+
+#back-btn{
+	background: none;
+	color: #DDDDDD;
+	min-width: 110px;
+	min-height: 30px;
+	font-size: 20px;
+	font-weight: 600;
+	font-family: "Noto Sans";
+	border: 2px solid #DDDDDD;
+	border-radius: 8px;
+}
+
+#back-btn:hover{
+	background: #DDDDDD;
+	color: white;
+	cursor: pointer;
+	transition-duration: 0.2s;
+}
+
+.pages{
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	align-items: center;
+	margin-top: 20px;
+
+}
+
+.pages a{
+	color: black;
+	text-decoration: none;
+	font-family: "Noto Sans";
+	font-weight: 700;
+	justify-content: center;
+}
+
+.pages .active{
+	color: #BE0000;
+	font-wight: 700;
+	font-family: "Noto Sans";
+	text-decoration: none;
+	font-size: 20px;
+}

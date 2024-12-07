@@ -20,7 +20,11 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Override
 	public List<Customer> list(Pager pager) {
-		
+
+		int total = dao.total();
+
+		pager.setTotal(total);
+
 		return dao.list(pager);
 	}
 

@@ -42,9 +42,17 @@
 						<c:if test="${amount >= 1}">
 						<tr>
 							<td>${item.movieNum}</td>
-							<td><img style="width: 150px; height: 250px;" class="movie-image"
+							<td>
+								<c:if test="${item.movieImage.movieImageUuid != 'mega'}">
+								<img style="width: 150px; height: 250px;" class="movie-image"
 									src="/upload/${item.movieImage.movieImageFilename}_
-									${item.movieImage.movieImageUuid}"></td>
+									${item.movieImage.movieImageUuid}">
+								</c:if>
+								<c:if test="${item.movieImage.movieImageUuid == 'mega'}">
+									<img style="width: 150px; height: 250px;" class="movie-image"
+										 src="${item.movieImage.movieImageFilename}">
+								</c:if>
+							</td>
 							<td>${item.movieName}</td>
 							<td>${item.moviePrice}</td>
 							<td>${amount}</td>

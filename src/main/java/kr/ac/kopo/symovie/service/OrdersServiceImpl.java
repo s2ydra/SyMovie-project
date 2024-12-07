@@ -98,4 +98,15 @@ public class OrdersServiceImpl implements OrdersService {
 
         dao.updateOrderDetail(addFood);
     }
+
+    @Override
+    public Ordering detail(Long orderDetailNum) {
+        return dao.detail(orderDetailNum);
+    }
+
+    @Override
+    public List<OrderFood> myOrderFoods(Long foodOrderingNum) {
+        return dao.myOrderFoods(foodOrderingNum);
+    }
+
 }

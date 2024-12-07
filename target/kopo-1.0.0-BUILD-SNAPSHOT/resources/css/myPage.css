@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    align-items: flex-start;
+    margin-left: 50px;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+.title h3{
+    color: #4B52C7;
+    font-weight: 600;
+    font-size: 25px;
+    font-family: "Noto Sans";
+    margin-bottom: 20px;
+}
+
+.title span{
+    color: #BE0000;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+.middle{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #DDDDDD;
+    padding: 10px;
+    min-width: 450px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    border-radius: 10px;
+}
+
+.info-title{
+    margin-bottom: 20px;
+    display: flex;
+    min-width: 90%;
+    justify-content: center;
+}
+
+.info-title span{
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.my-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap:15px;
+    margin-bottom: 40px;
+}
+
+.my-info span{
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+#update-btn{
+    background: #4B52C7;
+    color: white;
+    min-width: 140px;
+    min-height: 30px;
+    border: 2px solid #4B52C7;
+    border-radius: 8px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 15px;
+}
+
+#update-btn:hover{
+    background: none;
+    color: #4B52C7;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+#account-cancel-btn{
+    background: red;
+    color: white;
+    min-width: 140px;
+    min-height: 30px;
+    border: 2px solid red;
+    border-radius: 8px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 15px;
+}
+
+#account-cancel-btn:hover{
+    background: none;
+    color: red;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.btn-group{
+    margin-bottom: 30px;
+}

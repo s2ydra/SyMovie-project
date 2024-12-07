@@ -62,7 +62,7 @@
 					</div>
 				</div>
 				</div>
-				<div>
+				<div class="movie-info-area">
 					<label>영화소개</label>
 					<textarea id="movieInfo" name="movieInfo">${item.movieInfo}</textarea>
 				</div>

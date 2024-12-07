@@ -8,53 +8,55 @@ body{
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	height:100vh;
-	overflow: hidden;
-	padding-bottom: 200px;
+	min-height:100vh;
+	padding-bottom: 100px;
 }
 
 .movie-info-box {
 	display: flex;
-	min-height: 250px;
+	min-height: 280px;
 	flex-direction: column;
 	align-self: stretch;
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%,
 		rgba(0, 0, 0, 0.50) 100%), url("/resources/img/food_list_img.jpg")
 		lightgray 50%/cover no-repeat;
 	justify-content: center;
-}
-
-.text1-box {
-	display: flex;
-	height: 61px;
 	align-items: center;
-	gap: 25px;
-	flex-shrink: 0;
 }
 
-.movie-info-text1 {
-	color: #FFF;
+.text1-box{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+	align-items: center;
+	min-width: 100%;
+}
+
+.text1-box span{
+	color: white;
+	font-family: "Noto Sans";
+	font-weight: 700;
+	font-size: 50px;
+	letter-spacing: 3px;
+	text-decoration: underline 3px;
+	text-underline-position: under;
+}
+
+.text2-box{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.text2-box span{
+	color:white;
+	font-size: 20px;
+	font-weight: 500;
+	font-family: "Noto Sans";
+	line-height: 30px;
 	text-align: center;
-	font-family: "Noto Sans";
-	font-size: 45px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-}
-
-.text2-box {
-	display: flex;
-	align-items: center;
-	gap: 27px;
-}
-
-.movie-info-text2 {
-	color: #FFF;
-	font-family: "Noto Sans";
-	font-size: 22px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
 }
 
 .genre-select-box {
@@ -316,6 +318,47 @@ td a{
 
 #agerange-sort{
 	cursor: pointer;
+}
+
+#movie-search-box{
+	min-width: 40px;
+	min-height: 20px;
+	font-size: 18px;
+	margin-right: 5px;
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+}
+
+
+#search-box{
+	min-width: 200px;
+	min-height: 20px;
+	border: 1px solid #DDDDDD;
+	border-radius: 5px;
+	font-size: 18px;
+	font-family: "Noto Sans";
+	font-weight: 500;
+	margin-right: 5px;
+}
+
+#search-btn{
+	background: none;
+	border: 2px solid black;
+	border-radius: 5px;
+	min-width: 50px;
+	min-height: 20px;
+	font-weight: 500;
+	font-family: "Noto Sans";
+	font-size: 18px;
+}
+
+#search-btn:hover{
+	background: black;
+	color: white;
+	cursor: pointer;
+	transition-duration: 0.2s;
 }
 
 .movie-image{

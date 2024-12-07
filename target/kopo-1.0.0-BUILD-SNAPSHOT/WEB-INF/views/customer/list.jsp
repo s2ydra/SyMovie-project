@@ -11,37 +11,25 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp"></jsp:include>
-	<div class="container">	
-
-		<div class="movie-info-box">
-			<div class="text-group">
-				<div class="text1-box">
-					<span class="movie-info-text1">MOVIE</span>
-				</div>
-				<div class="text2-box">
-					<img src="/resources/img/movie-info-line.jpg"> <span
-						class="movie-info-text2">원하시는 영화를 골라주세요.<br>(총
-						${pager.total.intValue()}개의 검색결과)
-					</span>
-				</div>
-			</div>
-		</div>
-
+	<div class="container">
 		<div class="middle">
+			<div class="title-area">
+				<h3>고객명단</h3>
+			</div>
 			<div class="search-form-box">
 			<form class="search-form">
 				<div>
-					<select name="movieSearch">
-						<option value="1">영화번호</option>
-						<option value="2">명화제목</option>
-						<option value="3">장르</option>
-						<option value="4">제작국가</option>
+					<select name="movieSearch" id="movie-search-box">
+						<option value="1">이름</option>
+						<option value="2">아이디</option>
+						<option value="3">역할번호</option>
 					</select>
 				</div>
 
-				<div><input type="text" name="movieKeyword"></div>
+				<div><input type="text" name="movieKeyword" id="search-box"></div>
 					<div><button id="search-btn">검색</button></div>
 			</form>
+			</div>
 
 			<table class="customer-table">
 				<thead class="thead-row">
@@ -72,18 +60,32 @@
 							<td>${item.custPhone}</td>
 							<td>${item.custRole}</td>
 							<td colspan="2">
-								<button type="button" onclick="location.href='update/${item.custNum}'">변경</button>
+								<button type="button" onclick="location.href='update/${item.custNum}'" id="update-btn">변경</button>
 								<button class="delete-btn" type="button" 
-								data-custnum = "${item.custNum}">삭제</button>
+								data-custnum = "${item.custNum}" id="delete-btn">삭제</button>
 							</td>
 						</tr>
 					</c:forEach>			
 				</tbody>
 			</table>
 		</div>
-		<div>
-			<button type="button" onclick="location.href='add'">추가하기</button>
-			<button type="button" onclick="location.href='/'">이전으로</button>
+		<div class="pages">
+			<div>
+				<a href="?page=1${pager.query}">처음</a>
+
+			</div>
+			<c:forEach var="page" items="${pager.list}">
+				<div>
+					<a href="?page=${page}${pager.query}" class="pages-num ${pager.page == page? 'active':''}">${page}</a>
+				</div>
+			</c:forEach>
+			<div>
+				<a href="?page=${pager.last}${pager.query}">마지막</a>
+			</div>
+		</div>
+		<div class="btn-group">
+			<button id="add-btn" type="button" onclick="location.href='add'">추가하기</button>
+			<button id="back-btn" type="button" onclick="location.href='/'">이전으로</button>
 		</div>
 	</div>
 </body>

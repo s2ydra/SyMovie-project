@@ -53,9 +53,10 @@ public class CustomerDaoImpl implements CustomerDao {
 		return sql.selectOne("customer.itemid", custId);
 	}
 
+	@Override
+	public int total() {
+		return sql.selectOne("customer.total");
+	}
 
-
-	
-	
 
 }

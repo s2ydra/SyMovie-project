@@ -36,4 +36,8 @@ public interface OrdersDao {
     void addFood(AddFood addFood);
 
     void updateOrderDetail(AddFood addFood);
+
+    Ordering detail(Long orderDetailNum);
+
+    List<OrderFood> myOrderFoods(Long foodOrderingNum);
 }

@@ -209,4 +209,22 @@ public class OrdersController {
 
         return "OK";
     }
+
+    @GetMapping("/detail/{orderDetailNum}")
+    String detail(Model model, @PathVariable Long orderDetailNum){
+
+        Ordering item = service.detail(orderDetailNum);
+        List<OrderFood> orderfoods = new ArrayList<OrderFood>();
+
+        if(item.getOrderDetail().getFoodOrderingNum() != null){
+            orderfoods = service.myOrderFoods(item.getOrderDetail().getFoodOrderingNum());
+        }else {
+            orderfoods = null;
+        }
+
+        model.addAttribute("item", item);
+        model.addAttribute("orderFoods", orderfoods);
+
+        return path + "detail";
+    }
 }

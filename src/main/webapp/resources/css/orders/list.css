@@ -29,6 +29,10 @@ table{
     min-width: 100%;
 }
 
+.thead-row {
+    height: 35px;
+}
+
 th {
     background: #BE0000;
     color: white;
@@ -94,6 +98,17 @@ td{
 .add-food:hover{
     background: none;
     color: #BE0000;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.item-row{
+    height: 80px;
+}
+
+
+.item-row:hover{
+    background: #f05650;
     cursor: pointer;
     transition-duration: 0.2s;
 }

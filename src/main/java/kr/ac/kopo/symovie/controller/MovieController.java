@@ -193,4 +193,24 @@ public class MovieController {
 
 		return moviePath + "list-test";
 	}
+
+
+	@GetMapping("/list-popup")
+	String listPopup(Model model, Pager pager) {
+		List<Movie> list = service.list(pager);
+
+		model.addAttribute("list", list);
+
+		return moviePath + "list-popup";
+	}
+
+	@ResponseBody
+	@GetMapping("/addToSet/{movieNum}")
+	Movie addToSet(@PathVariable Long movieNum) {
+
+		Movie item = service.item(movieNum);
+
+		return item;
+	}
+
 }

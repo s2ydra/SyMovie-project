@@ -38,6 +38,10 @@
             <result column="movie_country" property="movieCountry"/>
             <result column="movie_price" property="moviePrice"/>
             <result column="movie_info" property="movieInfo"/>
+
+            <association property="movieImage" column="movie_num" autoMapping="true" javaType="MovieImage">
+                <id column="movie_num" property="movieNum"/>
+            </association>
         </association>
 
         <association property="orders" javaType="Orders">
@@ -46,14 +50,69 @@
             <result column="order_date" property="orderDate"/>
         </association>
 
+        <association property="movieImage" javaType="MovieImage">
+            <id column="movie_image_num" property="movieImageNum"/>
+            <result column="movie_num" property="movieNum"/>
+            <result column="movie_image_filename" property="movieImageFilename"/>
+            <result column="movie_image_uuid" property="movieImageUuid"/>
+        </association>
+
+
         <collection property="orderFoodList" javaType="ArrayList" ofType="OrderFood">
             <result column="order_food.food_ordering_num" property="foodOrderingNum"/>
             <result column="order_food.order_food_num" property="orderFoodNum"/>
             <result column="food_num" property="foodNum"/>
             <result column="amount" property="amount"/>
         </collection>
+
+        <collection property="food" javaType="ArrayList" ofType="Food">
+            <result column="food_num" property="foodNum"/>
+            <result column="food_type" property="foodType"/>
+            <result column="food_name" property="foodName"/>
+            <result column="food_price" property="foodPrice"/>
+            <result column="food_info" property="foodInfo"/>
+        </collection>
+
+        <collection property="foodImageList" javaType="ArrayList" ofType="FoodImage">
+            <result column="food_image_num" property="foodImageNum"/>
+            <result column="food_num" property="foodNum"/>
+            <result column="food_image_filename" property="foodImageFilename"/>
+            <result column="food_image_uuid" property="foodImageUuid"/>
+        </collection>
     </resultMap>
 
+    <resultMap id="orderFoodsMap" type="OrderFood" autoMapping="true">
+            <id column="food_ordering_num" property="foodOrderingNum"/>
+            <id column="order_food_num" property="orderFoodNum"/>
+            <result column="food_num" property="foodNum"/>
+            <result column="amount" property="amount"/>
+
+        <collection property="foodList" javaType="ArrayList" ofType="Food" autoMapping="true">
+            <id column="food_num" property="foodNum"/>
+
+            <collection property="foodImage" column="food_num" javaType="ArrayList" ofType="FoodImage">
+                <result column="food_image_num" property="foodImageNum"/>
+                <result column="food_num" property="foodNum"/>
+                <result column="food_image_filename" property="foodImageFilename"/>
+                <result column="food_image_uuid" property="foodImageUuid"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+
+    <select id="detail" resultMap="ordersCustomerMap">
+        SELECT distinct * FROM CUSTOMER LEFT JOIN ORDERS ON (CUSTOMER.CUST_NUM = ORDERS.CUST_NUM)
+        JOIN ORDER_DETAIL ON ORDERS.ORDER_NUM = ORDER_DETAIL.ORDER_NUM
+        JOIN MOVIE ON (ORDER_DETAIL.MOVIE_NUM = MOVIE.MOVIE_NUM)
+        JOIN MOVIE_IMAGE ON MOVIE.MOVIE_NUM = MOVIE_IMAGE.MOVIE_NUM
+        WHERE ORDER_DETAIL.ORDER_DETAIL_NUM = #{orderDetailNum}
+    </select>
+
+    <select id="myOrderFoods" resultMap="orderFoodsMap">
+        SELECT *
+        FROM ORDER_FOOD JOIN FOOD ON (ORDER_FOOD.FOOD_NUM = FOOD.FOOD_NUM) JOIN FOOD_IMAGE ON (FOOD.FOOD_NUM = FOOD_IMAGE.FOOD_NUM)
+        WHERE ORDER_FOOD.FOOD_ORDERING_NUM = #{foodOrderingNum}
+    </select>
 
 
     <select id="myOrders" resultMap="ordersCustomerMap">

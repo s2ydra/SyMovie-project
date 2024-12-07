@@ -16,8 +16,46 @@ public class Pager {
 	private int foodSearch;
 	private String foodKeyword;
 
+	private int custSearch;
+	private String custKeyword;
 
-	
+
+	private int setSearch;
+	private String setKeyword;
+
+
+	public String getCustKeyword() {
+		return custKeyword;
+	}
+
+	public void setCustKeyword(String custKeyword) {
+		this.custKeyword = custKeyword;
+	}
+
+	public int getCustSearch() {
+		return custSearch;
+	}
+
+	public void setCustSearch(int custSearch) {
+		this.custSearch = custSearch;
+	}
+
+	public String getSetKeyword() {
+		return setKeyword;
+	}
+
+	public void setSetKeyword(String setKeyword) {
+		this.setKeyword = setKeyword;
+	}
+
+	public int getSetSearch() {
+		return setSearch;
+	}
+
+	public void setSetSearch(int setSearch) {
+		this.setSearch = setSearch;
+	}
+
 	public int getFoodSearch() {
 		return foodSearch;
 	}

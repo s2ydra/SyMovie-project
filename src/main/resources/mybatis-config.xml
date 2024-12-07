@@ -23,6 +23,7 @@
 		<typeAlias type="kr.ac.kopo.symovie.model.OrderFood" alias="OrderFood"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.AddFood" alias="AddFood"/>
 		<typeAlias type="kr.ac.kopo.symovie.model.MegaMovie" alias="MegaMovie"/>
+		<typeAlias type="kr.ac.kopo.symovie.model.SetMenu" alias="SetMenu"/>
 	</typeAliases>
 	
 	<mappers>
@@ -32,5 +33,6 @@
 		<mapper resource="mapper/event.xml"/>
 		<mapper resource="mapper/coupon.xml"/>
 		<mapper resource="mapper/orders.xml"/>
+		<mapper resource="mapper/set.xml"/>
 	</mappers>
 </configuration>

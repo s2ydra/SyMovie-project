@@ -310,7 +310,7 @@ td {
 tr:hover{
 	background: #f05650;
 	cursor: pointer;
-	transition-duration: 0.3s;
+	transition-duration: 0.2s;
 }
 
 .btn-group{

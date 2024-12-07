@@ -21,7 +21,7 @@
 					<span class="movie-info-text1">Food</span>
 				</div>
 				<div class="text2-box">
-					<img src="/resources/img/movie-info-line.jpg"> <span
+					<span
 						class="movie-info-text2">원하시는 먹거리를 골라주세요.<br>(총
 						${pager.total.intValue()}개의 검색결과)
 					</span>
@@ -33,19 +33,19 @@
 			<div class="search-form-box">
 			<form class="search-form">
 				<div>
-					<select name="foodSearch">
+					<select name="foodSearch" id="movie-search-box">
 						<option value="5">먹거리번호</option>
 						<option value="6">먹거리명</option>
 						<option value="7">먹거리유형</option>
 					</select>
 				</div>
 
-				<div><input type="text" name="foodKeyword"></div>
+				<div><input type="text" name="foodKeyword" id="search-box"></div>
 					<div><button id="search-btn">검색</button></div>
 			</form>
 		</div>
 			<div class="genre-select-box">
-				<span class="genre-select-text">장르별 모아보기</span>
+				<span class="genre-select-text">유형별 모아보기</span>
 			</div>
 			<div class="genre-select-button-group">
 				
