@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="/resources/css/movie/list.css">
 	<link rel="stylesheet" href="/resources/css/nav.css">
 	<script src="${pageContext.request.contextPath}/resources/js/movie/list.js"></script>
-<title>SY Movie - Movie List</title>
+<title>EATCH - Movie List</title>
 
 <script>
 	window.addEventListener("load", () => {

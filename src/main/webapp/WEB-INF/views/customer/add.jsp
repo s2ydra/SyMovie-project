@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SY Movie 관리자페이지</title>
+<title>EATCH 관리자페이지</title>
 </head>
 <body>
 	<div>

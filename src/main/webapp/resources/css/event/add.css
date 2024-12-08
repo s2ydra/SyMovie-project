@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    border: 2px solid #DDDDDD;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.title-area{
+    margin-bottom: 20px;
+}
+
+.title-area h3{
+    color: #BE0000;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.event-title-area{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.event-title-area label{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+.event-title-area input{
+    min-width: 400px;
+    min-height: 30px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.event-info-area{
+    display: flex;
+    min-width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 2px solid #DDDDDD;
+    padding-bottom: 20px;
+}
+
+.event-info-area label{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+.coupon-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #DDDDDD;
+    gap: 10px;
+}
+
+.coupon-area h3{
+    font-family: "Noto Sans";
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+    align-items: flex-end;
+}
+
+.input-group label{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+.input-group input{
+    min-width: 180px;
+    min-height: 15px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+.btn-group{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+#confirm-btn{
+    background: #BE0000;
+    color: white;
+    min-width: 130px;
+    min-height: 35px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 20px;
+    border: 2px solid #BE0000;
+    border-radius: 10px;
+}
+
+#confirm-btn:hover{
+    background: none;
+    color: #BE0000;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+#back-btn{
+    min-width: 80px;
+    min-height: 35px;
+    background: none;
+    border: 2px solid #DDDDDD;
+    border-radius: 10px;
+    color: #DDDDDD;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+#back-btn:hover{
+    background: #DDDDDD;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}

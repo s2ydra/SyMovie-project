@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 	<script>
@@ -27,7 +28,8 @@
 			})
 		});
 	</script>
-<title>SY Movie - My Coupon</title>
+	<link rel="stylesheet" href="/resources/css/coupon/list.css">
+<title>EATCH - My Coupon</title>
 </head>
 <body>
 	<div>
@@ -36,7 +38,7 @@
 			<span>${list.size()}개의 티켓을 보유 중입니다.</span>
 		</div>
 		<div>
-			<table border="1">
+			<table>
 				<thead>
 					<tr>
 						<th>쿠폰번호</th>
@@ -50,7 +52,7 @@
 				<tbody>
 					<c:if test="${list.size() < 1}">
 						<tr>
-							<td>보유하신 쿠폰이 없습니다.</td>
+							<td colspan="6">보유하신 쿠폰이 없습니다.</td>
 						</tr>
 					</c:if>
 					<c:forEach var="item" items="${list}">
@@ -62,7 +64,7 @@
 							></fmt:formatDate>까지 </td>
 							<td>${item.eventNum}</td>
 							<td>
-								<button class="addCoupon" type="button" data-coupon="${item.couponNum}">적용하기</button>
+								<button id="add-coupon-btn" class="addCoupon" type="button" data-coupon="${item.couponNum}">적용하기</button>
 							</td>
 						</tr>
 					</c:forEach>

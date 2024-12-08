@@ -33,4 +33,9 @@ public class CouponDaoImpl implements CouponDao {
     public Coupon item(Long couponNum) {
         return sql.selectOne("coupon.item", couponNum);
     }
+
+    @Override
+    public void giveUpCoupon(Long custNum) {
+        sql.delete("coupon.giveUpCoupon", custNum);
+    }
 }

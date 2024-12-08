@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <script src="/resources/js/cart/cart.js"></script>
 	<link rel="stylesheet" href="/resources/css/cart.css">
-<title>SY Movie - 장바구니</title>
+<title>EATCH - 장바구니</title>
 </head>
 <body>
 <div id="nav">

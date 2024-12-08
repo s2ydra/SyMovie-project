@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 	<link rel="stylesheet" href="/resources/css/event/list.css">
-<title>SY Movie - Event List</title>
+<title>EATCH - Event List</title>
 </head>
 <body>
 <div id="nav">
@@ -24,7 +24,9 @@
 					<tr>
 						<th>이벤트 번호</th>
 						<th class="event-title-td">이벤트 제목</th>
+						<c:if test="${sessionScope.member.custRole == 99 && sessionScope.member != null}">
 						<th colspan="2">MORE</th>
+						</c:if>
 					</tr>
 				</thead>
 				<tbody>
@@ -39,19 +41,28 @@
 						<td class="event-td event-title-td">
 							<a href="detail/${item.eventNum}" class="event-title">${item.eventTitle}</a>
 						</td>
+						<c:if test="${sessionScope.member.custRole == 99 && sessionScope.member != null}">
 						<td colspan="2" class="event-td">
 							<button type="button" class="update-btn" onclick="location.href='update/${item.eventNum}'">수정</button>
 							<button type="button" class="delete-btn" onclick="location.href='delete/${item.eventNum}'">삭제</button>
 						</td>
+						</c:if>
 					</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+			<c:if test="${sessionScope.member.custRole == 99 && sessionScope.member != null}">
 		<div class="btn-group">
 			<button class="add-btn" type="button" onclick="location.href='add'">추가하기</button>
 			<button class="back-btn" type="button" onclick="location.href='/'">처음으로</button>
 		</div>
+			</c:if>
+			<c:if test="${sessionScope.member.custRole != 99 || sessionScope.member == null}">
+			<div class="btn-group">
+				<button class="back-btn" type="button" onclick="location.href='/'">처음으로</button>
+			</div>
+		</c:if>
 		</div>
 	</div>
 </body>

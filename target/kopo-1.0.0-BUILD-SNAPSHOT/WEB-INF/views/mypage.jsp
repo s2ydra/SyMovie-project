@@ -12,6 +12,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
   <link rel="stylesheet" href="/resources/css/myPage.css">
+    <script src="/resources/js/mypage.js"></script>
 </head>
 <body>
 <div id="nav">
@@ -34,8 +35,8 @@
 
         </div>
       <div class="btn-group">
-        <button type="button" id="update-btn">내 정보 수정</button>
-        <button type="button" id="account-cancel-btn">회원 탈퇴</button>
+        <button type="button" id="update-btn" onclick="location.href='mypage-update'">내 정보 수정</button>
+        <button type="button" id="account-cancel-btn" data-custnum = "${sessionScope.member.custNum}"}>회원 탈퇴</button>
       </div>
     </div>
   </div>

@@ -14,4 +14,6 @@ public interface CouponDao {
     CouponCustomer forCheck(CouponCustomer item);
 
     Coupon item(Long couponNum);
+
+    void giveUpCoupon(Long custNum);
 }

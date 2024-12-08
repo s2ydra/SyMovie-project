@@ -12,39 +12,49 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
-<title>이벤트 추가하기 - 관리자 페이지</title>
+	<link rel="stylesheet" href="/resources/css/event/add.css">
+<title>EATCH - 관리자 페이지</title>
 </head>
 <body>
-	<div>
-		<div>
+<div id="nav">
+	<jsp:include page="../nav.jsp"></jsp:include>
+</div>
+	<div class="container">
+		<div class="middle">
+		<div class="title-area">
 			<h3>이벤트 추가하기</h3>
 		</div>
 		<div>
 			<form method="post">
-				<div>
-					<label>이벤트제목</label>
+				<div class="event-title-area">
+					<label>이벤트제목 : </label>
 					<input type="text" name="eventTitle">
 				</div>
-				<div>
+				<div class="event-info-area">
 					<label>이벤트 내용</label>
 					<textarea id="eventInfo" name="eventInfo"></textarea>
 				</div>
+				<div class="coupon-area">
 				<div>
 					<h3>쿠폰정보</h3>
 				</div>
+					<div class="input-group">
 				<div>
-					<label>쿠폰이름</label>
+					<label>쿠폰이름 : </label>
 					<input type="text" name="couponName">
 				</div>
 				<div>
-					<label>할인율</label>
+					<label>할인율(%) : </label>
 					<input type="number" name="discountRate">
 				</div>
-				<div>
-					<button>추가하기</button>
-					<button type="button" onclick="location.href='list'">BACK</button>	
+					</div>
+				</div>
+				<div class="btn-group">
+					<button id="confirm-btn">추가하기</button>
+					<button id="back-btn" type="button" onclick="location.href='list'">BACK</button>
 				</div>
 			</form>
+		</div>
 		</div>
 	</div>
 	

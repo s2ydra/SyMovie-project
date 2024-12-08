@@ -23,6 +23,5 @@ public interface CustomerService {
 
 	void signup(Customer item);
 
-
-
+    void accountCancel(Long custNum);
 }

@@ -12,7 +12,7 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
-<title>이벤트 수정 - 관리자 페이지</title>
+<title>EATCH - 관리자 페이지</title>
 </head>
 <body>
 	<div>

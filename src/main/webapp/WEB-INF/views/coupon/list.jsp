@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/coupon/list.css">
-    <title>SY Movie - My Coupon</title>
+    <title>EATCH - My Coupon</title>
 </head>
 <body>
 <div id="nav">

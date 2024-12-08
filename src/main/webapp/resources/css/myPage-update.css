@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    align-items: flex-start;
+    margin-left: 50px;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+.title h3{
+    color: #4B52C7;
+    font-weight: 600;
+    font-size: 25px;
+    font-family: "Noto Sans";
+    margin-bottom: 20px;
+}
+
+.title span{
+    color: #BE0000;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+.middle{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #DDDDDD;
+    padding: 10px;
+    min-width: 450px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    border-radius: 10px;
+}
+
+.info-title{
+    margin-bottom: 20px;
+    display: flex;
+    min-width: 90%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.info-title span{
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 23px;
+    letter-spacing: 2px;
+    color: #BE0000;
+}
+
+.my-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap:15px;
+    margin-bottom: 40px;
+}
+
+.my-info span{
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+}
+
+.confirm-btn{
+    background: #BE0000;
+    color: white;
+    min-width: 170px;
+    min-height: 30px;
+    border: 2px solid #BE0000;
+    border-radius: 8px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.confirm-btn:hover{
+    background: none;
+    color: #BE0000;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+#back-btn{
+    background: none;
+    color: #DDDDDD;
+    min-width: 80px;
+    min-height: 30px;
+    border: 2px solid #DDDDDD;
+    border-radius: 8px;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 15px;
+}
+
+#back-btn:hover{
+    background: #DDDDDD;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.btn-group{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.my-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.labels{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+}
+
+.labels label{
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.inputs input{
+    border: 1px solid #DDDDDD;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: "Noto Sans";
+    border-radius: 5px;
+    max-width: 200px;
+}

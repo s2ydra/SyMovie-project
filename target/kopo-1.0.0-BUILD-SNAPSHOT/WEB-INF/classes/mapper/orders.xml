@@ -81,7 +81,7 @@
         </collection>
     </resultMap>
 
-    <resultMap id="orderFoodsMap" type="OrderFood" autoMapping="true">
+    <resultMap id="orderFoodsMap" type="OrderFood">
             <id column="food_ordering_num" property="foodOrderingNum"/>
             <id column="order_food_num" property="orderFoodNum"/>
             <result column="food_num" property="foodNum"/>

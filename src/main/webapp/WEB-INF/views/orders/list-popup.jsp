@@ -64,8 +64,16 @@
                         <td><fmt:formatDate value="${item.orders.orderDate}"
                                             pattern="yyyy년 MM월 dd일"></fmt:formatDate></td>
                         <td>
-                            <fmt:formatDate value="${item.orderDetail.runTime}"
-                                            pattern="yyyy년 MM월 dd일 HH시 mm분"></fmt:formatDate>
+                            <c:if test="${item.orderDetail.foodOrderingNum != null && item.orderDetail.pickupDate != null}">
+                                <fmt:formatDate value="${item.orderDetail.pickupDate}"
+                                                pattern="yyyy.MM.dd HH시 mm분"></fmt:formatDate>
+                            </c:if>
+                            <c:if test="${item.orderDetail.foodOrderingNum == null && item.orderDetail.pickupDate == null}">
+                                먹거리 주문 없음
+                            </c:if>
+                            <c:if test="${item.orderDetail.foodOrderingNum != null && item.orderDetail.pickupDate == null}">
+                                먹거리 세팅 예정
+                            </c:if>
                         </td>
                         <td>
                             <button type="button" class="add-food" data-ordersdetailnum = "${item.orderDetail.ordersDetailNum}">적용</button>

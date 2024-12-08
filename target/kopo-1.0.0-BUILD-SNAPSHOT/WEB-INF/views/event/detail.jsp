@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <script src="/resources/js/coupon/coupon.js"></script>
     <link rel="stylesheet" href="/resources/css/event/detail.css">
-    <title>이벤트 상세보기</title>
+    <title>EATCH - 이벤트 상세보기</title>
 </head>
 <body>
 <div id="nav">

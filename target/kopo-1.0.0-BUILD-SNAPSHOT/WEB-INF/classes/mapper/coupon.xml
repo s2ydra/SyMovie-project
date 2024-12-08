@@ -33,4 +33,9 @@
 		SELECT * FROM coupon
 		WHERE coupon_num = #{couponNum}
 	</select>
+
+	<delete id="giveUpCoupon">
+		DELETE FROM COUPON_CUSTOMER
+		WHERE CUST_NUM = #{custNum}
+	</delete>
 </mapper>

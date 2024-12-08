@@ -11,7 +11,7 @@
 <script>
 	let id_check = false;
 </script>
-<title>SY Movie - SignUp</title>
+<title>EATCH - SignUp</title>
 </head>
 <body>
 	<div class="container">
@@ -33,13 +33,13 @@
 					<div>
 					<label>비밀번호</label>
 					</div>
-					<input type="text" name="custPasswd" placeholder="사용하실 비밀번호를 입력하세요.">
+					<input type="password" name="custPasswd" placeholder="사용하실 비밀번호를 입력하세요.">
 				</div>
 				<div>
 					<div>
 					<label>비밀번호 확인</label>
 					</div>
-					<input type="text" name="custPasswd_check" placeholder="비밀번호를 다시 입력하세요.">
+					<input type="password" name="custPasswd_check" placeholder="비밀번호를 다시 입력하세요.">
 				</div>
 				<div>
 					<div>

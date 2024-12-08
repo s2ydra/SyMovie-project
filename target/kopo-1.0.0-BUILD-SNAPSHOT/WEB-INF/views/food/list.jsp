@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>EATCH</title>
 <script src="/resources/js/food/list.js"></script>
 <link rel="stylesheet" href="/resources/css/food/list.css">
 <link rel="stylesheet"
@@ -111,7 +111,7 @@
 							<td class="food-td"><a href="detail/${item.foodNum}">${item.foodName}</a></td>
 							<td class="food-td">${item.foodType}</td>
 							<td class="food-td">${item.foodPrice}</td>
-							<c:if test="${sessionScope.member != null || sessionScope.member.custRole == 99}">
+							<c:if test="${sessionScope.member != null && sessionScope.member.custRole == 99}">
 							<td class="food-td">
 								<button type="button" class="update-btn" onclick="location.href='update/${item.foodNum}'">수정</button>
 								<button class="delete-btn" data-foodnum = "${item.foodNum}" onclick="location.href='delete/${item.foodNum}">삭제</button>

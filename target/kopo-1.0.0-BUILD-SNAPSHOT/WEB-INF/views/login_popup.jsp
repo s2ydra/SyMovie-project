@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
 <link rel="stylesheet" href="/resources/css/login.css">
-<title>SY Movie - Login</title>
+<title>EATCH - Login</title>
 <c:if test="${sessionScope.member != null}">
 <script>
 

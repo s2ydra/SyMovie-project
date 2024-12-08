@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>EATCH</title>
 <script src="/resources/js/orders/orderMovie.js"></script>
 <script src="/resources/js/orders/list-popup.js"></script>
 	<script>

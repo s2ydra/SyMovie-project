@@ -1,0 +1,252 @@
+@charset "UTF-8";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 800px;
+    margin-top: 50px;
+    border: 2px solid #DDDDDD;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.title-area{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title-area h3{
+    font-family: "Noto Sans";
+    font-weight: 700;
+    font-size: 25px;
+    margin: 0;
+    padding-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+}
+
+.title-area span{
+    margin-left: 100px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Noto Sans";
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+.movie-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+    margin-top: 60px;
+    gap: 50px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #DDDDDD;
+}
+
+.movie-area img{
+    max-width: 170px;
+    max-height: 200px;
+    margin-left: 30px;
+    padding: 1px;
+    border: 1px solid #DDDDDD;
+    margin-right: 30px;
+}
+
+.movie-info-area span{
+    font-weight: 600;
+    font-size: 20px;
+    font-family: "Noto Sans";
+    color: #BE0000;
+}
+
+.food-info-area{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.food-info-area span{
+    font-weight: 600;
+    font-size: 22px;
+    font-family: "Noto Sans";
+    color: #4B52C7;
+}
+
+.movie-order-info-area{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movie-order-info-area span{
+ font-family: "Noto Sans";
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.food-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+    gap: 50px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+.img-area{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-box{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+
+.food-list img{
+    max-width: 110px;
+    max-height: 140px;
+    min-width: 110px;
+    min-height: 140px;
+    padding: 1px;
+    border: 1px solid #DDDDDD;
+}
+
+.food-img-area span{
+    white-space: nowrap;
+}
+
+.food-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 60%;
+    gap:15px;
+    border-bottom: 2px solid #DDDDDD;
+    padding-bottom: 30px;
+}
+
+.food-info{
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+    min-width: 600px;
+    justify-content: flex-start;
+    margin-left: 230px;
+    align-items: center;
+}
+
+.food-info span{
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.food-info-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.pickup-date-area{
+    display: flex;
+    min-width: 100%;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+
+.pickup-date-area span{
+    font-weight: 600;
+    font-size: 18px;
+    font-family: "Noto Sans";
+}
+
+.sum-price-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+
+.sum-price-text{
+    font-family: "Noto Sans";
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.sum-price{
+    font-weight: 600;
+    font-size: 25px;
+    font-family: "Noto Sans";
+    color: #BE0000;
+}
+
+.btn-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 550px;
+}
+
+#back-btn{
+    background: none;
+    border: 2px solid #DDDDDD;
+    color: #DDDDDD;
+    min-width: 120px;
+    min-height: 30px;
+    border-radius: 10px;
+    font-family: "Noto Sans";
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#back-btn:hover{
+    background: #DDDDDD;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.none-order-food{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #DDDDDD;
+}
+
+.none-order-food span{
+    font-weight: 600;
+    font-size: 16px;
+    font-family: "Noto Sans";
+}

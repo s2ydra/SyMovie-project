@@ -12,7 +12,7 @@
 	src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
 
 	<link rel="stylesheet" href="/resources/css/food/update.css">
-<title>먹거리정보 수정하기 - 관리자페이지</title>
+<title>EATCH - 관리자페이지</title>
 </head>
 <body>
 <div id="nav">

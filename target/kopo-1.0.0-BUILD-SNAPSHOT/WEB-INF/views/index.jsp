@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SY Movie</title>
+<title>EATCH</title>
 	<script src="/resources/js/index.js"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />

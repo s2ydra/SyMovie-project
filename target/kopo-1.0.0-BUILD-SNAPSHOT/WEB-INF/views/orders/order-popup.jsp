@@ -25,7 +25,7 @@
     });
   </script>
     <link rel="stylesheet" href="/resources/css/orders/order-popup.css">
-    <title>SY Movie - 결제창</title>
+    <title>EATCH - 결제창</title>
 </head>
 <body>
   <div class="container">

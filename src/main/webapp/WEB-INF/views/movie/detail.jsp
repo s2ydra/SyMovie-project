@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/resources/css/movie/detail.css">
 <script src="/resources/js/movie/detail.js"></script>
 <meta charset="UTF-8">
-<title>영화 상세보기</title>
+<title>EATCH - 영화 상세보기</title>
 </head>
 <body>
 	<div id="nav">

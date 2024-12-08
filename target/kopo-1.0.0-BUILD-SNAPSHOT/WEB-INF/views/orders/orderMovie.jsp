@@ -11,7 +11,7 @@
 <head>
     <script src="/resources/js/orders/orderMovie.js"></script>
     <link rel="stylesheet" href="/resources/css/orders/orderMovie.css">
-    <title>SY Movie - Order the Movie</title>
+    <title>EATCH - Order the Movie</title>
     <%--    <link rel="stylesheet"--%>
     <%--          href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />--%>
     <style>

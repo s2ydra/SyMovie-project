@@ -4,15 +4,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import kr.ac.kopo.symovie.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 
 import kr.ac.kopo.symovie.model.Coupon;
 import kr.ac.kopo.symovie.model.CouponCustomer;
@@ -34,6 +30,9 @@ public class RootController {
 	
 	@Autowired
 	EventService eventService;
+
+	@Autowired
+	OrdersService ordersService;
 	
 	@GetMapping("/")
 	String index(Model model, Pager pager) {
@@ -141,6 +140,41 @@ public class RootController {
 		model.addAttribute("item", customer);
 
 		return "/mypage";
+	}
+
+	@GetMapping("/mypage-update")
+	String myPageUpdate(Model model, @SessionAttribute Customer member) {
+		Customer customer = service.item(member.getCustNum());
+
+		model.addAttribute("item", customer);
+
+		return "/mypage-update";
+	}
+
+	@PostMapping("/mypage-update")
+	String myPageUpdate(Customer item, @SessionAttribute Customer member) {
+		item.setCustNum(member.getCustNum());
+		item.setCustRole(member.getCustRole());
+
+		service.update(item);
+
+		return "redirect:mypage";
+	}
+
+	@ResponseBody
+	@DeleteMapping("/accountCancel/{custNum}")
+	String accountCancel(@PathVariable Long custNum, HttpSession session) {
+
+		if(ordersService.myOrders(custNum).isEmpty()){
+			service.accountCancel(custNum);
+
+			session.invalidate();
+
+			return "OK";
+		}else {
+
+			return "FAIL";
+		}
 	}
 
 }

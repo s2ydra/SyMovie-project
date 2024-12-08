@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SY Movie - 영화 추가</title>
+<title>EATCH - 영화 추가</title>
 <link rel="stylesheet" href="/resources/css/nav.css">
 <link rel="stylesheet" href="/resources/css/movie/add.css">
 

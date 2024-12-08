@@ -8,7 +8,7 @@
 	href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
 <link rel="stylesheet" href="/resources/css/login.css">
 <script src="/resources/js/login.js"></script>
-<title>SY Movie - Login</title>
+<title>EATCH - Login</title>
 </head>
 <body>
 	<main class="container">

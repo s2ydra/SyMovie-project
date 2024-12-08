@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Customer List</title>
+<title>EATCH - Customer List</title>
 <script src="/resources/js/customer/list.js"></script>
 <link rel="stylesheet" href="/resources/css/customer/list.css">
 </head>

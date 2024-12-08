@@ -47,6 +47,7 @@
 		UPDATE customer
 		SET cust_id = #{custId}, cust_passwd=#{custPasswd}, cust_name=#{custName}, cust_age = #{custAge},
 		cust_phone = #{custPhone}, cust_role=#{custRole}
+		WHERE cust_num = #{custNum}
 	</update>
 	
 	<delete id="delete">
