@@ -38,7 +38,6 @@ public class OrdersServiceImpl implements OrdersService {
             }
 
         }
-
         OrderDetail orderDetail = ordering.getOrderDetail();
         orderDetail.setOrderNum(ordering.getOrders().getOrderNum());
 
